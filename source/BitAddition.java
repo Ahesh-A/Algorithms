@@ -23,3 +23,4 @@ public class BitAddition {
         System.out.print("result: " + Arrays.toString(addBit(a, b)));
     }   
 }
+
