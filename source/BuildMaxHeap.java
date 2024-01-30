@@ -34,6 +34,7 @@ public class BuildMaxHeap {
 
             swap(arr, temp, target);
             temp = target;
+            
         }
     }
 
