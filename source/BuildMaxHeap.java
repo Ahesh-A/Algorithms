@@ -40,7 +40,7 @@ public class BuildMaxHeap {
 
     public static void buildMaxHeap(int[] arr) {
         int length = arr.length;
-        int idx = length / 2 + 1;
+        int idx = length / 2 - 1;
 
         for(int i = idx; i >= 0; i--) {
             maxHeapify(arr, i);

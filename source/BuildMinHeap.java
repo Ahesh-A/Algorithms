@@ -1,8 +1,7 @@
 import java.util.Arrays;
 
-public class MinHeapifyOptimized {
-
-    public static void swap(int[] arr, int i, int j) {
+public class BuildMinHeap {
+     public static void swap(int[] arr, int i, int j) {
         if(i == j) return;
 
         int temp = arr[i];
@@ -36,9 +35,18 @@ public class MinHeapifyOptimized {
             temp = target;
         }
     }
-     public static void main(String[] args) {
+
+    public static void buildMinHeap(int[] arr) {
+        int length = arr.length;
+
+        for(int i = length / 2 - 1; i >= 0; i--) {
+            minHeapify(arr, i);
+        }
+    }
+
+    public static void main(String[] args) {
         int[] arr = {16, 4, 10, 14, 7, 9, 3, 2, 8, 1};
-        minHeapify(arr, 0);
+        buildMinHeap(arr);
         System.out.println(Arrays.toString(arr));
     }
 }
