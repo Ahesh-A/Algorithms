@@ -11,9 +11,9 @@ public class HeapSort {
         
     }
 
-    public static void maxHeapify(int[] arr, int i) {
+    public static void maxHeapify(int[] arr, int i, int length) {
         int temp = i ;
-        int length = arr.length;
+        // int length = arr.length;
 
         while(2 * temp + 1  < length) {
             int left = 2 * temp + 1;
@@ -39,29 +39,25 @@ public class HeapSort {
     }
 
     public static void buildMaxHeap(int[] arr, int length) {
-        // int length = arr.length;
         int idx = length / 2 - 1;
 
         for(int i = idx; i >= 0; i--) {
-            maxHeapify(arr, i);
+            maxHeapify(arr, i, length);
         }
     }    
 
     public static void heapSort(int[] arr) {
         int length = arr.length;
         buildMaxHeap(arr, length);
-        // System.out.println("Max heap: " + Arrays.toString(arr));
 
         for(int i = length - 1; i > 0; i--) {
             swap(arr, 0, i);
-            System.out.println("After swap: " + Arrays.toString(arr));
-            buildMaxHeap(arr, i );
-            System.out.println("After Build Max-heap: " + Arrays.toString(arr));
+            buildMaxHeap(arr, i );            
         }
 
     }
     public static void main(String[] args) {
-        int[] arr = {4, 10, 14, 16, 9, 3, 7, 8, 1, 2};
+        int[] arr = {4, 10, 14, 16, 9, 7, 8, 1, 2};
         heapSort(arr);
         System.out.println("Result: " + Arrays.toString(arr));
     }
