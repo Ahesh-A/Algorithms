@@ -2,18 +2,61 @@ package myds.heap;
 
 import java.util.List;
 
-public class MaxHeap<T> extends Heap<T>{
-	 public MaxHeap() {
+public class MaxHeap<T extends Comparable<T> > extends Heap<T>{
+	public MaxHeap() {
 		super();
 	}
-	 
-	public void maxHeapify(int i) {
-		List<T> arr = super.getHeap();
+	
+	public MaxHeap(T[] arr) {
+		super(arr);
+	}
+	
+	private void swap(List<T>list, int i, int j) {
+		T temp = list.get(i);
+		list.set(i, list.get(j));
+		list.set(j, temp);
+	}
+	
+	private void maxHeapify(int i, List<T> arr) {
 		int length = arr.size();
 		
-//		if(length <= i) throw new Exception("");
-		T var = arr.get(i);
+		if(i > 2 * length + 1) return;
 		
-		System.out.println("Heap: " + var);
+		int left = 2 * i + 1;
+		int right  = 2 * (i + 1);
+		int target = i;
+		
+		if(
+			left < length && 
+			arr.get(left).compareTo(arr.get(target)) > 0
+		) {
+			target = left;
+			
+		}
+		
+		if(
+			right < length && 
+			arr.get(right).compareTo(arr.get(target)) > 0
+		) {
+			target = right;
+		}
+		
+		if(target != i) {
+			swap(arr, i, target);
+			maxHeapify(target, arr);
+		}
+	}
+	
+	private void buildMaxHeap(List<T> arr) {
+		int length = arr.size();
+		
+		for(int i = length / 2 - 1; i >= 0; i--) {
+			maxHeapify(i, arr);
+		}
+	}
+	
+	
+	public void add(T element) {
+		
 	}
 }
