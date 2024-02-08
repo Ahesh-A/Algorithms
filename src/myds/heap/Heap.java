@@ -7,12 +7,14 @@ import mydsI.Heapable;
 
 public class Heap<T> implements Heapable<T>{
 	private List<T> arr;	
+	private int size;
 	
 	Heap() {
 		this.arr = new ArrayList<T>();
 	}
 	Heap(T[] arr) {
 		this.arr = new ArrayList<T>(Arrays.asList(arr));
+		this.size = arr.length;
 	}
 	
 	public T getRoot() {
@@ -23,4 +25,13 @@ public class Heap<T> implements Heapable<T>{
 		return this.arr;
 	}
 	
+	protected int getSize() {
+		return this.size;
+	}
+	
+	protected void setSize(int size) throws Exception {
+		if(size < 0) throw new Exception("Heap size should be a non-negative value");
+		
+		this.size = size;
+	}
 }

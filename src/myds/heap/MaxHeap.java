@@ -18,7 +18,8 @@ public class MaxHeap<T extends Comparable<T> > extends Heap<T>{
 	}
 	
 	private void maxHeapify(int i, List<T> arr) {
-		int length = arr.size();
+		
+		int length = super.getSize();
 		
 		if(i > 2 * length + 1) return;
 		
@@ -47,16 +48,10 @@ public class MaxHeap<T extends Comparable<T> > extends Heap<T>{
 		}
 	}
 	
-	private void buildMaxHeap(List<T> arr) {
-		int length = arr.size();
-		
+	public void buildMaxHeap(List<T> arr) {
+		int length = super.getSize();
 		for(int i = length / 2 - 1; i >= 0; i--) {
 			maxHeapify(i, arr);
 		}
-	}
-	
-	
-	public void add(T element) {
-		
 	}
 }
