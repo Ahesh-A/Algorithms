@@ -10,10 +10,10 @@ public class Main {
 	public static void main(String[] args) {
 		Integer[] arr =  {16, 10, 4, 7, 9, 14, 2, 8, 3, 1};
 		MaxHeap<Integer> maxHeap = new MaxHeap<Integer>(arr);
+		
 		try {
-//			List<Integer> list = new ArrayList<>(Arrays.asList(arr));
-//			maxHeap.heapSort();
-//			System.out.print(maxHeap.getHeap());
+			maxHeap.heapSort();
+			System.out.print(maxHeap.getHeap());
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.print("Error");
