@@ -10,6 +10,7 @@ public class MinHeap<T extends Comparable<T>> extends Heap<T>{
 	
 	public MinHeap(T[] arr) {
 		super(arr);
+		buildMinHeap(super.getHeap());
 	}
 	
 	private void swap(List<T>list, int i, int j) {
@@ -92,7 +93,7 @@ public class MinHeap<T extends Comparable<T>> extends Heap<T>{
 		
 		List<T> arr = super.getHeap();
 		T result = arr.remove(0);
-		
+		super.setSize(arr.size());
 		buildMinHeap(arr);
 		return result;
 	}

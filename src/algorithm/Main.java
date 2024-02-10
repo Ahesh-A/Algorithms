@@ -8,12 +8,19 @@ public class Main {
 		MinHeap<Integer> minHeap = new MinHeap<Integer>(arr);
 		
 		try {
-			minHeap.heapSort();
-			System.out.println("Heap: " + minHeap.getHeap());
-			System.out.println("Heap size: " + minHeap.getSize());
-			minHeap.resetHeap();
-			System.out.println("Heap: " + minHeap.getHeap());
-			System.out.println("Heap size: " + minHeap.getSize());
+//			minHeap.heapSort();
+//			System.out.println("Heap: " + minHeap.getHeap());
+//			System.out.println("Heap size: " + minHeap.getSize());
+//			minHeap.resetHeap();
+//			System.out.println("Heap: " + minHeap.getHeap());
+//			System.out.println("Heap size: " + minHeap.getSize());
+//			minHeap.extractRoot();
+//			System.out.println("Heap: " + minHeap.getHeap());
+//			System.out.println("Heap size: " + minHeap.getSize());
+			
+			while(minHeap.getSize() != 0) {
+				System.out.println(minHeap.extractRoot());
+			}
 			
 		} catch (Exception e) {
 			e.printStackTrace();
