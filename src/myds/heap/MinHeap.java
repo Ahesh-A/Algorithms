@@ -78,10 +78,11 @@ public class MinHeap<T extends Comparable<T>> extends Heap<T>{
 	public int getSize() {
 		return super.getSize();
 	}
+	
 	public void resetHeap() throws Exception{
 		List<T> arr = super.getHeap();
 		super.setSize(arr.size());
 		buildMinHeap(arr);
-		
 	}
+	
 }

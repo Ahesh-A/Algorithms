@@ -73,4 +73,14 @@ public class MaxHeap<T extends Comparable<T> > extends Heap<T>{
 	public List<T>  getHeap() {
 		return super.getHeap();
 	}
+	
+	public int getSize() {
+		return super.getSize();
+	}
+	
+	public void resetHeap() throws Exception{
+		List<T> arr = super.getHeap();
+		super.setSize(arr.size());
+		buildMaxHeap(arr);
+	}
 }
