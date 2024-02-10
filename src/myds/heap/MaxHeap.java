@@ -49,7 +49,6 @@ public class MaxHeap<T extends Comparable<T> > extends Heap<T>{
 		}
 	}
 	
-	
 	public void buildMaxHeap(List<T> arr) {
 		int length = super.getSize();
 		for(int i = length / 2 - 1; i >= 0; i--) {
@@ -95,5 +94,28 @@ public class MaxHeap<T extends Comparable<T> > extends Heap<T>{
 		super.setSize(arr.size());
 		buildMaxHeap(arr);
 		return result;
+	}
+	
+	private T getParent(List<T>arr, int i) throws Exception{
+		if(i == 0) {
+			throw new Exception("provoided index has no perent");
+		}
+		
+		return arr.get((i - 1) / 2);
+	}
+	
+	public void heapIncreaseKey(int i, T key) throws Exception{
+		List<T> arr = super.getHeap();
+		
+		if(arr.get(i).compareTo(key) > 0) {
+			throw new Exception("The key sould be large");
+		}
+		
+		arr.set(i, key);
+		
+		while(i > 0 && getParent(arr, i).compareTo(arr.get(i)) < 0) {
+			swap(arr, (i - 1) / 2, i);
+			i = (i - 1) / 2;
+		}
 	}
 }
