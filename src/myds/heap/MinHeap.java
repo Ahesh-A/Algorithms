@@ -18,7 +18,7 @@ public class MinHeap<T extends Comparable<T>> extends Heap<T>{
 		list.set(j, temp);
 	}
 	
-private void minHeapify(int i, List<T> arr) {
+	private void minHeapify(int i, List<T> arr) {
 		
 		int length = super.getSize();
 		
@@ -50,7 +50,7 @@ private void minHeapify(int i, List<T> arr) {
 	}
 	
 	
-	public void buildMaxHeap(List<T> arr) {
+	public void buildMinHeap(List<T> arr) {
 		int length = super.getSize();
 		for(int i = length / 2 - 1; i >= 0; i--) {
 			minHeapify(i, arr);
@@ -60,7 +60,7 @@ private void minHeapify(int i, List<T> arr) {
 	public void heapSort() throws Exception{
 		List<T> arr = super.getHeap();
 		
-		buildMaxHeap(arr);
+		buildMinHeap(arr);
 		
 		while(super.getSize() != 0) {
 			int size = super.getSize();
@@ -73,5 +73,15 @@ private void minHeapify(int i, List<T> arr) {
 	
 	public List<T> getHeap() {
 		return super.getHeap();
+	}
+	
+	public int getSize() {
+		return super.getSize();
+	}
+	public void resetHeap() throws Exception{
+		List<T> arr = super.getHeap();
+		super.setSize(arr.size());
+		buildMinHeap(arr);
+		
 	}
 }
