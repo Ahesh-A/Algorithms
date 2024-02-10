@@ -1,11 +1,11 @@
 package algorithm;
 
-import myds.heap.MinHeap;
+import myds.heap.MaxHeap;
 
 public class Main {
 	public static void main(String[] args) {
 		Integer[] arr =  {16, 10, 4, 7, 9, 14, 2, 8, 3, 1};
-		MinHeap<Integer> minHeap = new MinHeap<Integer>(arr);
+		MaxHeap<Integer> minHeap = new MaxHeap<Integer>(arr);
 		
 		try {
 //			minHeap.heapSort();

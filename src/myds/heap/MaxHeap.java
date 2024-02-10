@@ -9,6 +9,7 @@ public class MaxHeap<T extends Comparable<T> > extends Heap<T>{
 	
 	public MaxHeap(T[] arr) {
 		super(arr);
+		buildMaxHeap(super.getHeap());
 	}
 	
 	private void swap(List<T>list, int i, int j) {
@@ -82,5 +83,17 @@ public class MaxHeap<T extends Comparable<T> > extends Heap<T>{
 		List<T> arr = super.getHeap();
 		super.setSize(arr.size());
 		buildMaxHeap(arr);
+	}
+	
+	public T extractRoot() throws Exception{
+		if(super.getSize() == 0) {
+			throw new Exception("Heap underflow");
+		}
+		
+		List<T> arr = super.getHeap();
+		T result = arr.remove(0);
+		super.setSize(arr.size());
+		buildMaxHeap(arr);
+		return result;
 	}
 }
