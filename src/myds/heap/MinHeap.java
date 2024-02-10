@@ -85,4 +85,16 @@ public class MinHeap<T extends Comparable<T>> extends Heap<T>{
 		buildMinHeap(arr);
 	}
 	
+	public T extractRoot() throws Exception{
+		if(super.getSize() == 0) {
+			throw new Exception("Heap underflow");
+		}
+		
+		List<T> arr = super.getHeap();
+		T result = arr.remove(0);
+		
+		buildMinHeap(arr);
+		return result;
+	}
+	
 }
