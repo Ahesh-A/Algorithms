@@ -5,7 +5,7 @@ import java.util.Arrays;
 
 import mydsI.Heapable;
 
-public class Heap<T> implements Heapable<T>{
+public class Heap<T extends Comparable<T>> implements Heapable<T>{
 	private List<T> arr;	
 	private int size;
 	
