@@ -2,7 +2,7 @@ package myds.heap;
 
 import java.util.List;
 
-public class MaxHeap<T extends Comparable<T> > extends Heap<T>{
+public class MaxHeap<T extends Comparable<T>> extends Heap<T>{
 	public MaxHeap() {
 		super();
 	}
@@ -85,13 +85,14 @@ public class MaxHeap<T extends Comparable<T> > extends Heap<T>{
 	}
 	
 	public T extractRoot() throws Exception{
-		if(super.getSize() == 0) {
+		int heapSize = super.getSize();
+		if(heapSize == 0) {
 			throw new Exception("Heap underflow");
 		}
 		
 		List<T> arr = super.getHeap();
 		T result = arr.remove(0);
-		super.setSize(arr.size());
+		super.setSize(heapSize - 1);
 		buildMaxHeap(arr);
 		return result;
 	}
@@ -104,8 +105,12 @@ public class MaxHeap<T extends Comparable<T> > extends Heap<T>{
 		return arr.get((i - 1) / 2);
 	}
 	
-	public void heapIncreaseKey(int i, T key) throws Exception{
-		List<T> arr = super.getHeap();
+	private void insertElement(List<T> arr, int i, T key) throws Exception {
+		
+		if(i == super.getSize() - 1) {
+			arr.add(key);
+			return;
+		}
 		
 		if(arr.get(i).compareTo(key) > 0) {
 			throw new Exception("The key sould be large");
@@ -113,10 +118,23 @@ public class MaxHeap<T extends Comparable<T> > extends Heap<T>{
 		
 		arr.set(i, key);
 		
+	}
+	
+	public void heapIncreaseKey(int i, T key) throws Exception{
+		List<T> arr = super.getHeap();
+		
+		insertElement(arr, i, key);
+		
 		while(i > 0 && getParent(arr, i).compareTo(arr.get(i)) < 0) {
 			swap(arr, (i - 1) / 2, i);
 			i = (i - 1) / 2;
 		}
 	}
 	
+	public void maxHeapInsert(T key) throws Exception {
+		
+		int heapSize = super.getSize() + 1;
+		super.setSize(heapSize);
+		heapIncreaseKey(heapSize - 1, key);
+	}
 }

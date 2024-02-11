@@ -1,27 +1,24 @@
 package algorithm;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import myds.heap.MaxHeap;
 
 public class Main {
 	public static void main(String[] args) {
-		Integer[] arr =  {16, 10, 4, 7, 9, 14, 2, 8, 3, 1};
-		MaxHeap<Integer> minHeap = new MaxHeap<Integer>(arr);
+		Integer[] arr =  {16, 10, 14, 8, 9, 4, 2, 7, 3, 1};
+//		List<Integer> list = new ArrayList<>(Arrays.asList(arr));
+//		list.set(list.size(), 0);
+//		System.out.println("List: " + list);
+		
+		MaxHeap<Integer> maxHeap = new MaxHeap<Integer>(arr);
 		
 		try {
-//			minHeap.heapSort();
-//			System.out.println("Heap: " + minHeap.getHeap());
-//			System.out.println("Heap size: " + minHeap.getSize());
-//			minHeap.resetHeap();
-//			System.out.println("Heap: " + minHeap.getHeap());
-//			System.out.println("Heap size: " + minHeap.getSize());
-//			minHeap.extractRoot();
-//			System.out.println("Heap: " + minHeap.getHeap());
-//			System.out.println("Heap size: " + minHeap.getSize());
-			
-			while(minHeap.getSize() != 0) {
-				System.out.println(minHeap.extractRoot());
-			}
-			
+//			System.out.println("Heap: " + maxHeap.getHeap());
+			maxHeap.maxHeapInsert(19);
+			System.out.println("Heap: " + maxHeap.getHeap());
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.print("Error");
