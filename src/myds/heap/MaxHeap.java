@@ -113,7 +113,7 @@ public class MaxHeap<T extends Comparable<T>> extends Heap<T>{
 		}
 		
 		if(arr.get(i).compareTo(key) > 0) {
-			throw new Exception("The key sould be large");
+			throw new Exception("The key should be large");
 		}
 		
 		arr.set(i, key);
