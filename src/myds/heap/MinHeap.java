@@ -98,4 +98,44 @@ public class MinHeap<T extends Comparable<T>> extends Heap<T>{
 		return result;
 	}
 	
+	private T getParent(List<T>arr, int i) throws Exception{
+		if(i == 0) {
+			throw new Exception("provoided index has no perent");
+		}
+		
+		return arr.get((i - 1) / 2);
+	}
+	
+	private void insertElement(List<T> arr, int i, T key) throws Exception {
+		
+		if(i == super.getSize() - 1) {
+			arr.add(key);
+			return;
+		}
+		
+		if(arr.get(i).compareTo(key) < 0) {
+			throw new Exception("The key should be small");
+		}
+		
+		arr.set(i, key);
+		
+	}
+	
+	public void heapDecreaseKey(int i, T key) throws Exception{
+		List<T> arr = super.getHeap();
+		
+		insertElement(arr, i, key);
+		
+		while(i > 0 && getParent(arr, i).compareTo(arr.get(i)) > 0) {
+			swap(arr, (i - 1) / 2, i);
+			i = (i - 1) / 2;
+		}
+	}
+	
+	public void minHeapInsert(T key) throws Exception {
+		
+		int heapSize = super.getSize() + 1;
+		super.setSize(heapSize);
+		heapDecreaseKey(heapSize - 1, key);
+	}
 }
