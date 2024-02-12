@@ -137,4 +137,20 @@ public class MaxHeap<T extends Comparable<T>> extends Heap<T>{
 		super.setSize(heapSize);
 		heapIncreaseKey(heapSize - 1, key);
 	}
+	
+	public void heapDelete(int idx) throws Exception{
+		int heapSize = super.getSize();
+		
+		if(idx >= heapSize) {
+			throw new Exception("Index is larger than the heap size");
+		}
+		
+		List<T> arr = super.getHeap();
+		arr.set(idx, arr.get(heapSize - 1));
+		
+		super.setSize(heapSize - 1);
+		
+		maxHeapify(idx, arr);
+		
+	}
 }
