@@ -22,7 +22,7 @@ public class Heap<T extends Comparable<T>> implements Heapable<T>{
 	}
 	
 	protected List<T> getHeap() {
-		return this.arr;
+		return this.arr.subList(0, this.size);
 	}
 	
 	protected int getSize() {
