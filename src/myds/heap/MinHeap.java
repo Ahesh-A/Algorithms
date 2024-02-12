@@ -138,4 +138,19 @@ public class MinHeap<T extends Comparable<T>> extends Heap<T>{
 		super.setSize(heapSize);
 		heapDecreaseKey(heapSize - 1, key);
 	}
+	
+	public void heapDelete(int idx) throws Exception {
+		int heapSize = super.getSize();
+		
+		if(idx >= heapSize) {
+			throw new Exception("Index should be smaller than heap size");
+		}
+		
+		List<T> arr = super.getHeap();
+		arr.set(idx, arr.get(heapSize - 1));
+		
+		super.setSize(heapSize - 1);
+		
+		minHeapify(idx, arr);
+	}
 }
