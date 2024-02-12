@@ -142,7 +142,7 @@ public class MaxHeap<T extends Comparable<T>> extends Heap<T>{
 		int heapSize = super.getSize();
 		
 		if(idx >= heapSize) {
-			throw new Exception("Index is larger than the heap size");
+			throw new Exception("Index should be smaller than heap size");
 		}
 		
 		List<T> arr = super.getHeap();
