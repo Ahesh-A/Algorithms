@@ -1,6 +1,11 @@
 package algorithm;
 
-//import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import myds.quicksort.QuickSort;
+
+import java.util.ArrayList;
 //import java.util.Arrays;
 //import java.util.List;
 
@@ -15,17 +20,14 @@ public class Main {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		Integer[] arr =  {16, 10, 14, 8, 9, 4, 2, 7, 3, 1};
+		List<Integer> arr =  new ArrayList<>(Arrays.asList(new Integer[]{16, 10, 14, 8, 9, 4, 2, 7, 3, 1}));
+		try {
+			QuickSort.quickSort(arr);
+			System.out.println("List: " + arr);
+		} catch(Exception e) {
+			System.out.println("Error");
+			 e.printStackTrace();
+		}
 		
-//		MinHeap<Integer> minHeap = new MinHeap<Integer>(arr);
-//		
-//		try {
-//			System.out.println("Heap: " + minHeap.getHeap());
-//			minHeap.heapDelete(1);
-//			System.out.println("Heap: " + minHeap.getHeap());
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//			System.out.print("Error");
-//		}
 	}
 }

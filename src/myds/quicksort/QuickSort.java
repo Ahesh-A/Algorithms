@@ -17,24 +17,24 @@ public class QuickSort {
 		list.set(j, temp);
 	}
 	
-	private static int partition(int start, int end, List<Integer> list) throws Exception{
+	public static int partition(int start, int end, List<Integer> list) throws Exception{
 		int i = start - 1;
 		
 		int x = list.get(end);
-		
-		for(int j = start; j < end - 1; j++) {
-			if(list.get(j).compareTo(x) < 0) {
+		int j;
+		for(j = start; j <= end; j++) {
+			if(list.get(j).compareTo(x) <= 0) {
 				i++;
 				swap(i, j, list);
 			}
 		}
-		
-		return 0;
+		System.out.println("List: " + list);
+		return i;
 	}
 	
 	private static void quickSortHelper(int start, int end, List<Integer> list) throws Exception{
 		
-		if(start == end) return;
+		if(start >= end) return;
 		
 		int pivot = partition(start, end, list);
 		quickSortHelper(start, pivot - 1, list);
