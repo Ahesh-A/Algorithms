@@ -21,12 +21,21 @@ public class CountSort {
 		}
 	}
 	
+	public void positionElements(int[] arr, int[] mem, int[] result) {
+		for(int i = 0; i < arr.length; i++) {
+			result[mem[arr[i]] - 1] = arr[i];
+			mem[arr[i]]--;
+		}
+	}
+	
 	public int[] sort() {
 		int[] result = new int[this.arr.length];
 		int[] mem = new int[k + 1];
 		
-		calcFrequency(mem, mem);
+		calcFrequency(mem, this.arr);
 		aggregateFrequency(mem);
+		positionElements(this.arr, mem, result);
+		
 		return result;
 	}
 }
