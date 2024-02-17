@@ -22,7 +22,7 @@ public class CountSort {
 	}
 	
 	public void positionElements(int[] arr, int[] mem, int[] result) {
-		for(int i = 0; i < arr.length; i++) {
+		for(int i = arr.length - 1; i >= 0 ; i--) {
 			result[mem[arr[i]] - 1] = arr[i];
 			mem[arr[i]]--;
 		}
