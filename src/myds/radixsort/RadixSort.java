@@ -42,21 +42,22 @@ public class RadixSort {
 		map.put(value, map.get(value) + 1);
 	}
 	
-	public HashMap<Integer, Integer> generateFrequencyMap(int[] arr) {
-		HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
+	public int[] generateFrequencyMap(int[] arr, int factor) {
+		int[] result = new int[arr.length];
 		
 		for(int i : arr) {
-			putElementToMap(map, i);
+			result[getMapping(i, factor)] ++;
 		}
 		
-		return map;
+		return result;
 	}
 	
-	public void sortOnFActor(int[] arr, int factor) {
+	public int[] sortOnFactor(int[] arr, int factor) {
 		Queue<Queue<Integer>> queue = getEmptyList();
-		
+		int[] result = new int[arr.length];
 		HashMap<Integer, Integer> frequencyMap = generateFrequencyMap(arr);
 		
+		return result;
 	}
 	
 	public void radixSort(int[] arr) {
