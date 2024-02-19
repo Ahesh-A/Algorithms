@@ -32,7 +32,7 @@ public class RadixSort {
 	}
 	
 	public int[] generateFrequencyMap(int[] arr, int factor) {
-		int[] result = new int[arr.length];
+		int[] result = new int[10];
 		
 		for(int i : arr) {
 			result[getMapping(i, factor)] ++;
@@ -56,23 +56,30 @@ public class RadixSort {
 		int[] frequencyMap = generateFrequencyMap(arr, factor);
 		getCumulativeSum(arr);
 		
+		for(int i = arr.length - 1; i >= 0; i--) {
+			int idx = getMapping(arr[i], factor) - 1;
+			result[frequencyMap[idx]] = arr[i];
+			frequencyMap[idx]--;
+		}
 		
 		return result;
 	}
 	
-	public void radixSort(int[] arr) {
+	public int[] radixSort(int[] arr) {
 		
 		int numberLength = getNumberLength(Arrays.stream(arr).max().getAsInt());
 		int factor = 1;
+		int[] result = null;
 		
 		for(int i = 0; i < numberLength; i++) {
-			
+			result = sortOnFactor(arr, factor);
+			factor *= 10;
 		}
 		
+		return result;
 	}
 	
-	public void sort(int[] arr) {
-		radixSort(arr);
-		return;
+	public int[] sort(int[] arr) {
+		return radixSort(arr);
 	}
 }
