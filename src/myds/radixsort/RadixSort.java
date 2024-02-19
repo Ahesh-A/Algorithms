@@ -1,6 +1,7 @@
 package myds.radixsort;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -32,12 +33,41 @@ public class RadixSort {
 		return (num / factor) % 10;
 	}
 	
+	public void putElementToMap(HashMap<Integer, Integer> map, int value) {
+		if(!map.containsKey(value)) {
+			map.put(value, 1);
+			return;
+		}
+		
+		map.put(value, map.get(value) + 1);
+	}
+	
+	public HashMap<Integer, Integer> generateFrequencyMap(int[] arr) {
+		HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
+		
+		for(int i : arr) {
+			putElementToMap(map, i);
+		}
+		
+		return map;
+	}
+	
+	public void sortOnFActor(int[] arr, int factor) {
+		Queue<Queue<Integer>> queue = getEmptyList();
+		
+		HashMap<Integer, Integer> frequencyMap = generateFrequencyMap(arr);
+		
+	}
+	
 	public void radixSort(int[] arr) {
 		
-		Queue<Queue<Integer>> queue = getEmptyList();
 		int numberLength = getNumberLength(Arrays.stream(arr).max().getAsInt());
+		int factor = 1;
 		
-		System.out.println(getMapping(3, 1));
+		for(int i = 0; i < numberLength; i++) {
+			
+		}
+		
 	}
 	
 	public void sort(int[] arr) {
