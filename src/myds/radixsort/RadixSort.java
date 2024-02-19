@@ -2,20 +2,9 @@ package myds.radixsort;
 
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.Queue;
+
 
 public class RadixSort {
-	
-	public Queue<Queue<Integer>> getEmptyList() {
-		Queue<Queue<Integer>> queue = new LinkedList<>();
-		
-		for(int i = 0; i < 10; i++) {
-			queue.offer(new LinkedList<>());
-		}
-		
-		return queue;
-	}
 	
 	public int getNumberLength(int number) {
 		int result = 0;
@@ -53,6 +42,7 @@ public class RadixSort {
 	}
 	
 	public void getCumulativeSum(int[] arr) {
+		
 		for(int i = 1; i < arr.length; i++) {
 			arr[i] += arr[i - 1];
 		}
@@ -61,9 +51,11 @@ public class RadixSort {
 	}
 	
 	public int[] sortOnFactor(int[] arr, int factor) {
-		Queue<Queue<Integer>> queue = getEmptyList();
+		
 		int[] result = new int[arr.length];
-		HashMap<Integer, Integer> frequencyMap = generateFrequencyMap(arr);
+		int[] frequencyMap = generateFrequencyMap(arr, factor);
+		getCumulativeSum(arr);
+		
 		
 		return result;
 	}
