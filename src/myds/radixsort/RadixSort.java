@@ -1,5 +1,6 @@
 package myds.radixsort;
 
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -15,12 +16,23 @@ public class RadixSort {
 		return queue;
 	}
 	
+	public int getNumberLength(int number) {
+		int result = 0;
+		
+		while(number != 0) {
+			number /= 10;
+			result++;
+		}
+		
+		return result;
+	}
+	
 	public void radixSort(int[] arr) {
 		
 		Queue<Queue<Integer>> queue = getEmptyList();
-		System.out.println(queue);
+		int numberLength = getNumberLength(Arrays.stream(arr).max().getAsInt());
 		
-		
+		System.out.println(numberLength);
 	}
 	
 	public void sort(int[] arr) {
