@@ -27,12 +27,17 @@ public class RadixSort {
 		return result;
 	}
 	
+	public int getMapping(int num, int factor) {
+		
+		return (num / factor) % 10;
+	}
+	
 	public void radixSort(int[] arr) {
 		
 		Queue<Queue<Integer>> queue = getEmptyList();
 		int numberLength = getNumberLength(Arrays.stream(arr).max().getAsInt());
 		
-		System.out.println(numberLength);
+		System.out.println(getMapping(3, 1));
 	}
 	
 	public void sort(int[] arr) {
