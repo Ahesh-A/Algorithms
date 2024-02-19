@@ -54,11 +54,11 @@ public class RadixSort {
 		
 		int[] result = new int[arr.length];
 		int[] frequencyMap = generateFrequencyMap(arr, factor);
-		getCumulativeSum(arr);
-		
+		getCumulativeSum(frequencyMap);
+//		System.out.println(Arrays.toString(frequencyMap));
 		for(int i = arr.length - 1; i >= 0; i--) {
-			int idx = getMapping(arr[i], factor) - 1;
-			result[frequencyMap[idx]] = arr[i];
+			int idx = getMapping(arr[i], factor);
+			result[frequencyMap[idx] - 1] = arr[i];
 			frequencyMap[idx]--;
 		}
 		
