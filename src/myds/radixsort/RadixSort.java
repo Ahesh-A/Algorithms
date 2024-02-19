@@ -52,6 +52,14 @@ public class RadixSort {
 		return result;
 	}
 	
+	public void getCumulativeSum(int[] arr) {
+		for(int i = 1; i < arr.length; i++) {
+			arr[i] += arr[i - 1];
+		}
+		
+		return;
+	}
+	
 	public int[] sortOnFactor(int[] arr, int factor) {
 		Queue<Queue<Integer>> queue = getEmptyList();
 		int[] result = new int[arr.length];
