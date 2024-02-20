@@ -1,4 +1,4 @@
-package myds.countsort;
+package myds.linkedlist;
 
 import org.ahesh.types.Node;
 
