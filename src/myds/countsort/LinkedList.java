@@ -18,5 +18,13 @@ public class LinkedList<T> {
 		this.head = head;
 	}
 	
+	public void printList(Node<T> head) {
+		System.out.print("[");
+		while(head != null) {
+			System.out.print(head.value() + " ");
+			head = head.next();
+		}
+		System.out.print("]");
+	}
 	
 }
