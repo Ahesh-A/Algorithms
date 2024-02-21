@@ -33,5 +33,15 @@ public class Stack<T> {
 		this.arr = arr;
 	}
 	
+	public void push(T element) {
+		if(length == this.arr.size()) {
+			throw new Exception("Stack over flow");
+		}
+		
+		this.arr.add(element);
+		
+	}
+	
+	public 
 	
 }
