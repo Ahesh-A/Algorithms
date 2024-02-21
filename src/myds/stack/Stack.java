@@ -34,7 +34,7 @@ public class Stack<T> {
 	}
 	
 	public void push(T element) throws Exception{
-		if(length >= this.arr.size()) {
+		if(length <= this.arr.size()) {
 			throw new Exception("Stack overflow");
 		}
 		
@@ -42,12 +42,16 @@ public class Stack<T> {
 		
 	}
 	
-	public void pop() throws Exception{
-		if(this.arr.size() == 0) {
+	public T  pop() throws Exception{
+		int size = this.arr.size();
+		if(size == 0) {
 			throw new Exception("Stack underflow");
 		}
 		
-		this.arr.remove(this.arr.size() - 1);
+		T result = this.arr.get(size  - 1);
+		this.arr.remove(result);
+		
+		return result;
 	}	
 	
 	public String toString() {
