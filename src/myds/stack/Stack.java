@@ -33,15 +33,21 @@ public class Stack<T> {
 		this.arr = arr;
 	}
 	
-	public void push(T element) {
-		if(length == this.arr.size()) {
-			throw new Exception("Stack over flow");
+	public void push(T element) throws Exception{
+		if(length >= this.arr.size()) {
+			throw new Exception("Stack overflow");
 		}
 		
 		this.arr.add(element);
 		
 	}
 	
-	public 
+	public void pop() throws Exception{
+		if(this.arr.size() == 0) {
+			throw new Exception("Stack underflow");
+		}
+		
+		this.arr.remove(this.arr.size() - 1);
+	}	
 	
 }
