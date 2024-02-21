@@ -14,7 +14,7 @@ package algorithm;
 //import java.util.List;
 //import myds.heap.MinHeap;
 
-import myds.stack.Stack;
+import myds.queue.Queue;
 /**
  * 
  * @author aheshalagu
@@ -24,15 +24,10 @@ public class Main {
 	public static void main(String[] args) {
 		
 		try {
-			Stack<Integer> stack = new Stack<>(10);
+			Queue<Integer> queue = new Queue<Integer>(10);
 			
-			for(int i = 0; i < 10; i++) {
-				stack.push(i);
-			}
 			
-			while(!stack.isEmpty()) {
-				System.out.println(stack.pop());
-			}
+			System.out.println("Queue: " + queue);
 			
 		} catch(Exception e) {
 			System.out.println("Error :" + e);
