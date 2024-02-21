@@ -12,10 +12,6 @@ public class Queue<T> {
 	public Queue(int length) {
 		this.arr = (T[])new Object[length];
 	}
-	
-	public void offer(T element) {
-		
-	}
 
 	public int getStart() {
 		return start;
@@ -36,4 +32,14 @@ public class Queue<T> {
 	public String toString() {
 		return Arrays.toString(this.arr);
 	}
+	
+//	public void offer(T element) throws Exception{
+//		if(arr.length <= Math.abs(end - start) + 1) {
+//			throw new Exception("Queue overflow");
+//		}
+//	}
+	
+//	public void poll() {
+//		
+//	}
 }
