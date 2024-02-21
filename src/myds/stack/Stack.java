@@ -50,4 +50,8 @@ public class Stack<T> {
 		this.arr.remove(this.arr.size() - 1);
 	}	
 	
+	public String toString() {
+		return this.arr.toString();
+	}
+	
 }

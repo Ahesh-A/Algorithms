@@ -2,8 +2,8 @@ package algorithm;
 
 //import java.util.Arrays;
 
-import org.ahesh.types.Node;
-import myds.linkedlist.LinkedList;
+//import org.ahesh.types.Node;
+//import myds.linkedlist.LinkedList;
 //import java.util.List;
 //import myds.countsort.CountSort;
 //import myds.radixsort.RadixSort;
@@ -14,6 +14,7 @@ import myds.linkedlist.LinkedList;
 //import java.util.List;
 //import myds.heap.MinHeap;
 
+import myds.stack.Stack;
 /**
  * 
  * @author aheshalagu
@@ -21,16 +22,10 @@ import myds.linkedlist.LinkedList;
 public class Main {
 	
 	public static void main(String[] args) {
-		Node<Integer> head = new Node<Integer>();
-		Node<Integer> temp = head;
 		
-		for(int i = 0; i < 10; i++) {
-			Node<Integer> node = new Node<>(i);
-			temp.setNext(node);
-			temp = temp.next();
-		}
+		Stack<Integer> stack = new Stack<>(10);
 		
-		LinkedList<Integer> list = new LinkedList<>(head.next());
-		list.printList(head.next());
+//		for(int )
+
 	}
 }
