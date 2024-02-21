@@ -30,10 +30,10 @@ public class Main {
 				stack.push(i);
 			}
 			
-			for(int i = 0; i < 10; i++) {
+			while(!stack.isEmpty()) {
 				System.out.println(stack.pop());
 			}
-//			System.out.println(stack);
+			
 		} catch(Exception e) {
 			System.out.println("Error :" + e);
 		}

@@ -54,8 +54,13 @@ public class Stack<T> {
 		return result;
 	}	
 	
+	public boolean isEmpty() {
+		return this.arr.isEmpty();
+	}
+	
 	public String toString() {
 		return this.arr.toString();
 	}
+	
 	
 }
