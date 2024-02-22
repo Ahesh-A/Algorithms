@@ -37,21 +37,34 @@ public class Queue<T> {
 		return (idx == this.arr.length - 1) ? 0  : idx + 1;
 	}
 	
+	public void initialInsert(T element) {
+		this.arr[0] = element;
+		this.head = 0;
+		this.tail = 1;
+	}
+	
 	public void offer(T element) throws Exception{
+
 		if(this.tail == -1) {
-			this.head = 0;
-			this.tail = 0;
+			initialInsert(element);
+			return;
 		}
 		
-		
-		if(tail == head) {
+		if(this.tail == this.head) {
 			throw new Exception("Queue overflow");
 		}
 		
 		arr[this.tail] = element;
+		
+		this.tail = evaluatedIndexValue(this.tail);
+		
 	}
 	
 	public void poll() throws Exception{
+		
+		if(head == tail) {
+			throw new Exception("Queue underflow");
+		}
 		
 		
 	}
