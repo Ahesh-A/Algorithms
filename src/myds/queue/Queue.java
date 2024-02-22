@@ -60,12 +60,14 @@ public class Queue<T> {
 		
 	}
 	
-	public void poll() throws Exception{
+	public T poll() throws Exception{
 		
 		if(head == tail) {
 			throw new Exception("Queue underflow");
 		}
 		
-		
+		T result = this.arr[this.head];
+		this.head = evaluatedIndexValue(this.head);
+		return result;
 	}
 }
