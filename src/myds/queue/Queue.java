@@ -33,13 +33,16 @@ public class Queue<T> {
 		return Arrays.toString(this.arr);
 	}
 	
+	public int evaluatedIndexValue(int idx) {
+		return (idx == this.arr.length - 1) ? 0  : idx + 1;
+	}
+	
 	public void offer(T element) throws Exception{
 		if(this.tail == -1) {
 			this.head = 0;
 			this.tail = 0;
 		}
 		
-		this.tail = (this.tail == this.arr.length - 1) ? 0  : this.tail + 1;
 		
 		if(tail == head) {
 			throw new Exception("Queue overflow");
@@ -48,7 +51,8 @@ public class Queue<T> {
 		arr[this.tail] = element;
 	}
 	
-	public void poll() {
+	public void poll() throws Exception{
+		
 		
 	}
 }
