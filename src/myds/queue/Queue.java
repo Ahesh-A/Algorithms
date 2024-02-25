@@ -5,6 +5,7 @@ import java.util.Arrays;
 public class Queue<T> {
 	
 	private T[] arr;
+	private final int QUEUE_LENGTH;
 	private int head = 0;
 	private int tail = 0;
 	private int size = 0;
@@ -12,6 +13,7 @@ public class Queue<T> {
 	@SuppressWarnings("unchecked")
 	public Queue(int length) {
 		this.arr = (T[])new Object[length];
+		this.QUEUE_LENGTH = length;
 	}
 
 	public int gethead() {
@@ -45,31 +47,27 @@ public class Queue<T> {
 	}
 	
 	public void offer(T element) throws Exception{
-
-		if(this.tail == -1) {
-			initialInsert(element);
-			return;
-		}
 		
-		
-		if(evaluatedIndexValue(this.tail) == this.head) {
+		if(size == QUEUE_LENGTH) {
 			throw new Exception("Queue overflow");
 		}
 		
 		this.tail = evaluatedIndexValue(this.tail);
 		
 		arr[this.tail] = element;
+		this.size++;
 		
 	}
 	
 	public T poll() throws Exception{
 		
-		if(head == evaluatedIndexValue(tail)) {
+		if(size == 0) {
 			throw new Exception("Queue underflow");
 		}
 		
 		T result = this.arr[this.head];
 		this.head = evaluatedIndexValue(this.head);
+		this.size--;
 		return result;
 	}
 }
