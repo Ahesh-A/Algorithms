@@ -5,8 +5,9 @@ import java.util.Arrays;
 public class Queue<T> {
 	
 	private T[] arr;
-	private int head = -1;
-	private int tail = -1;
+	private int head = 0;
+	private int tail = 0;
+	private int size = 0;
 	
 	@SuppressWarnings("unchecked")
 	public Queue(int length) {
