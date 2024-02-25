@@ -40,7 +40,7 @@ public class Queue<T> {
 	public void initialInsert(T element) {
 		this.arr[0] = element;
 		this.head = 0;
-		this.tail = 1;
+		this.tail = 0;
 	}
 	
 	public void offer(T element) throws Exception{
@@ -50,19 +50,20 @@ public class Queue<T> {
 			return;
 		}
 		
-		if(this.tail == this.head) {
+		
+		if(evaluatedIndexValue(this.tail) == this.head) {
 			throw new Exception("Queue overflow");
 		}
 		
-		arr[this.tail] = element;
-		
 		this.tail = evaluatedIndexValue(this.tail);
+		
+		arr[this.tail] = element;
 		
 	}
 	
 	public T poll() throws Exception{
 		
-		if(head == tail) {
+		if(head == evaluatedIndexValue(tail)) {
 			throw new Exception("Queue underflow");
 		}
 		

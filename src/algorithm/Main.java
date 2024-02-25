@@ -1,5 +1,6 @@
 package algorithm;
 
+
 //import java.util.Arrays;
 
 //import org.ahesh.types.Node;
@@ -24,11 +25,24 @@ public class Main {
 	public static void main(String[] args) {
 		
 		try {
-			Queue<Integer> queue = new Queue<Integer>(10);
-			
+			Queue<Integer> queue = new Queue<Integer>(11);
 			
 			for(int i = 0; i < 11; i++) {
 				queue.offer(i);
+				
+				System.out.println("Queue: " + queue);
+				System.out.println("Head: " + queue.gethead());
+				System.out.println("Tail: " + queue.gettail());
+			}
+			
+			System.out.println("-------------------------------------------------------------");
+			
+			for(int i = 0; i < 11; i++) {
+				queue.poll();
+				
+				System.out.println("Queue: " + queue);
+				System.out.println("Head: " + queue.gethead());
+				System.out.println("Tail: " + queue.gettail());
 			}
 			
 		} catch(Exception e) {
