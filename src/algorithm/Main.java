@@ -27,7 +27,9 @@ public class Main {
 			Queue<Integer> queue = new Queue<Integer>(10);
 			
 			
-			System.out.println("Queue: " + queue);
+			for(int i = 0; i < 11; i++) {
+				queue.offer(i);
+			}
 			
 		} catch(Exception e) {
 			System.out.println("Error :" + e);
