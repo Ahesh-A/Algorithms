@@ -4,8 +4,8 @@ import java.util.Arrays;
 
 public class Queue<T> {
 	
-	private T[] arr;
 	private final int QUEUE_LENGTH;
+	private T[] arr;
 	private int head = 0;
 	private int tail = 0;
 	private int size = 0;
