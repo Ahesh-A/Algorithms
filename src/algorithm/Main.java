@@ -1,6 +1,8 @@
 package algorithm;
 
 
+import myds.linkedlist.LinkedList;
+
 //import java.util.Arrays;
 
 //import org.ahesh.types.Node;
@@ -23,52 +25,8 @@ import myds.queue.Queue;
 public class Main {
 	
 	public static void main(String[] args) {
+//		LinkedList<Integer> list = new LinkedList<Integer>(new Integer[] {1, 2, 3, 4, 5});
 		
-		
-		
-		try {
-			Queue<Integer> queue = new Queue<Integer>(11);
-			
-			for(int i = 0; i < 11; i++) {
-				queue.offer(i);
-				
-				System.out.println("Queue: " + queue);
-				System.out.println("Head: " + queue.gethead());
-				System.out.println("Tail: " + queue.gettail());
-			}
-			
-			System.out.println("-------------------------------------------------------------");
-			
-			for(int i = 0; i < 5; i++) {
-				queue.poll();
-				
-				System.out.println("Queue: " + queue);
-				System.out.println("Head: " + queue.gethead());
-				System.out.println("Tail: " + queue.gettail());
-			}
-			
-			System.out.println("-------------------------------------------------------------");
-			
-			for(int i = 0; i < 5; i++) {
-				queue.offer(i);
-				
-				System.out.println("Queue: " + queue);
-				System.out.println("Head: " + queue.gethead());
-				System.out.println("Tail: " + queue.gettail());
-			}
-			
-			System.out.println("-------------------------------------------------------------");
-			
-			for(int i = 0; i < 11; i++) {
-				queue.poll();
-				
-				System.out.println("Queue: " + queue);
-				System.out.println("Head: " + queue.gethead());
-				System.out.println("Tail: " + queue.gettail());
-			}
-		} catch(Exception e) {
-			System.out.println("Error :" + e);
-		}
 		
 	}
 }
