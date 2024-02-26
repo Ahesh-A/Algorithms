@@ -19,7 +19,7 @@ public class LinkedListUtils {
 	
 	public static <T> void  printList(Node<T> head) {
 
-		System.out.print("[");
+		System.out.print("[ ");
 		while(head != null) {
 			System.out.print(head.value() + " ");
 			head = head.next();
@@ -29,11 +29,13 @@ public class LinkedListUtils {
 	
 	public static <T> void  printList(LinkedList<T> list) {
 		Node<T> head = list.getHead();
-		System.out.print("[");
+		System.out.print("[ ");
 		while(head != null) {
 			System.out.print(head.value() + " ");
 			head = head.next();
 		}
 		System.out.print("]");
 	}
+	
+	
 }
