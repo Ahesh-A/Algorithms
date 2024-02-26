@@ -1,7 +1,10 @@
 package algorithm;
 
 
+import org.ahesh.types.Node;
+
 import myds.linkedlist.LinkedList;
+import myds.linkedlist.LinkedListUtils;
 
 //import java.util.Arrays;
 
@@ -25,8 +28,11 @@ import myds.queue.Queue;
 public class Main {
 	
 	public static void main(String[] args) {
-//		LinkedList<Integer> list = new LinkedList<Integer>(new Integer[] {1, 2, 3, 4, 5});
+		LinkedList<Integer> list = new LinkedList<Integer>(new Integer[] {1, 2, 3, 4, 5});
 		
+		Node<Integer> elem = LinkedListUtils.searchList(list, 2);
+		
+		LinkedListUtils.printList(elem);
 		
 	}
 }
