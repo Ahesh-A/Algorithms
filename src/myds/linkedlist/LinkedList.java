@@ -26,6 +26,4 @@ public class LinkedList<T> {
 		}
 		System.out.print("]");
 	}
-	
-	
 }
