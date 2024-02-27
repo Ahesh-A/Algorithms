@@ -50,4 +50,12 @@ public class LinkedListUtils {
 		return null;
 	}
 	
+	public static <T> void deleteList(LinkedList<T> list, T target) {
+		
+		Node<T> predecessor = findPredecessor(list, target);
+		
+		if(predecessor != null) {
+			predecessor.setNext(predecessor.next().next());
+		}
+	}
 }
