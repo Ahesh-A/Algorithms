@@ -37,5 +37,17 @@ public class LinkedListUtils {
 		System.out.print("]");
 	}
 	
+	private static <T> Node<T> findPredecessor(LinkedList<T> list, T target) {
+		Node<T> temp = list.getHead();
+		while(temp != null) {
+			if(temp.next().value().equals(target)) {
+				return temp;
+			}
+			
+			temp = temp.next();
+		}
+		
+		return null;
+	}
 	
 }
