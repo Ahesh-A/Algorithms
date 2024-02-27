@@ -37,10 +37,10 @@ public class LinkedListUtils {
 		System.out.print("]");
 	}
 	
-	private static <T> Node<T> findPredecessor(LinkedList<T> list, T target) {
+	private static <T> Node<T> findPredecessor(LinkedList<T> list, Node<T> target) {
 		Node<T> temp = list.getHead();
 		while(temp != null && temp.next() != null) {
-			if(temp.next().value().equals(target)) {
+			if(temp.next().equals(target)) {
 				return temp;
 			}
 			
@@ -50,10 +50,10 @@ public class LinkedListUtils {
 		return null;
 	}
 	
-	public static <T> void deleteList(LinkedList<T> list, T target) {
+	public static <T> void deleteList(LinkedList<T> list, Node<T> target) {
 		Node<T> head = list.getHead();
 		
-		if(head.value().equals(target)) {
+		if(head.equals(target)) {
 			list.setHead(head.next());
 		}
 		
@@ -62,5 +62,18 @@ public class LinkedListUtils {
 		if(predecessor != null) {
 			predecessor.setNext(predecessor.next().next());
 		}
+	}
+	
+	public static <T> Node<T> getNodeAtIdx(LinkedList<T> list, int idx) {
+		if(idx < 0) return null;
+		
+		Node<T> temp = list.getHead();
+		
+		for(int i = 0; i < idx; i++) {
+			if(temp == null) return null;
+			temp = temp.next();
+		}
+		
+		return temp;
 	}
 }
