@@ -39,7 +39,7 @@ public class LinkedListUtils {
 	
 	private static <T> Node<T> findPredecessor(LinkedList<T> list, T target) {
 		Node<T> temp = list.getHead();
-		while(temp != null) {
+		while(temp != null && temp.next() != null) {
 			if(temp.next().value().equals(target)) {
 				return temp;
 			}
@@ -51,6 +51,11 @@ public class LinkedListUtils {
 	}
 	
 	public static <T> void deleteList(LinkedList<T> list, T target) {
+		Node<T> head = list.getHead();
+		
+		if(head.value().equals(target)) {
+			list.setHead(head.next());
+		}
 		
 		Node<T> predecessor = findPredecessor(list, target);
 		

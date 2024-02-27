@@ -32,7 +32,7 @@ public class Main {
 		
 //		Node<Integer> elem = LinkedListUtils.searchList(list, 2);
 		
-		LinkedListUtils.deleteList(list, 5);
+		LinkedListUtils.deleteList(list, 3);
 		LinkedListUtils.printList(list);
 	}
 }
