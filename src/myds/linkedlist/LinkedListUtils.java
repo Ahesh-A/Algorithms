@@ -1,6 +1,7 @@
 package myds.linkedlist;
 
 import org.ahesh.types.Node;
+
 public class LinkedListUtils {
 	
 	public static <T> Node<T> searchList(LinkedList<T> list, T target) {
