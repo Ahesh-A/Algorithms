@@ -1,6 +1,7 @@
 package algorithm;
 
 
+import org.ahesh.types.DLNode;
 import org.ahesh.types.Node;
 
 import myds.linkedlist.DLCLL;
@@ -28,6 +29,11 @@ public class Main {
 	
 	public static void main(String[] args) {
 		DLCLL<Integer> dlcll = new DLCLL<>(new Integer[] {1, 2, 3});
+		DLNode<Integer> temp = dlcll.getHead().getNext();
 		
+		while(temp != null) {
+			System.out.println(temp.getValue());
+			temp = temp.getNext();
+		}
 	}
 }

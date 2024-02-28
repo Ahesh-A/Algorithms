@@ -11,10 +11,17 @@ public class DLCLL<T> {
 	
 	public DLCLL(T[] arr) {
 		this.head = new DLNode<T>(null);
-//		DLNode<T> temp = 
+		DLNode<T> temp = head;
 		
+		for(T element : arr) {
+			DLNode<T> newNode = new DLNode<>(element);
+			newNode.setPrev(temp);
+			temp.setNext(newNode);
+			temp = temp.getNext();
+		}
+		
+		temp.setNext(head);
 	}
-	
 	
 	
 }
