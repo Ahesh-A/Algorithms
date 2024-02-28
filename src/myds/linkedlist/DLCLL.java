@@ -23,6 +23,13 @@ public class DLCLL<T> {
 		temp.setNext(head);
 	}
 	
+	public DLNode<T> getHead() {
+		return head;
+	}
+	
+	public void setHead(DLNode<T> head) {
+		this.head = head;
+	}
 	
 }
 
