@@ -21,16 +21,19 @@ public class LinkedListUtils {
 	public static <T> void  printList(Node<T> head) {
 
 		System.out.print("[ ");
+		
 		while(head != null) {
 			System.out.print(head.value() + " ");
 			head = head.next();
 		}
+		
 		System.out.print("]");
 	}
 	
 	public static <T> void  printList(LinkedList<T> list) {
 		Node<T> head = list.getHead();
 		System.out.print("[ ");
+		
 		while(head != null) {
 			System.out.print(head.value() + " ");
 			head = head.next();
@@ -40,6 +43,7 @@ public class LinkedListUtils {
 	
 	private static <T> Node<T> findPredecessor(LinkedList<T> list, Node<T> target) {
 		Node<T> temp = list.getHead();
+		
 		while(temp != null && temp.next() != null) {
 			if(temp.next().equals(target)) {
 				return temp;
