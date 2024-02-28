@@ -3,8 +3,7 @@ package algorithm;
 
 import org.ahesh.types.Node;
 
-import myds.linkedlist.LinkedList;
-import myds.linkedlist.LinkedListUtils;
+import myds.linkedlist.DLCLL;
 
 //import java.util.Arrays;
 
@@ -28,11 +27,7 @@ import myds.queue.Queue;
 public class Main {
 	
 	public static void main(String[] args) {
-		LinkedList<Integer> list = new LinkedList<Integer>(new Integer[] {1, 2, 3, 4, 5});
+		DLCLL<Integer> dlcll = new DLCLL<>(new Integer[] {1, 2, 3});
 		
-//		Node<Integer> elem = LinkedListUtils.searchList(list, 2);
-		
-		LinkedListUtils.deleteList(list, LinkedListUtils.getNodeAtIdx(list, -1));
-		LinkedListUtils.printList(list);
 	}
 }

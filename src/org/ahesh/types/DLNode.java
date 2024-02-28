@@ -5,13 +5,13 @@ public class DLNode<T> {
 	private DLNode<T> next;
 	private DLNode<T> prev;
 	
-	DLNode() {
+	public DLNode() {
 		this.value = null;
 		this.next = this;
 		this.prev = this;
 	}
 	
-	DLNode(T value) {
+	public DLNode(T value) {
 		this.value = value;
 		this.next = this;
 		this.prev = this;
