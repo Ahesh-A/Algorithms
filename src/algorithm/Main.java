@@ -5,6 +5,7 @@ import org.ahesh.types.DLNode;
 import org.ahesh.types.Node;
 
 import myds.linkedlist.DLCLL;
+import myds.linkedlist.DLCLLUtils;
 
 //import java.util.Arrays;
 
@@ -31,9 +32,6 @@ public class Main {
 		DLCLL<Integer> dlcll = new DLCLL<>(new Integer[] {1, 2, 3});
 		DLNode<Integer> temp = dlcll.getHead().getNext();
 		
-		while(temp != null) {
-			System.out.println(temp.getValue());
-			temp = temp.getNext();
-		}
+		DLCLLUtils.printList(dlcll);
 	}
 }
