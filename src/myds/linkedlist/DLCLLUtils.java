@@ -56,4 +56,8 @@ public class DLCLLUtils {
 		addElementNextTo(pivot, element);
 	}
 	
+	public static <T> void listDelete(DLCLL<T> list, DLNode<T> element) {
+		element.getPrev().setNext(element.getNext());
+		element.getNext().setPrev(element.getPrev());
+	}
 }

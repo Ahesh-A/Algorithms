@@ -35,9 +35,9 @@ public class Main {
 	public static void main(String[] args) {
 		DLCLL<Integer> dlcll = new DLCLL<>(new Integer[] {1, 2, 3});
 		
-		
 		DLCLLUtils.addElement(dlcll, new DLNode<Integer> (4));
 		DLCLLUtils.printList(dlcll);
-		
+		DLCLLUtils.listDelete(dlcll, dlcll.getHead().getPrev().getPrev());
+		DLCLLUtils.printList(dlcll);
 	}
 }
