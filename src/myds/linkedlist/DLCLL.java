@@ -21,6 +21,7 @@ public class DLCLL<T> {
 		}
 		
 		temp.setNext(head);
+		head.setPrev(temp);
 	}
 	
 	public DLNode<T> getHead() {

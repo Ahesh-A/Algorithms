@@ -33,15 +33,11 @@ public class Main {
 	
 	
 	public static void main(String[] args) {
-//		DLCLL<Integer> dlcll = new DLCLL<>(new Integer[] {1, 2, 3});
-//		DLNode<Integer> temp = dlcll.getHead().getNext();
+		DLCLL<Integer> dlcll = new DLCLL<>(new Integer[] {1, 2, 3});
 		
-//		DLCLLUtils.printList(dlcll.getHead());
 		
-		LinkedList<Integer> list = new LinkedList<>(new Integer[] {1, 2, 3, 4} );
+		DLCLLUtils.addElement(dlcll, new DLNode<Integer> (4));
+		DLCLLUtils.printList(dlcll);
 		
-		LinkedListUtils.addElement(list, new Node<Integer>(5));
-		
-		LinkedListUtils.printList(list);
 	}
 }
