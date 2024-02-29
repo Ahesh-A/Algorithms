@@ -44,6 +44,10 @@ public class DLCLLUtils {
 	
 	private static <T> void addElementNextTo(DLNode<T> pivot, DLNode<T> element) {
 		
+		element.setNext(pivot.getNext());
+		pivot.getNext().setPrev(element);
+		pivot.setNext(element);
+		element.setPrev(pivot);
 	}
 	
 	public static <T> void addElement(DLCLL<T> list, DLNode<T> element) {
