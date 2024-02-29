@@ -55,6 +55,23 @@ public class LinkedListUtils {
 		return null;
 	}
 	
+	private static <T> Node<T> getLastNode(Node<T> head) {
+		
+		Node<T> temp = head;
+		
+		while(temp.next() != null) {
+			temp = temp.next();
+		}
+		
+		return temp;
+	}
+	
+	public static <T> void addElement(LinkedList<T> list, Node<T> element) {
+		Node<T> temp = getLastNode(list.getHead());
+		
+		temp.setNext(element);
+	}
+	
 	public static <T> void deleteList(LinkedList<T> list, Node<T> target) {
 		Node<T> head = list.getHead();
 		
