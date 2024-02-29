@@ -2,10 +2,13 @@ package algorithm;
 
 
 import org.ahesh.types.DLNode;
+
 import org.ahesh.types.Node;
 
 import myds.linkedlist.DLCLL;
 import myds.linkedlist.DLCLLUtils;
+import myds.linkedlist.LinkedList;
+import myds.linkedlist.LinkedListUtils;
 
 //import java.util.Arrays;
 
@@ -28,10 +31,17 @@ import myds.queue.Queue;
  */
 public class Main {
 	
+	
 	public static void main(String[] args) {
-		DLCLL<Integer> dlcll = new DLCLL<>(new Integer[] {1, 2, 3});
-		DLNode<Integer> temp = dlcll.getHead().getNext();
+//		DLCLL<Integer> dlcll = new DLCLL<>(new Integer[] {1, 2, 3});
+//		DLNode<Integer> temp = dlcll.getHead().getNext();
 		
-		DLCLLUtils.printList(dlcll.getHead());
+//		DLCLLUtils.printList(dlcll.getHead());
+		
+		LinkedList<Integer> list = new LinkedList<>(new Integer[] {1, 2, 3, 4} );
+		
+		LinkedListUtils.addElement(list, new Node<Integer>(5));
+		
+		LinkedListUtils.printList(list);
 	}
 }
