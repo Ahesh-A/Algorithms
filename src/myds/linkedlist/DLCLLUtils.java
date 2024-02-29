@@ -30,5 +30,16 @@ public class DLCLLUtils {
 		System.out.print("]");
 	}
 	
+	public static <T> void printList(DLNode<T> head) {
+		
+		head = head.getNext();
+		System.out.print("[ ");
+		while(head.getValue() != null) {
+			System.out.print(head.getValue() + " ");
+			head = head.getNext();
+		}
+		System.out.print("]");
+		
+	}
 	
 }

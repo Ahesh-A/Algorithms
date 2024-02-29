@@ -32,6 +32,6 @@ public class Main {
 		DLCLL<Integer> dlcll = new DLCLL<>(new Integer[] {1, 2, 3});
 		DLNode<Integer> temp = dlcll.getHead().getNext();
 		
-		DLCLLUtils.printList(dlcll);
+		DLCLLUtils.printList(dlcll.getHead());
 	}
 }
