@@ -5,19 +5,19 @@ public class TreeNode<T> {
 	private TreeNode<T> left;
 	private TreeNode<T> right;
 		
-	TreeNode() {
+	public TreeNode() {
 		this.value = null;
 		this.left = null;
 		this.right = null;
 	}
 	
-	TreeNode(T value) {
+	public TreeNode(T value) {
 		this.value = value;
 		this.left = null;
 		this.right = null;
 	}
 	
-	TreeNode(T value, TreeNode<T> left, TreeNode<T> right) {
+	public TreeNode(T value, TreeNode<T> left, TreeNode<T> right) {
 		this.value = value;
 		this.left = null;
 		this.right = null;
