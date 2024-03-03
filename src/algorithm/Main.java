@@ -4,7 +4,9 @@ package algorithm;
 import org.ahesh.types.DLNode;
 
 import org.ahesh.types.Node;
+import org.ahesh.types.TreeNode;
 
+import myds.bst.BSTUtils;
 import myds.linkedlist.DLCLL;
 import myds.linkedlist.DLCLLUtils;
 import myds.linkedlist.LinkedList;
@@ -33,11 +35,18 @@ public class Main {
 	
 	
 	public static void main(String[] args) {
-		DLCLL<Integer> dlcll = new DLCLL<>(new Integer[] {1, 2, 3});
+		try {
+			
+			TreeNode<Integer> temp = BSTUtils.constructBST(new Integer[] {1, 2, 3, 4});
+			
+			while(temp.getRight() != null) {
+				System.out.println("Value: " + temp.getValue());
+				temp = temp.getRight();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		
-		DLCLLUtils.addElement(dlcll, new DLNode<Integer> (4));
-		DLCLLUtils.printList(dlcll);
-		DLCLLUtils.listDelete(dlcll, dlcll.getHead().getPrev().getPrev());
-		DLCLLUtils.printList(dlcll);
+		
 	}
 }
