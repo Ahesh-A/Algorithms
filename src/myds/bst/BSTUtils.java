@@ -4,9 +4,19 @@ import org.ahesh.types.TreeNode;
 
 public class BSTUtils {
 	
+	private static <T extends Comparable<T>> void insertChild(TreeNode<T> parent, T element) {
+		if(parent.getValue().compareTo(element) < 0 ) {
+			parent.setLeft(new TreeNode<T>(element));
+			return;
+		}
+		
+		parent.setRight(new TreeNode<T>(element));
+		return;
+	}
+	
 	private static <T extends Comparable<T>> void insertHelper(TreeNode<T> root, TreeNode<T> parent, T element) {
 		if(root == null) {
-			return;
+			insertChild(parent, element);
 		}
 		
 		if(root.getValue().compareTo(element) < 0) {
