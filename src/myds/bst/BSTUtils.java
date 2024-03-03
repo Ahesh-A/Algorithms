@@ -18,6 +18,7 @@ public class BSTUtils {
 	private static <T extends Comparable<T>> void insertHelper(TreeNode<T> root, TreeNode<T> parent, T element) {
 		if(root == null) {
 			insertChild(parent, element);
+			return;
 		}
 		
 		if(root.getValue().compareTo(element) < 0) {
