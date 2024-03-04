@@ -42,7 +42,7 @@ public class Main {
 			BinarySearchTree<Integer> tree = new BinarySearchTree<Integer>(new Integer[] {6, 4, 8, 4, 5, 7} );
 			
 			TreeNode<Integer> temp = tree.getRoot();
-			BSTUtils.inOrderWalk(temp);
+			BSTUtils.preOrderWalk(temp);
 			
 		} catch (Exception e) {
 			e.printStackTrace();

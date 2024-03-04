@@ -66,5 +66,14 @@ public class BSTUtils {
 		inOrderWalk(root.getRight());
 	}
 	
+	public static <T extends Comparable<T>> void preOrderWalk(TreeNode<T> root) {
+		
+		if(root == null) {
+			return;
+		}
+		printValue(root);
+		preOrderWalk(root.getLeft());
+		preOrderWalk(root.getRight());
+	}
 		
 }
