@@ -7,6 +7,7 @@ import org.ahesh.types.Node;
 import org.ahesh.types.TreeNode;
 
 import myds.bst.BSTUtils;
+import myds.bst.BinarySearchTree;
 import myds.linkedlist.DLCLL;
 import myds.linkedlist.DLCLLUtils;
 import myds.linkedlist.LinkedList;
@@ -38,13 +39,16 @@ public class Main {
 //		System.out.println("Success");
 		try {
 			
-			TreeNode<Integer> temp = BSTUtils.constructBST(new Integer[] {4, 3, 2, 1});
-			
-			while(temp != null) {
-				System.out.println("Value: " + temp.getValue());
-				temp = temp.getLeft();
-			}
-	
+//			TreeNode<Integer> temp = BSTUtils.constructBST(new Integer[] {4, 3, 2, 1});
+//			BinarySearchTree<Integer> tree = new BinarySearchTree<Integer>(new Integer[] {4, 3, 2, 1} );
+//			
+//			TreeNode<Integer> temp = tree.getRoot();
+//			
+//			while(temp != null) {
+//				System.out.println("Value: " + temp.getValue());
+//				temp = temp.getLeft();
+//			}
+//	
 //			System.out.println("Value: " + temp.getValue());
 			
 		} catch (Exception e) {
