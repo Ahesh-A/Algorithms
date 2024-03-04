@@ -7,11 +7,11 @@ public class BSTUtils {
 	private static <T extends Comparable<T>> void insertChild(TreeNode<T> parent, T element) {
 		
 		if(parent.getValue().compareTo(element) < 0 ) {
-			parent.setLeft(new TreeNode<T>(element));
+			parent.setRight(new TreeNode<T>(element));
 			return;
 		}
 		
-		parent.setRight(new TreeNode<T>(element));
+		parent.setLeft(new TreeNode<T>(element));
 		return;
 	}
 	

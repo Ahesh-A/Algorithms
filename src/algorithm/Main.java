@@ -35,14 +35,18 @@ public class Main {
 	
 	
 	public static void main(String[] args) {
+//		System.out.println("Success");
 		try {
 			
-			TreeNode<Integer> temp = BSTUtils.constructBST(new Integer[] {1, 2, 3, 4});
+			TreeNode<Integer> temp = BSTUtils.constructBST(new Integer[] {4, 3, 2, 1});
 			
-			while(temp.getRight() != null) {
+			while(temp != null) {
 				System.out.println("Value: " + temp.getValue());
-				temp = temp.getRight();
+				temp = temp.getLeft();
 			}
+	
+//			System.out.println("Value: " + temp.getValue());
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
