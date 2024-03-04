@@ -50,6 +50,10 @@ public class BSTUtils {
 		
 		return root;
 	}
+	
+	public static <T extends Comparable<T>> void printValue(TreeNode<T> node) {
+		System.out.println(node.getValue());
+	}
 
 	
 		
