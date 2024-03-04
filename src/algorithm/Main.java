@@ -42,7 +42,12 @@ public class Main {
 			BinarySearchTree<Integer> tree = new BinarySearchTree<Integer>(new Integer[] {6, 4, 8, 4, 5, 7} );
 			
 			TreeNode<Integer> temp = tree.getRoot();
-			BSTUtils.postOrderWalk(temp);
+			TreeNode<Integer> res = BSTUtils.searchTree(temp, 4);
+			System.out.println("Result: ");
+			BSTUtils.printValue(res);
+			
+			BSTUtils.inOrderWalk(res);
+			
 			
 		} catch (Exception e) {
 			e.printStackTrace();

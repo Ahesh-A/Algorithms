@@ -87,4 +87,13 @@ public class BSTUtils {
 		printValue(root);
 	}
 	
+	public static <T extends Comparable<T>> TreeNode<T> searchTree(TreeNode<T> root, T key) {
+		
+		if(root == null || root.getValue().compareTo(key) == 0) return root;
+		
+		if(root.getValue().compareTo(key) < 0) {
+			return searchTree(root.getRight(), key);
+		}
+		return searchTree(root.getLeft(), key);
+	}
 }
