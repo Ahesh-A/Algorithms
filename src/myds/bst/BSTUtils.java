@@ -54,7 +54,17 @@ public class BSTUtils {
 	public static <T extends Comparable<T>> void printValue(TreeNode<T> node) {
 		System.out.println(node.getValue());
 	}
-
+	
+	public static <T extends Comparable<T>> void inOrderWalk(TreeNode<T> root) {
+		
+		if(root == null) {
+			return;
+		}
+		
+		inOrderWalk(root.getLeft());
+		printValue(root);
+		inOrderWalk(root.getRight());
+	}
 	
 		
 }
