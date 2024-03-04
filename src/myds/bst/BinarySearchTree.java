@@ -13,5 +13,9 @@ public class BinarySearchTree<T extends Comparable<T>> {
 		this.root = new TreeNode<T> (arr[0]);
 		this.root = BSTUtils.constructBST(arr);
 	}
-
+	
+	public TreeNode<T> getRoot() {
+		return root;
+	}
+	
 }

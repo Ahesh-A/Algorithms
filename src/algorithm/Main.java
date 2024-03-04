@@ -39,17 +39,10 @@ public class Main {
 //		System.out.println("Success");
 		try {
 			
-//			TreeNode<Integer> temp = BSTUtils.constructBST(new Integer[] {4, 3, 2, 1});
-//			BinarySearchTree<Integer> tree = new BinarySearchTree<Integer>(new Integer[] {4, 3, 2, 1} );
-//			
-//			TreeNode<Integer> temp = tree.getRoot();
-//			
-//			while(temp != null) {
-//				System.out.println("Value: " + temp.getValue());
-//				temp = temp.getLeft();
-//			}
-//	
-//			System.out.println("Value: " + temp.getValue());
+			BinarySearchTree<Integer> tree = new BinarySearchTree<Integer>(new Integer[] {6, 4, 8, 4, 5, 7} );
+			
+			TreeNode<Integer> temp = tree.getRoot();
+			BSTUtils.inOrderWalk(temp);
 			
 		} catch (Exception e) {
 			e.printStackTrace();
