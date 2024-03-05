@@ -96,4 +96,14 @@ public class BSTUtils {
 		}
 		return searchTree(root.getLeft(), key);
 	}
+	
+	public static <T extends Comparable<T>> TreeNode<T> getMin(TreeNode<T> root) {
+		
+		while(root.getLeft() != null) {
+			root = root.getLeft();
+		}
+		
+		return root;
+	}
+	
 }
