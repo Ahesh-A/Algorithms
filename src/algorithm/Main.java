@@ -43,7 +43,7 @@ public class Main {
 			
 			TreeNode<Integer> temp = tree.getRoot();
 			TreeNode<Integer> res = BSTUtils.searchTree(temp, 4);
-			TreeNode<Integer> node = BSTUtils.getMin(temp);
+			TreeNode<Integer> node = BSTUtils.getMax(temp);
 			System.out.println("Value: " + node.getValue());
 			
 			

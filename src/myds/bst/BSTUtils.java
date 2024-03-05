@@ -106,4 +106,12 @@ public class BSTUtils {
 		return root;
 	}
 	
+	public static <T extends Comparable<T>> TreeNode<T> getMax(TreeNode<T> root) {
+		
+		while(root.getRight() != null) {
+			root = root.getRight();
+		}
+		
+		return root;
+	}
 }
