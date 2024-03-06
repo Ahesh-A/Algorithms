@@ -51,5 +51,12 @@ public class TreeNode<T> {
 		this.right = right;
 	}
 	
+	public TreeNode<T> getParent() {
+		return this.parent;
+	}
+	
+	public void setParent(TreeNode<T> parent) {
+		this.parent = parent;
+	}
 	
 }
