@@ -4,6 +4,7 @@ public class TreeNode<T> {
 	private T value;
 	private TreeNode<T> left;
 	private TreeNode<T> right;
+	private TreeNode<T> parent;
 		
 	public TreeNode() {
 		this.value = null;
