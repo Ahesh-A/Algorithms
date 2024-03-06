@@ -118,5 +118,19 @@ public class BSTUtils {
 		return root;
 	}
 	
+	public static <T extends Comparable<T>> TreeNode<T> getPredecessor(TreeNode<T> node) {
+		if(node.getRight() != null) {
+			return getMin(node.getRight());
+		}
+		
+		TreeNode<T> temp = node.getParent();
+		
+		while(temp != null && node == temp.getRight()) {
+			node = temp;
+			temp = temp.getParent();
+		}
+		
+		return temp;
+	}
 	
 }
