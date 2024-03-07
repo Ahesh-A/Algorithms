@@ -4,23 +4,27 @@ public class TreeNode<T> {
 	private T value;
 	private TreeNode<T> left;
 	private TreeNode<T> right;
-		
+	private TreeNode<T> parent;
+
 	public TreeNode() {
 		this.value = null;
 		this.left = null;
 		this.right = null;
+		this.parent = null;
 	}
 	
 	public TreeNode(T value) {
 		this.value = value;
 		this.left = null;
 		this.right = null;
+		this.parent = null;
 	}
 	
-	public TreeNode(T value, TreeNode<T> left, TreeNode<T> right) {
+	public TreeNode(T value, TreeNode<T> left, TreeNode<T> right, TreeNode<T> parent) {
 		this.value = value;
-		this.left = null;
-		this.right = null;
+		this.left = left;
+		this.right = right;
+		this.parent = parent;
 	}
 
 	public T getValue() {
@@ -46,4 +50,13 @@ public class TreeNode<T> {
 	public void setRight(TreeNode<T> right) {
 		this.right = right;
 	}
+	
+	public TreeNode<T> getParent() {
+		return this.parent;
+	}
+	
+	public void setParent(TreeNode<T> parent) {
+		this.parent = parent;
+	}
+	
 }

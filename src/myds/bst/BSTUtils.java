@@ -6,12 +6,15 @@ public class BSTUtils {
 	
 	private static <T extends Comparable<T>> void insertChild(TreeNode<T> parent, T element) {
 		
+		TreeNode<T> child = new TreeNode<T> (element);
+		child.setParent(parent);
+		
 		if(parent.getValue().compareTo(element) < 0 ) {
-			parent.setRight(new TreeNode<T>(element));
+			parent.setRight(child);
 			return;
 		}
 		
-		parent.setLeft(new TreeNode<T>(element));
+		parent.setLeft(child);
 		return;
 	}
 	
@@ -114,4 +117,20 @@ public class BSTUtils {
 		
 		return root;
 	}
+	
+	public static <T extends Comparable<T>> TreeNode<T> getPredecessor(TreeNode<T> node) {
+		if(node.getRight() != null) {
+			return getMin(node.getRight());
+		}
+		
+		TreeNode<T> temp = node.getParent();
+		
+		while(temp != null && node == temp.getRight()) {
+			node = temp;
+			temp = temp.getParent();
+		}
+		
+		return temp;
+	}
+	
 }
