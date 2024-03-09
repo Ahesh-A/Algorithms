@@ -101,6 +101,7 @@ public class BSTUtils {
 	}
 	
 	public static <T extends Comparable<T>> TreeNode<T> getMin(TreeNode<T> root) {
+		if(root == null) return null;
 		
 		while(root.getLeft() != null) {
 			root = root.getLeft();
