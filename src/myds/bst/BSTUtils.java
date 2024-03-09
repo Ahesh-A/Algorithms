@@ -110,7 +110,6 @@ public class BSTUtils {
 	}
 	
 	public static <T extends Comparable<T>> TreeNode<T> getMax(TreeNode<T> root) {
-		
 		while(root.getRight() != null) {
 			root = root.getRight();
 		}
@@ -119,6 +118,9 @@ public class BSTUtils {
 	}
 	
 	public static <T extends Comparable<T>> TreeNode<T> getSuccessor(TreeNode<T> node) {
+		
+		if(node == null) return null;
+		
 		if(node.getRight() != null) {
 			return getMin(node.getRight());
 		}
@@ -133,6 +135,8 @@ public class BSTUtils {
 		return temp;
 	}
 	
-	
+//	public static <T extends Comparable<T>> TreeNode<T> getPredecessor(TreeNode<T> node) {
+//		if(node.getLeft())
+//	}
 	
 }
