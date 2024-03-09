@@ -138,8 +138,19 @@ public class BSTUtils {
 		return temp;
 	}
 	
-//	public static <T extends Comparable<T>> TreeNode<T> getPredecessor(TreeNode<T> node) {
-//		if(node.getLeft())
-//	}
+	public static <T extends Comparable<T>> TreeNode<T> getPredecessor(TreeNode<T> node) {
+		if(node == null) return null;
+		
+		if(node.getLeft() != null) {
+			return getMax(node.getLeft());
+		}
+		TreeNode<T> temp = node.getParent();
+		while(temp != null && node == temp.getLeft()) {
+			node = temp;
+			temp = temp.getParent();
+		}
+		
+		return temp;
+	}
 	
 }
