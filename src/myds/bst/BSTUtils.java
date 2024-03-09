@@ -118,7 +118,7 @@ public class BSTUtils {
 		return root;
 	}
 	
-	public static <T extends Comparable<T>> TreeNode<T> getPredecessor(TreeNode<T> node) {
+	public static <T extends Comparable<T>> TreeNode<T> getSuccessor(TreeNode<T> node) {
 		if(node.getRight() != null) {
 			return getMin(node.getRight());
 		}
@@ -132,5 +132,7 @@ public class BSTUtils {
 		
 		return temp;
 	}
+	
+	
 	
 }
