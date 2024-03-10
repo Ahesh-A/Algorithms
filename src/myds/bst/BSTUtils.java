@@ -153,4 +153,7 @@ public class BSTUtils {
 		return temp;
 	}
 	
+	public static <T extends Comparable<T>> TreeNode<T> deleteNode(TreeNode<T> root, TreeNode<T> nodeToDelete) {
+		
+	}
 }
