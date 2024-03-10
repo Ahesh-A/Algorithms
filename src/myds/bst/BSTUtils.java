@@ -165,11 +165,16 @@ public class BSTUtils {
 		return getSuccessor(nodeToDelete);
 	}
 	
+	private static <T extends Comparable<T>> TreeNode<T> getX(TreeNode<T> node) {
+		if(node.getLeft() != null) return node.getLeft();
+		return node.getRight();
+	}
+	
 	public static <T extends Comparable<T>> TreeNode<T> deleteNode(TreeNode<T> root, TreeNode<T> nodeToDelete) {
 		
 		TreeNode<T> y = getY(root, nodeToDelete);
 		
-		
+		TreeNode<T> x = getX(y);
 		
 		
 	}
