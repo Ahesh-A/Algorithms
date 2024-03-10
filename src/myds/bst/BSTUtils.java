@@ -174,6 +174,31 @@ public class BSTUtils {
 		x.getParent().setParent(y.getParent());
 	}
 	
+	private static <T extends Comparable<T>> boolean isLeftChild(TreeNode<T> node) throws Exception{
+		if(node == null) {
+			throw new Exception("Node is null");
+		}
+		
+		return node.getParent().getLeft() == node;
+	}
+	
+	private static <T extends Comparable<T>> boolean isRightChild(TreeNode<T> node) throws Exception{
+		if(node == null) {
+			throw new Exception("Node is null");
+		}
+		
+		return node.getParent().getRight() == node;
+	}
+	
+	private static <T extends Comparable<T>> void attachXWithAncestor(TreeNode<T> root, TreeNode<T> x, TreeNode<T> y) {
+		if(y.getParent() == null) {
+			root = x;
+			return;
+		}
+		
+		if(y == y.get)
+	}
+	
 	public static <T extends Comparable<T>> TreeNode<T> deleteNode(TreeNode<T> root, TreeNode<T> nodeToDelete) {
 		
 		TreeNode<T> y = getY(root, nodeToDelete);
@@ -182,6 +207,10 @@ public class BSTUtils {
 		
 		if(x != null) {
 			setParentOfXtoY(x, y);
+		}
+		
+		attachXWithAncestor(root, x, y) {
+			
 		}
 		
 		
