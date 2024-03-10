@@ -170,11 +170,19 @@ public class BSTUtils {
 		return node.getRight();
 	}
 	
+	private static <T extends Comparable<T>> void setParentOfXtoY(TreeNode<T> x, TreeNode<T> y) {
+		x.getParent().setParent(y.getParent());
+	}
+	
 	public static <T extends Comparable<T>> TreeNode<T> deleteNode(TreeNode<T> root, TreeNode<T> nodeToDelete) {
 		
 		TreeNode<T> y = getY(root, nodeToDelete);
 		
 		TreeNode<T> x = getX(y);
+		
+		if(x != null) {
+			setParentOfXtoY(x, y);
+		}
 		
 		
 	}
