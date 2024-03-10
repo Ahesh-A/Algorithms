@@ -153,7 +153,24 @@ public class BSTUtils {
 		return temp;
 	}
 	
+	private static <T extends Comparable<T>> boolean nodeHasSingleChild(TreeNode<T> node) {
+		return node.getLeft() == null || node.getRight() == null;
+	}
+	
+	private static <T extends Comparable<T>> TreeNode<T> getY(TreeNode<T> root, TreeNode<T> nodeToDelete) {
+		if(nodeHasSingleChild(nodeToDelete)) {
+			return nodeToDelete;
+		}
+		
+		return getSuccessor(nodeToDelete);
+	}
+	
 	public static <T extends Comparable<T>> TreeNode<T> deleteNode(TreeNode<T> root, TreeNode<T> nodeToDelete) {
+		
+		TreeNode<T> y = getY(root, nodeToDelete);
+		
+		
+		
 		
 	}
 }
