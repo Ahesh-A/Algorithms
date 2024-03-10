@@ -1,5 +1,7 @@
 package myds.bst;
 
+import javax.lang.model.element.Element;
+
 import org.ahesh.types.TreeNode;
 
 public class BSTUtils {
@@ -212,6 +214,10 @@ public class BSTUtils {
 		attachX(x, y);
 	}
 	
+	private static <T extends Comparable<T>> void copyData(TreeNode<T> nodeToDelete, TreeNode<T> y) {
+		nodeToDelete.setValue(y.getValue());
+	}
+	
 	public static <T extends Comparable<T>> TreeNode<T> deleteNode(TreeNode<T> root, TreeNode<T> nodeToDelete) {
 		
 		TreeNode<T> y = getY(root, nodeToDelete);
@@ -222,10 +228,12 @@ public class BSTUtils {
 			setParentOfXtoY(x, y);
 		}
 		
-		attachXWithAncestor(root, x, y) {
-			
+		attachXWithAncestor(root, x, y);
+		
+		if(y != nodeToDelete) {
+			copyData(nodeToDelete, y);
 		}
 		
-		
+		return y;
 	}
 }
