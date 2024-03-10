@@ -190,13 +190,26 @@ public class BSTUtils {
 		return node.getParent().getRight() == node;
 	}
 	
+	private static <T extends Comparable<T>> void attachX(TreeNode<T> x, TreeNode<T> y) {
+		
+		try {
+			if(isLeftChild(y)) {
+				y.getParent().setLeft(x);
+				return;
+			}	
+			y.setRight(x);
+		} catch(Exception e) {
+			System.out.println("Exception at attachX: " + e.getMessage());
+		}
+	}
+	
 	private static <T extends Comparable<T>> void attachXWithAncestor(TreeNode<T> root, TreeNode<T> x, TreeNode<T> y) {
 		if(y.getParent() == null) {
 			root = x;
 			return;
 		}
 		
-		if(y == y.get)
+		attachX(x, y);
 	}
 	
 	public static <T extends Comparable<T>> TreeNode<T> deleteNode(TreeNode<T> root, TreeNode<T> nodeToDelete) {
