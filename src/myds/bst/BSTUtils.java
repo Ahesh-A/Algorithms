@@ -1,6 +1,5 @@
 package myds.bst;
 
-import javax.lang.model.element.Element;
 
 import org.ahesh.types.TreeNode;
 
@@ -173,7 +172,7 @@ public class BSTUtils {
 	}
 	
 	private static <T extends Comparable<T>> void setParentOfXtoY(TreeNode<T> x, TreeNode<T> y) {
-		x.getParent().setParent(y.getParent());
+		x.setParent(y.getParent());
 	}
 	
 	private static <T extends Comparable<T>> boolean isLeftChild(TreeNode<T> node) throws Exception{
@@ -196,10 +195,11 @@ public class BSTUtils {
 		
 		try {
 			if(isLeftChild(y)) {
+				System.out.println("yes");
 				y.getParent().setLeft(x);
 				return;
 			}	
-			y.setRight(x);
+			y.getParent().setRight(x);
 		} catch(Exception e) {
 			System.out.println("Exception at attachX: " + e.getMessage());
 		}
@@ -216,12 +216,13 @@ public class BSTUtils {
 	
 	private static <T extends Comparable<T>> void copyData(TreeNode<T> nodeToDelete, TreeNode<T> y) {
 		nodeToDelete.setValue(y.getValue());
+		
 	}
 	
 	public static <T extends Comparable<T>> TreeNode<T> deleteNode(TreeNode<T> root, TreeNode<T> nodeToDelete) {
 		
 		TreeNode<T> y = getY(root, nodeToDelete);
-		
+		System.out.println("Value of Y: " + y.getValue());
 		TreeNode<T> x = getX(y);
 		
 		if(x != null) {
