@@ -42,9 +42,12 @@ public class Main {
 			BinarySearchTree<Integer> tree = new BinarySearchTree<Integer>(new Integer[] {15, 6, 18, 3, 7, 17, 20, 2, 4, 13, 9} );
 			
 			TreeNode<Integer> temp = tree.getRoot();
-			TreeNode<Integer> res = BSTUtils.searchTree(temp, 7);
-			TreeNode<Integer> predecessor = BSTUtils.getPredecessor(res);
-			System.out.println("Value: " + predecessor.getValue());
+			TreeNode<Integer> res = BSTUtils.searchTree(temp, 6);
+			TreeNode<Integer> node = BSTUtils.deleteNode(temp, res);
+			
+			System.out.println("Node: " + node.getValue());
+			
+			BSTUtils.inOrderWalk(temp);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
