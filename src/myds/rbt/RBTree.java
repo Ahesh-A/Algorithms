@@ -1,8 +1,14 @@
 package myds.rbt;
 
-import org.ahesh.types.RBTNode;
+import org.ahesh.types.RBNode;
 
 public class RBTree<T> {
-	private RBTNode<T> root;
+	private RBNode<T> root;
+
+	public RBTree(RBNode<T> root) {
+		super();
+		this.root = root;
+	}
+	
 	
 }
