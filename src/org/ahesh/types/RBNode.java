@@ -1,15 +1,15 @@
 package org.ahesh.types;
 
-public class RBTNode<T> {
+public class RBNode<T> {
 	private Color color;
 	private T key;
-	private RBTNode<T> parent;
-	private RBTNode<T> left;
-	private RBTNode<T> right;
+	private RBNode<T> parent;
+	private RBNode<T> left;
+	private RBNode<T> right;
 	
-	public RBTNode() {}
+	public RBNode() {}
 	
-	public RBTNode(Color color, T key, RBTNode<T> parent, RBTNode<T> left, RBTNode<T> right) {
+	public RBNode(Color color, T key, RBNode<T> parent, RBNode<T> left, RBNode<T> right) {
 		this.color = color;
 		this.key = key;
 		this.parent = parent;
@@ -33,27 +33,27 @@ public class RBTNode<T> {
 		this.key = key;
 	}
 
-	public RBTNode<T> getParent() {
+	public RBNode<T> getParent() {
 		return parent;
 	}
 
-	public void setParent(RBTNode<T> parent) {
+	public void setParent(RBNode<T> parent) {
 		this.parent = parent;
 	}
 
-	public RBTNode<T> getLeft() {
+	public RBNode<T> getLeft() {
 		return left;
 	}
 
-	public void setLeft(RBTNode<T> left) {
+	public void setLeft(RBNode<T> left) {
 		this.left = left;
 	}
 
-	public RBTNode<T> getRight() {
+	public RBNode<T> getRight() {
 		return right;
 	}
 
-	public void setRight(RBTNode<T> right) {
+	public void setRight(RBNode<T> right) {
 		this.right = right;
 	}
 	
