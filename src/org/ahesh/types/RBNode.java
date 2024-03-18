@@ -7,7 +7,13 @@ public class RBNode<T> {
 	private RBNode<T> left;
 	private RBNode<T> right;
 	
-	public RBNode() {}
+	public RBNode() {
+		this.color = Color.BLACK;
+		this.key = null;
+		this.parent = null;
+		this.left = null;
+		this.right = null;
+	}
 	
 	public RBNode(Color color, T key, RBNode<T> parent, RBNode<T> left, RBNode<T> right) {
 		this.color = color;
