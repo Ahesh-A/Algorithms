@@ -15,15 +15,19 @@ public class RBTree<T> {
 	public RBTree(RBNode<T>[] arr) {
 		
 		for(RBNode<T> node: arr) {
-			RBTUtils.insert(root, node);
+			RBTUtils.insert(this, node);
 		}
 	}
 
 	public RBNode<T> getRoot() {
 		return root;
 	}
-
 	
+	public void setRoot(RBNode<T> root) {
+		this.root = root;
+	}
 	
-	
+	public RBNode<T> getNil() {
+		return nil;
+	}
 }
