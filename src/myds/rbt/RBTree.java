@@ -10,5 +10,11 @@ public class RBTree<T> {
 		this.root = root;
 	}
 	
+	public RBTree(RBNode<T>[] arr) {
+		
+		for(RBNode<T> node: arr) {
+			RBTUtils.insert(root, node);
+		}
+	}
 	
 }
