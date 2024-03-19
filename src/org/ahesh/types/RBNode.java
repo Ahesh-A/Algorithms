@@ -1,6 +1,6 @@
 package org.ahesh.types;
 
-public class RBNode<T> {
+public class RBNode<T extends Comparable<T>> implements Comparable<T>{
 	private Color color;
 	private T key;
 	private RBNode<T> parent;
@@ -63,4 +63,10 @@ public class RBNode<T> {
 		this.right = right;
 	}
 	
+
+	@Override
+	public int compareTo(T x) {
+		// TODO Auto-generated method stub
+		return this.key.compareTo(x);
+	}
 }
