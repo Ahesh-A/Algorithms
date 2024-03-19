@@ -40,6 +40,12 @@ public class RBTUtils {
 		return node == node.getParent().getLeft();
 	}
 	
+
+	private static <T extends Comparable<T>> boolean isRightChild(RBNode<T> node) {
+		
+		return node == node.getParent().getRight();
+	}
+	
 	private static <T extends Comparable<T>> void rotateLeft(RBTree<T> tree, RBNode<T> node) throws Exception{
 		if(node.getRight() == null) {
 			throw new Exception("Not left rotatable");
