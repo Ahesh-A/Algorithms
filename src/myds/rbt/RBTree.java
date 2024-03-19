@@ -2,7 +2,7 @@ package myds.rbt;
 
 import org.ahesh.types.RBNode;
 
-public class RBTree<T> {
+public class RBTree<T extends Comparable<T>> {
 	private RBNode<T> root;
 	private final RBNode<T> nil = new RBNode<>();
 	
