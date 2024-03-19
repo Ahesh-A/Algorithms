@@ -35,6 +35,39 @@ public class RBTUtils {
 		node.setRight(tree.getNil());
 	}
 	
+	private static <T extends Comparable<T>> boolean isLeftChild(RBNode<T> node) {
+		
+		return node == node.getParent().getLeft();
+	}
+	
+	private static <T extends Comparable<T>> void rotateLeft(RBTree<T> tree, RBNode<T> node) throws Exception{
+		if(node.getRight() == null) {
+			throw new Exception("Not left rotatable");
+		}
+		
+		RBNode<T> y = node.getRight();
+		node.setRight(y.getLeft());
+		
+		if(y.getLeft() != null) {
+			y.getLeft().setParent(node);
+		}
+		
+		y.setParent(node.getParent());
+		
+		if(node.getParent() == tree.getNil()) {
+			tree.setRoot(y);
+		} else {
+			if(node == node.getParent().getLeft()) {
+				node.getParent().setLeft(y);
+			} else {
+				node.getParent().setRight(y);
+			}			
+		}
+		
+		y.setLeft(node);
+		node.setParent(y);
+		
+	}
 	
 	public static <T extends Comparable<T>> void  insert(RBTree<T> tree, RBNode<T> node) {
 		RBNode<T> y = tree.getNil();
