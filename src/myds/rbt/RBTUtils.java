@@ -87,6 +87,27 @@ public class RBTUtils {
 		
 	}
 	
+	private static  <T extends Comparable<T>> void rotateRight(RBTree<T> tree, RBNode<T> node) throws Exception{
+		if(node.getLeft() == null) {
+			throw new Exception("Not right rotatable");
+		}
+		
+		RBNode<T> y = node.getLeft();
+		node.setLeft(y.getRight());
+		
+		if(y.getRight() != null) {
+			y.getRight().setParent(node);
+		}
+		
+		y.setParent(node.getParent());
+		
+		navigateYAsSubRoot(tree, node, y);
+		
+		y.setRight(node);
+		node.setParent(y);
+		
+	}
+	
 	public static <T extends Comparable<T>> void  insert(RBTree<T> tree, RBNode<T> node) {
 		RBNode<T> y = tree.getNil();
 		RBNode<T> x = tree.getRoot();
