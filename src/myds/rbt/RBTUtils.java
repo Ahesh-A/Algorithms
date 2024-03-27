@@ -125,4 +125,8 @@ public class RBTUtils {
 		
 //		RBInsertFixUP();
 	}
+	
+	public static <T extends Comparable<T>> void insertFixUp(RBTree<T> tree, RBNode<T> node) {
+		
+	}
 }
