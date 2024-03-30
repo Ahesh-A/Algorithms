@@ -1,5 +1,7 @@
 package myds.redblacktree;
 
+import javax.xml.crypto.dsig.keyinfo.RetrievalMethod;
+
 import org.ahesh.types.Color;
 import org.ahesh.types.RBNode;
 
@@ -123,10 +125,36 @@ public class RBTUtils {
 		
 		setDefaultRBNode(tree, node);
 		
-//		RBInsertFixUP();
+//		rbInsertFixUp();
 	}
 	
-	public static <T extends Comparable<T>> void insertFixUp(RBTree<T> tree, RBNode<T> node) {
+	private static <T extends Comparable<T>> RBNode<T> getUncle(RBNode<T> node) {
+		RBNode<T> parent = node.getParent();
+		if(isLeftChild(parent)) {
+			return parent.getParent().getRight();
+		}
 		
+		return parent.getParent().getLeft();
 	}
+	
+//	public static <T extends Comparable<T>> void rbInsertFixUp(RBTree<T> tree, RBNode<T> node) {
+//		
+//		while(node.getParent().getColor() == Color.RED) {
+//			RBNode<T> uncle = getUncle(node);
+//			RBNode<T> parent = node.getParent();
+//			RBNode<T> grandParent = parent.getParent();
+//			
+//			if(uncle.getColor() == Color.RED) {
+//				grandParent.setColor(Color.RED);
+//				parent.setColor(Color.BLACK);
+//				uncle.setColor(Color.BLACK);
+//				
+//				node = grandParent;
+//				continue;
+//			} 
+//			
+//			
+//			
+//		}
+//	}
 }
