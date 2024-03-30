@@ -6,8 +6,8 @@ import org.ahesh.types.DLNode;
 import org.ahesh.types.Node;
 import org.ahesh.types.TreeNode;
 
-import myds.bst.BSTUtils;
-import myds.bst.BinarySearchTree;
+import myds.binarysearchtree.BSTUtils;
+import myds.binarysearchtree.BinarySearchTree;
 import myds.linkedlist.DLCLL;
 import myds.linkedlist.DLCLLUtils;
 import myds.linkedlist.LinkedList;

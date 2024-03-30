@@ -1,4 +1,4 @@
-package myds.bst;
+package myds.binarysearchtree;
 
 import org.ahesh.types.TreeNode;
 

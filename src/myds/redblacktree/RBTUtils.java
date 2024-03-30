@@ -1,4 +1,4 @@
-package myds.rbt;
+package myds.redblacktree;
 
 import org.ahesh.types.Color;
 import org.ahesh.types.RBNode;
