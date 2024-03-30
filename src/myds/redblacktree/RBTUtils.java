@@ -137,24 +137,47 @@ public class RBTUtils {
 		return parent.getParent().getLeft();
 	}
 	
-//	public static <T extends Comparable<T>> void rbInsertFixUp(RBTree<T> tree, RBNode<T> node) {
-//		
-//		while(node.getParent().getColor() == Color.RED) {
-//			RBNode<T> uncle = getUncle(node);
-//			RBNode<T> parent = node.getParent();
-//			RBNode<T> grandParent = parent.getParent();
-//			
-//			if(uncle.getColor() == Color.RED) {
-//				grandParent.setColor(Color.RED);
-//				parent.setColor(Color.BLACK);
-//				uncle.setColor(Color.BLACK);
-//				
-//				node = grandParent;
-//				continue;
-//			} 
-//			
-//			
-//			
-//		}
-//	}
+	private static <T extends Comparable<T>> void fixLeftSubTree(RBTree<T> tree, RBNode<T> node) {
+		
+	}
+	
+	public static <T extends Comparable<T>> void rbInsertFixUp(RBTree<T> tree, RBNode<T> node) {
+		
+		while(node.getParent().getColor() == Color.RED) {
+			RBNode<T> uncle = getUncle(node);
+			RBNode<T> parent = node.getParent();
+			RBNode<T> grandParent = parent.getParent();
+			
+			if(isLeftChild(parent)) {
+				fixLeftSubTree();
+				continue;
+			}
+			
+			fixRightSubTree(tree, node);
+ 			if(uncle.getColor() == Color.RED) {
+				grandParent.setColor(Color.RED);
+				parent.setColor(Color.BLACK);
+				uncle.setColor(Color.BLACK);
+				
+				node = grandParent;
+				continue;
+			} 
+			
+			
+			if(isRightChild(node)) {
+				node = node.getParent();
+				rotateLeft(tree, node);
+			}
+			
+			parent = node.getParent();
+			grandParent = parent.getParent();
+			
+			parent.setColor(Color.BLACK);
+			grandParent.setColor(Color.RED);
+			
+			rotateRight(tree, grandParent);
+		}
+		
+		tree.getRoot().setColor(Color.BLACK);
+	}
 }
