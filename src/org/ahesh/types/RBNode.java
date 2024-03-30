@@ -8,7 +8,7 @@ public class RBNode<T extends Comparable<T>> implements Comparable<T>{
 	private RBNode<T> right;
 	
 	public RBNode() {
-		this.color = Color.BLACK;
+		this.color = Color.RED;
 		this.key = null;
 		this.parent = null;
 		this.left = null;
