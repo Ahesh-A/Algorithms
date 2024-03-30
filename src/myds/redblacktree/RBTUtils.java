@@ -141,6 +141,10 @@ public class RBTUtils {
 		
 	}
 	
+	private static <T extends Comparable<T>> void fixRightSubTree(RBTree<T> tree, RBNode<T> node) {
+		
+	}
+	
 	public static <T extends Comparable<T>> void rbInsertFixUp(RBTree<T> tree, RBNode<T> node) {
 		
 		while(node.getParent().getColor() == Color.RED) {
