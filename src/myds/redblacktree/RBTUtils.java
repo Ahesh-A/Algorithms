@@ -195,16 +195,10 @@ public class RBTUtils {
 		
 		while(!queue.isEmpty()) {
 			RBNode<T> node = queue.poll();
+	
+			insertChildToQueue(queue, node, tree.getNil());
 			
-			if(node.getLeft() != tree.getNil()) {
-				queue.offer(node.getLeft());
-			}
-			
-			if(node.getRight() != tree.getNil()) {
-				queue.offer(node.getRight());
-			}
-			
-			
+			System.out.print(node + " ");
 		}
 	}
 	
