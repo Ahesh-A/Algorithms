@@ -108,7 +108,7 @@ public class RBTUtils {
 		
 	}
 	
-	public static <T extends Comparable<T>> void  insert(RBTree<T> tree, RBNode<T> node) {
+	public static <T extends Comparable<T>> void  insert(RBTree<T> tree, RBNode<T> node) throws Exception{
 		RBNode<T> y = tree.getNil();
 		RBNode<T> x = tree.getRoot();
 		
@@ -123,16 +123,7 @@ public class RBTUtils {
 		
 		setDefaultRBNode(tree, node);
 		
-//		rbInsertFixUp();
-	}
-	
-	private static <T extends Comparable<T>> RBNode<T> getUncle(RBNode<T> node) {
-		RBNode<T> parent = node.getParent();
-		if(isLeftChild(parent)) {
-			return parent.getParent().getRight();
-		}
-		
-		return parent.getParent().getLeft();
+		rbInsertFixUp(tree, node);
 	}
 	
 	public static <T extends Comparable<T>> void rbInsertFixUp(RBTree<T> tree, RBNode<T> node) throws Exception{
