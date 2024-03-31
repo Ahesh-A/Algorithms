@@ -1,7 +1,5 @@
 package myds.redblacktree;
 
-import javax.xml.crypto.dsig.keyinfo.RetrievalMethod;
-
 import org.ahesh.types.Color;
 import org.ahesh.types.RBNode;
 
@@ -137,49 +135,48 @@ public class RBTUtils {
 		return parent.getParent().getLeft();
 	}
 	
-	private static <T extends Comparable<T>> void fixLeftSubTree(RBTree<T> tree, RBNode<T> node) {
-		
-	}
-	
-	private static <T extends Comparable<T>> void fixRightSubTree(RBTree<T> tree, RBNode<T> node) {
-		
-	}
-	
-	public static <T extends Comparable<T>> void rbInsertFixUp(RBTree<T> tree, RBNode<T> node) {
+	public static <T extends Comparable<T>> void rbInsertFixUp(RBTree<T> tree, RBNode<T> node) throws Exception{
 		
 		while(node.getParent().getColor() == Color.RED) {
-			RBNode<T> uncle = getUncle(node);
-			RBNode<T> parent = node.getParent();
-			RBNode<T> grandParent = parent.getParent();
 			
-			if(isLeftChild(parent)) {
-				fixLeftSubTree();
-				continue;
-			}
-			
-			fixRightSubTree(tree, node);
- 			if(uncle.getColor() == Color.RED) {
-				grandParent.setColor(Color.RED);
-				parent.setColor(Color.BLACK);
-				uncle.setColor(Color.BLACK);
+			if(isLeftChild(node.getParent())) {
+				RBNode<T> grandParent = node.getParent().getParent();
+				RBNode<T> y = grandParent.getRight();
 				
-				node = grandParent;
-				continue;
-			} 
-			
-			
-			if(isRightChild(node)) {
-				node = node.getParent();
-				rotateLeft(tree, node);
+				if(y.getColor() == Color.RED) {
+					node.getParent().setColor(Color.BLACK);
+					y.setColor(Color.BLACK);
+					grandParent.setColor(Color.RED);
+					node = grandParent;
+				} else {
+					if(isRightChild(node)) {
+						node = node.getParent();
+						rotateLeft(tree, node);
+					}
+					node.getParent().setColor(Color.BLACK);
+					node.getParent().getParent().setColor(Color.RED);
+					rotateRight(tree, node.getParent().getParent());
+				}
+			} else {
+				
+				RBNode<T> y = node.getParent().getParent().getLeft();
+					
+				if(y.getColor() == Color.RED) {
+					node.getParent().setColor(Color.BLACK);
+					y.setColor(Color.BLACK);
+					node.getParent().getParent().setColor(Color.RED);
+					node = node.getParent().getParent();
+				} else {
+					if(isLeftChild(node)) {
+						node = node.getParent();
+						rotateRight(tree, node);
+					}
+					
+					node.getParent().setColor(Color.BLACK);
+					node.getParent().getParent().setColor(Color.RED);
+					rotateLeft(tree, node.getParent().getParent());
+				}	
 			}
-			
-			parent = node.getParent();
-			grandParent = parent.getParent();
-			
-			parent.setColor(Color.BLACK);
-			grandParent.setColor(Color.RED);
-			
-			rotateRight(tree, grandParent);
 		}
 		
 		tree.getRoot().setColor(Color.BLACK);
