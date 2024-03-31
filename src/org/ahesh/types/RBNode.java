@@ -69,4 +69,9 @@ public class RBNode<T extends Comparable<T>> implements Comparable<T>{
 		// TODO Auto-generated method stub
 		return this.key.compareTo(x);
 	}
+	
+	@Override
+	public String toString() {
+		return "<" + "color: " + color + ", " + "parent: " + parent + ", " + "key: " + key + ", " + "left: " + left + ", " + "right: " + right + ">";
+	}
 }
