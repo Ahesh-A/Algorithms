@@ -1,5 +1,7 @@
 package myds.redblacktree;
 
+import java.util.LinkedList;
+import java.util.Queue;
 import org.ahesh.types.Color;
 import org.ahesh.types.RBNode;
 
@@ -40,7 +42,6 @@ public class RBTUtils {
 		return node == node.getParent().getLeft();
 	}
 	
-
 	private static <T extends Comparable<T>> boolean isRightChild(RBNode<T> node) {
 		
 		return node == node.getParent().getRight();
@@ -108,6 +109,21 @@ public class RBTUtils {
 		
 	}
 	
+	private static <T extends Comparable<T>> void insertChildToQueue(Queue<RBNode<T>> queue, RBNode<T> node, RBNode<T> nil) {
+		
+		RBNode<T> leftChild = node.getLeft();
+		RBNode<T> rightChild = node.getRight();
+		
+		if(leftChild != nil) {
+			queue.offer(node.getLeft());
+		}
+		
+		if(rightChild != nil) {
+			queue.offer(rightChild);
+		}
+		
+	}
+	
 	public static <T extends Comparable<T>> void  insert(RBTree<T> tree, RBNode<T> node) throws Exception{
 		RBNode<T> y = tree.getNil();
 		RBNode<T> x = tree.getRoot();
@@ -172,4 +188,24 @@ public class RBTUtils {
 		
 		tree.getRoot().setColor(Color.BLACK);
 	}
+	
+	public static <T extends Comparable<T>> void bstRbTree(RBTree<T> tree) {
+		Queue<RBNode<T>> queue = new LinkedList<>();
+		queue.offer(tree.getRoot());
+		
+		while(!queue.isEmpty()) {
+			RBNode<T> node = queue.poll();
+			
+			if(node.getLeft() != tree.getNil()) {
+				queue.offer(node.getLeft());
+			}
+			
+			if(node.getRight() != tree.getNil()) {
+				queue.offer(node.getRight());
+			}
+			
+			
+		}
+	}
+	
 }
