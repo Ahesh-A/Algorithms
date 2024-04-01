@@ -13,12 +13,14 @@ public class RBTree<T extends Comparable<T>> {
 		this.root = root;
 	}
 
-
 	public RBTree(T[] arr) throws Exception {
 		
 		for(T element : arr) {
 			RBNode<T> node = new RBNode<>();
 			node.setKey(element);
+			node.setLeft(nil);
+			node.setRight(nil);
+			node.setParent(nil);
 			RBTUtils.insert(this, node);
 		}
 	}
