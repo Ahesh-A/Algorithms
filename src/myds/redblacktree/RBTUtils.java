@@ -8,6 +8,9 @@ import org.ahesh.types.RBNode;
 public class RBTUtils {
 	
 	private static <T extends Comparable<T>> RBNode<T> navigateX(RBNode<T> x, RBNode<T> node) {
+		if(x == null) {
+			
+		}
 		
 		if(node.compareTo(x.getKey()) < 0) {
 			return x.getLeft();
@@ -128,6 +131,15 @@ public class RBTUtils {
 		RBNode<T> y = tree.getNil();
 		RBNode<T> x = tree.getRoot();
 		
+		if(x == null) {
+			tree.setRoot(node);
+			node.setLeft(y);
+			node.setParent(y);
+			node.setRight(y);
+			node.setColor(Color.BLACK);
+			return;
+		}
+			
 		while(x != tree.getNil()) {
 			y = x;
 			x = navigateX(x, node);
@@ -197,7 +209,6 @@ public class RBTUtils {
 			RBNode<T> node = queue.poll();
 	
 			insertChildToQueue(queue, node, tree.getNil());
-			
 			System.out.print(node + " ");
 		}
 	}
