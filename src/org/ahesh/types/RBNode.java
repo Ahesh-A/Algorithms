@@ -72,6 +72,6 @@ public class RBNode<T extends Comparable<T>> implements Comparable<T>{
 	
 	@Override
 	public String toString() {
-		return "<" + "color: " + color + ", " + "parent: " + parent + ", " + "key: " + key + ", " + "left: " + left + ", " + "right: " + right + ">";
+		return "<" + "color: " + color + ", " + "parent: " + parent.getKey()+ ", " + "key: " + key + ", " + "left: " + left.getKey() + ", " + "right: " + right.getKey()+ ">";
 	}
 }
