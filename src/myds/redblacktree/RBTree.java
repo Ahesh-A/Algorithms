@@ -14,9 +14,11 @@ public class RBTree<T extends Comparable<T>> {
 	}
 
 
-	public RBTree(RBNode<T>[] arr) throws Exception {
+	public RBTree(T[] arr) throws Exception {
 		
-		for(RBNode<T> node: arr) {
+		for(T element : arr) {
+			RBNode<T> node = new RBNode<>();
+			node.setKey(element);
 			RBTUtils.insert(this, node);
 		}
 	}
