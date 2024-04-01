@@ -189,7 +189,7 @@ public class RBTUtils {
 		tree.getRoot().setColor(Color.BLACK);
 	}
 	
-	public static <T extends Comparable<T>> void bstRbTree(RBTree<T> tree) {
+	public static <T extends Comparable<T>> void bfsRbTree(RBTree<T> tree) {
 		Queue<RBNode<T>> queue = new LinkedList<>();
 		queue.offer(tree.getRoot());
 		
