@@ -213,4 +213,8 @@ public class RBTUtils {
 		}
 	}
 	
+	public static <T extends Comparable<T>> void delete(RBTree<T> root) {
+		
+	}
+	
 }
