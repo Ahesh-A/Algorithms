@@ -213,8 +213,31 @@ public class RBTUtils {
 		}
 	}
 	
-	public static <T extends Comparable<T>> void delete(RBTree<T> root) {
+	public static <T extends Comparable<T>> RBNode<T> getLeftMostChild(RBTree<T> tree, RBNode<T> node) {
+		RBNode<T> nil = tree.getNil();
+		RBNode<T> y = node;
 		
+		while(node != nil) {
+			y = node;
+			node = node.getLeft();
+		}
+		
+		return y;
+	}
+	
+	public static <T extends Comparable<T>> RBNode<T> getAncestor(RBTree<T> tree, RBNode<T> node) {
+		if(node.getRight() != tree.getNil()) {
+			return getLeftMostChild(tree, node.getRight());
+		}
+	}
+	
+	public static <T extends Comparable<T>> void delete(RBTree<T> tree, RBNode<T> node ) {
+		RBNode<T> y;
+		if(node.getLeft() == tree.getNil() || node.getRight() == tree.getNil()) {
+			y = node;
+		}	else {
+			y = getAncestor(tree, node);
+		}
 	}
 	
 }
