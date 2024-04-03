@@ -240,13 +240,28 @@ public class RBTUtils {
 		return y.getParent();
 	}
 	
-	public static <T extends Comparable<T>> void delete(RBTree<T> tree, RBNode<T> node ) {
-		RBNode<T> y;
+	public static <T extends Comparable<T>> RBNode<T> getPointerY(RBTree<T> tree, RBNode<T> node) {
 		if(node.getLeft() == tree.getNil() || node.getRight() == tree.getNil()) {
-			y = node;
-		}	else {
-			y = getAncestor(tree, node);
-		}
+			return  node;
+		} 
+		
+		return getSuccessor(tree, node);
+	}
+	
+	public static <T extends Comparable<T>> RBNode<T> getPointerX(RBNode<T> node, RBNode<T> nil) {
+		if(node.getLeft() != nil) {
+			return  node.getLeft();
+		} 
+		
+		return node.getRight();
+	}
+	
+	public static <T extends Comparable<T>> void delete(RBTree<T> tree, RBNode<T> node ) {
+		RBNode<T> nil = tree.getNil();
+		RBNode<T> y = getPointerY(tree, node);
+		RBNode<T> x = getPointerX(node, nil);
+		
+		
 	}
 	
 }
