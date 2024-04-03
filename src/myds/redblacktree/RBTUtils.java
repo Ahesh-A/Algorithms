@@ -256,12 +256,30 @@ public class RBTUtils {
 		return node.getRight();
 	}
 	
-	public static <T extends Comparable<T>> void delete(RBTree<T> tree, RBNode<T> node ) {
+	public static <T extends Comparable<T>> RBNode<T> delete(RBTree<T> tree, RBNode<T> node ) {
 		RBNode<T> nil = tree.getNil();
 		RBNode<T> y = getPointerY(tree, node);
 		RBNode<T> x = getPointerX(node, nil);
 		
+		x.setParent(y.getParent());
 		
+		if(y.getParent() == nil) {
+			tree.setRoot(x);
+		} else if(isLeftChild(x)) {
+			y.getParent().setLeft(x);
+		} else {
+			y.getParent().setRight(x);
+		}
+		
+		if(y != node) {
+			node.setKey(y.getKey());
+		}
+		
+//		if(y.getColor() == Color.BLACK) {
+//			RBDeleteFixUp();
+//		}
+		
+		return y;
 	}
 	
 }
