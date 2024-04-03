@@ -225,10 +225,19 @@ public class RBTUtils {
 		return y;
 	}
 	
-	public static <T extends Comparable<T>> RBNode<T> getAncestor(RBTree<T> tree, RBNode<T> node) {
+	public static <T extends Comparable<T>> RBNode<T> getSuccessor(RBTree<T> tree, RBNode<T> node) {
+		
+		RBNode<T> y = node;
+		
 		if(node.getRight() != tree.getNil()) {
 			return getLeftMostChild(tree, node.getRight());
 		}
+		
+		while(isRightChild(y) && y != tree.getNil()) {
+			y = y.getParent();
+		}
+		
+		return y.getParent();
 	}
 	
 	public static <T extends Comparable<T>> void delete(RBTree<T> tree, RBNode<T> node ) {
