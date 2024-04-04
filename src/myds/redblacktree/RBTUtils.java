@@ -282,4 +282,38 @@ public class RBTUtils {
 		return y;
 	}
 	
+	public static <T extends Comparable<T>> void rbDeleteFixUp(RBTree<T> tree, RBNode<T> x) throws Exception {
+		while(x != tree.getRoot() && x.getColor() == Color.BLACK) {
+			if(isLeftChild(x)) {
+				RBNode<T> w = x.getParent().getRight();
+				if(w.getColor() == Color.RED) {
+					w.setColor(Color.BLACK);
+					x.getParent().setColor(Color.RED);
+					rotateLeft(tree, x.getParent());
+					w = x.getParent().getRight();
+				}
+				
+				if(w.getLeft().getColor() == Color.BLACK && w.getRight().getColor() == Color.BLACK) {
+					w.setColor(Color.RED);
+					x = x.getParent();
+				} else if(w.getRight().getColor() == Color.BLACK) {
+					w.getLeft().setColor(Color.BLACK);
+					w.setColor(Color.RED);
+					rotateRight(tree, w);
+					w = x.getParent().getRight();
+				}
+				
+				w.setColor(x.getParent().getColor());
+				x.getParent().setColor(Color.BLACK);
+				rotateLeft(tree, x.getParent());
+				x = tree.getRoot();
+			} else {
+				
+			}
+			
+		}
+		
+		x.setColor(Color.BLACK);
+	}
+	
 }
