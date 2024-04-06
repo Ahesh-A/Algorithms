@@ -256,7 +256,7 @@ public class RBTUtils {
 		return node.getRight();
 	}
 	
-	public static <T extends Comparable<T>> RBNode<T> delete(RBTree<T> tree, RBNode<T> node ) {
+	public static <T extends Comparable<T>> RBNode<T> delete(RBTree<T> tree, RBNode<T> node ) throws Exception {
 		RBNode<T> nil = tree.getNil();
 		RBNode<T> y = getPointerY(tree, node);
 		RBNode<T> x = getPointerX(node, nil);
