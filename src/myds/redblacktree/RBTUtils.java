@@ -275,9 +275,9 @@ public class RBTUtils {
 			node.setKey(y.getKey());
 		}
 		
-//		if(y.getColor() == Color.BLACK) {
-//			RBDeleteFixUp();
-//		}
+		if(y.getColor() == Color.BLACK) {
+			rbDeleteFixUp(tree, x);
+		}
 		
 		return y;
 	}
