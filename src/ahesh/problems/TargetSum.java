@@ -17,7 +17,12 @@
 package ahesh.problems;
 
 public class TargetSum {
+	public static int getValue(int target, int sum) {
+		
+		if(target == sum) return 1;
 
+		return 0;
+	}
 	
 	public static int getPermutationsForTarget(int[] arr, int target, int idx, int sum) {
 		if(idx == arr.length - 1) {
