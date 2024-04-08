@@ -22,10 +22,22 @@ package ahesh.problems;
 
 public class MinCostTickets {
 	
-	public static void main(String[] args) {
-		int[] arr = {1,4,6,7,8,20};
-		int[] cost = {2,7,15};
+	public static int getMinCost(int[] days, int[] cost) {
+		int result = 0;
 		
-		System.out.println("Find min cost: " + getMinCost(arr, cost));
+		int daily = getMinCostHelper();
+		int weekly = getMinCostHelper();
+		int monthly = getMinCostHelper();
+		
+		
+		return Math.min(Math.min(daily, weekly), monthly);
+		
+	}
+	
+	public static void main(String[] args) {
+		int[] days = {1, 4, 6, 7, 8, 20};
+		int[] cost = {2, 7, 15};
+		
+		System.out.println("Find min cost: " + getMinCost(days, cost));
 	}
 }
