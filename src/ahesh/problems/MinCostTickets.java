@@ -22,13 +22,14 @@ package ahesh.problems;
 
 public class MinCostTickets {
 	
-	public static int getMinCost(int[] days, int[] cost) {
-		int result = 0;
+	
+	public static int getMinCost(int[] days, int[] cost, int idx) {
+		
 		
 		int daily = getMinCostHelper();
 		int weekly = getMinCostHelper();
 		int monthly = getMinCostHelper();
-		
+		int result = getMinCost(days, cost) idx;
 		
 		return Math.min(Math.min(daily, weekly), monthly);
 		
