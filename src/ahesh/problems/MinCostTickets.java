@@ -25,11 +25,7 @@ public class MinCostTickets {
 	
 	public static int getMinCost(int[] days, int[] cost, int idx) {
 		
-		
-		int daily = getMinCostHelper();
-		int weekly = getMinCostHelper();
-		int monthly = getMinCostHelper();
-		int result = getMinCost(days, cost) idx;
+		int result += getMinCost(days, cost, idx) ;
 		
 		return Math.min(Math.min(daily, weekly), monthly);
 		
@@ -39,6 +35,6 @@ public class MinCostTickets {
 		int[] days = {1, 4, 6, 7, 8, 20};
 		int[] cost = {2, 7, 15};
 		
-		System.out.println("Find min cost: " + getMinCost(days, cost));
+		System.out.println("Find min cost: " + getMinCost(days, cost, 0));
 	}
 }
