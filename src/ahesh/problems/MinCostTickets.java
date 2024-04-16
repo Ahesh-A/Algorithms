@@ -24,7 +24,23 @@ import java.util.HashMap;
 
 
 public class MinCostTickets {
-
+	
+	public static int getMinCostHelper(int[] days, int[] cost, HashMap<Integer, Integer> map, int idx, int[] travel) {
+		if(idx >= days.length) return 0;
+		
+		if(map.containsKey(idx)) return map.get(idx);
+		
+		map.put(idx, Integer.MAX_VALUE);
+		
+		for(int i = 0; i < travel.length; i++) {
+			int j = idx;
+			while( j < days.length && days[j] < days[idx] + travel[i]) j++;
+			
+			map.put(idx, Math.min(map.get(idx), cost[i] + getMinCostHelper(days, cost, map, j , travel))); 
+		}
+		
+		return map.get(idx);
+	}
 	
 	public static int getMinCost(int[] days, int[] cost, int idx) {
 		HashMap<Integer, Integer> map = new HashMap<>();
