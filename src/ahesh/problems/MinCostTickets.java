@@ -20,14 +20,16 @@
 
 package ahesh.problems;
 
+import java.util.HashMap;
+
+
 public class MinCostTickets {
-	
+
 	
 	public static int getMinCost(int[] days, int[] cost, int idx) {
-		
-		int result += getMinCost(days, cost, idx) ;
-		
-		return Math.min(Math.min(daily, weekly), monthly);
+		HashMap<Integer, Integer> map = new HashMap<>();
+
+		return getMinCostHelper(days, cost, map, 0, new int[] {1, 7, 30});
 		
 	}
 	
