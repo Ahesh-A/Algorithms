@@ -26,6 +26,7 @@ import java.util.HashMap;
 public class MinCostTickets {
 	
 	public static int getMinCostHelper(int[] days, int[] cost, HashMap<Integer, Integer> map, int idx, int[] travel) {
+		
 		if(idx >= days.length) return 0;
 		
 		if(map.containsKey(idx)) return map.get(idx);
