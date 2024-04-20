@@ -33,7 +33,6 @@ public class CoinChange2 {
 				}
 			}
 		}
-		System.out.println("DP: " + Arrays.toString(dp));
 		return dp[amount];
 	}
 	
