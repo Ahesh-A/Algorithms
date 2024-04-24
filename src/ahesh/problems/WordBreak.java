@@ -15,7 +15,8 @@ public class WordBreak {
 			
 			for(String  wrd : dictionary) {
 				if(i + wrd.length() - 1 < word.length() && wrd.equals(sb.substring(i, i + wrd.length()))) {
-					dp[i] |= dp[i + wrd.length()];
+					dp[i] = dp[i + wrd.length()];
+					if(dp[i]) break;
 				}
 			}
 			
