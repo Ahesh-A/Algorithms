@@ -12,6 +12,10 @@ package ahesh.problems;
 
 public class LongestPalindromicSubString {
 	
+	public static String getLongestPalindromicSubString(String charSeq) {
+		
+		return "";
+	}
 	
 	public static void main(String[] args) {
 		String charSeq = "babad";
