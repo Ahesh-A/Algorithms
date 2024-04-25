@@ -18,6 +18,7 @@ public class LongestPalindromicSubString {
 		int end;
 		
 		for(int i = 0; i < charSeq.length(); i++) {
+//			odd length
 			start  = i;
 			end = i;
 			
@@ -30,7 +31,7 @@ public class LongestPalindromicSubString {
 					end ++;
 				} else break;
 			}
-			
+//			even length 
 			start = i;
 			end = i + 1;
 			
@@ -44,6 +45,7 @@ public class LongestPalindromicSubString {
 				} else break;
 			}
 		}
+		
 		return result;
 	}
 	
