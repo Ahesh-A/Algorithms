@@ -3,7 +3,7 @@ package ahesh.problems;
 public class DecodeWays {
 	
 	public static boolean validateString(String s) {
-		return s.compareTo("0") > 0 && s.compareTo("26") <= 0;
+		return s.charAt(0) != '0' &&  s.compareTo("0") > 0 && s.compareTo("26") <= 0;
 	}
 	
 	public static int noOfWaysToDecode(String s) {
@@ -18,6 +18,7 @@ public class DecodeWays {
 	
 	public static void main(String[] args) {
 		String s = "";
-		System.out.println("Result: " + noOfWaysToDecode(s));
+//		System.out.println("Result: " + noOfWaysToDecode(s));
+		System.out.println("Result: " + validateString("60"));
 	}
 }
