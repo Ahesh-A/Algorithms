@@ -4,9 +4,16 @@ import java.util.HashMap;
 
 public class DecodeWays {
 	
-	public static void updateDpForSingleDigit(int number, int[] dp) {
+	public static void updateDpForSingleDigit(int number, int[] dp, int idx) {
+		
 		if(number != 0) {
-			dp[i] += dp[i - 1];
+			dp[idx] += dp[idx - 1];
+		}
+	}
+	
+	public static void updateDpForDoubleDigit(int number, int[] dp, int idx) {
+		if(number > 9 && number <= 26) {
+			dp[idx] += dp[idx - 2];
 		}
 	}
 	
@@ -19,9 +26,7 @@ public class DecodeWays {
 			
 			
 			
-			if(doubleDigit > 9 && doubleDigit <= 26) {
-				dp[i] += dp[i - 2];
-			}
+			
 		}
 	}
 	
