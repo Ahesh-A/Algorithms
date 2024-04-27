@@ -4,46 +4,41 @@ import java.util.HashMap;
 
 public class DecodeWays {
 	
-	public static boolean validateString(String s) {
-		
-		return s.charAt(0) != '0' &&  Integer.parseInt(s) > 0 && Integer.parseInt(s) <= 26;
-	}
-	
-	public static int singleSlice(String s, HashMap<String, Integer> cache) {
-		
-		if(s.length() >= 1 && validateString(s.substring(0, 1))) {
-			
-			return noOfWaysToDecode(s.substring(1, s.length()), cache);
+	public static void updateDpForSingleDigit(int number, int[] dp) {
+		if(number != 0) {
+			dp[i] += dp[i - 1];
 		}
-		
-		return 0;
-		
 	}
 	
-	public static int doubleSlice(String s, HashMap<String, Integer> cache) {
-		if(s.length() >= 2 && validateString(s.substring(0, 2))) {
+	public static void getDp(String s, int[] dp) {
+		int n = s.length();
+		
+		for(int i = 2; i <= n; i++) {
+			int singleDigit = s.charAt(i - 1) - '0';
+			int doubleDigit = Integer.parseInt(s.substring(i - 2, i));
 			
-			return noOfWaysToDecode(s.substring(2, s.length()), cache);
+			
+			
+			if(doubleDigit > 9 && doubleDigit <= 26) {
+				dp[i] += dp[i - 2];
+			}
 		}
-		
-		return 0;
 	}
 	
-	public static int noOfWaysToDecode(String s, HashMap<String, Integer> cache) {
+	public static int noOfWaysToDecode(String s) {
+		if(s == null || s.length() == 0 || s.charAt(0) == '0') return 0;
 		
-		if(cache.containsKey(s)) return cache.get(s);
+		int[] dp = new int[s.length() + 1];
+		dp[0] = 1;
+		dp[1] = 1;
 		
-		if(s.equals("")) return 1;	
-		
-		int res = singleSlice(s, cache) + doubleSlice(s, cache);
-		cache.put(s, res);
-		
-		return res;
+		getDp(s, dp);
+		return dp[s.length()];
 	}
 	
 	public static void main(String[] args) {
 		String s = "111111111111111111111111111111111111111111111"; //1836311903
-		System.out.println("Result: " + noOfWaysToDecode(s, new HashMap<String, Integer>()));
+		System.out.println("Result: " + noOfWaysToDecode(s));
 		
 	}
 }
