@@ -6,19 +6,38 @@ public class DecodeWays {
 		return s.charAt(0) != '0' &&  s.compareTo("0") > 0 && s.compareTo("26") <= 0;
 	}
 	
+	public static int singleSlice(String s) {
+		
+		if(s.length() >= 1 && validateString(s.substring(0, 1))) {
+//			System.out.println("Validated for length 1");
+			return noOfWaysToDecode(s.substring(1, s.length()));
+		}
+		
+		return 0;
+		
+	}
+	
 	public static int noOfWaysToDecode(String s) {
+		System.out.println("String :" + s);
+		if(s.equals("")) return 1;	
+		
 		int result = 0;
 		// sepearte single 
-		if(validateString(s.substring(0, 1))) {
+		if(s.length() >= 1 && validateString(s.substring(0, 1))) {
+//			System.out.println("Validated for length 1");
 			result += noOfWaysToDecode(s.substring(1, s.length()));
 		}
-		result += noOfWaysToDecode(s);
-		return 0;
+		if(s.length() >= 2 && validateString(s.substring(0, 2))) {
+//			System.out.println("Validated for length 245w");
+			result += noOfWaysToDecode(s.substring(2, s.length()));
+		}
+//		System.out.println("Result: " + result);
+		return result;
 	}
 	
 	public static void main(String[] args) {
-		String s = "";
-//		System.out.println("Result: " + noOfWaysToDecode(s));
-		System.out.println("Result: " + validateString("60"));
+		String s = "11106";
+		System.out.println("Result: " + noOfWaysToDecode(s));
+//		System.out.println("Result: " + "asc".substring(2, 3));
 	}
 }
