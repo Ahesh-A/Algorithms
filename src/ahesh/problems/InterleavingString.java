@@ -22,16 +22,53 @@
 
 package ahesh.problems;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+
 public class InterleavingString {
 	
-	public static boolean isInterleavingString(String s1, String s2, String s3) {
+	public static boolean isInterleavingString(String s1, String s2, String s3, int i, int j, Map<String, Boolean> cache) {
+		
+		String key = i + "" + j;
+		System.out.println("Cache: " + cache);
+		if(i == s1.length() && j == s2.length()) return true; 
+		
+		if(cache.containsKey(key)) return cache.get(key);
+		 
+		if(i < s1.length() && s1.charAt(i) == s3.charAt(i + j) && isInterleavingString(s1, s2, s3, i + 1, j, cache)) {
+			return true;
+		}
+		
+		if(j < s2.length() && s2.charAt(j) == s3.charAt(i + j) && isInterleavingString(s1, s2, s3, i, j + 1, cache)) {
+			return true;
+		}
+		
+		cache.put(key, false);
+		
+		return false;
+		
+	}
+	public static boolean isInterleavingDp(String s1, String s2, String s3) {
+//		int lens1 = s1.length();
+//		int lens2 = s2.length();
+//		
+//		if(lens1 + lens2 != s3.length()) return false;
+		
+		
+		
 		
 	}
 	
 	public static void main(String[] args) {
-		String s1 = "aabcc";
-		String s2 = "dbbca";
-		String s3 = "aadbbcbcac";
+		String s1 = "", s2 = "", s3 = "";
+//		String s2 = "dbbca";
+//		String s3 = "aadbbcbcac";
+		
+		System.out.println("Result: " + isInterleavingString(s1, s2, s3, 0, 0, new HashMap<>()));
 	}
 	
 }
