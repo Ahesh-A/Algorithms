@@ -15,14 +15,17 @@ package ahesh.problems;
 
 public class HouseRobber {
 	
-	public static int getMaxProfit(int[] nums) {
-		int pre = 0, cur = 0;
-        for (int num : nums) {
-            final int temp = Integer.max(pre + num, cur);
-            pre = cur;
-            cur = temp;
-        }
-        return cur;
+	public static int rob(int[] cash) {
+		int pre = 0;
+		int cur = 0;
+		
+		for(int i : cash) {
+			final int temp = Integer.max(pre + i, cur);
+			pre = cur;
+			cur = temp;
+		}
+		
+		return cur;
 	}
 	
 	public static void main(String[] args) {
@@ -39,6 +42,6 @@ public class HouseRobber {
 		}
 		
 //		System.out.println("Result: " + Math.max(oddSum, evenSum));
-		System.out.println("Result: " + getMaxProfit(money));
+		System.out.println("Result: " + rob(money));
 	}
 }
