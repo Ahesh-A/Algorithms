@@ -24,4 +24,14 @@ package ahesh.problems;
 
 public class InterleavingString {
 	
+	public static boolean isInterleavingString(String s1, String s2, String s3) {
+		
+	}
+	
+	public static void main(String[] args) {
+		String s1 = "aabcc";
+		String s2 = "dbbca";
+		String s3 = "aadbbcbcac";
+	}
+	
 }
