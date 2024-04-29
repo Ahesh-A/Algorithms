@@ -22,12 +22,8 @@
 
 package ahesh.problems;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-
 
 public class InterleavingString {
 	
@@ -53,14 +49,30 @@ public class InterleavingString {
 		
 	}
 	public static boolean isInterleavingDp(String s1, String s2, String s3) {
-//		int lens1 = s1.length();
-//		int lens2 = s2.length();
-//		
-//		if(lens1 + lens2 != s3.length()) return false;
+		int lens1 = s1.length();
+		int lens2 = s2.length();
 		
+		if(lens1 + lens2 != s3.length()) return false;
 		
+		boolean[][] dp = new boolean[lens1 + 1][lens2 + 1];
 		
+		dp[lens1][lens2] = true;
 		
+		for(int i = lens1; i >= 0 ; i--) {
+			for(int j = lens2; j >= 0; j--) {
+				
+				if(i < lens1 && s3.charAt(i + j) == s1.charAt(i) && dp[i + 1][j]) {
+					dp[i][j] = true;
+				}
+				
+				if(j < lens2 && s3.charAt(i + j) == s2.charAt(j) && dp[i][j + 1]) {
+					dp[i][j] = true;
+				}
+				
+			}
+		}
+		
+		return dp[0][0];
 	}
 	
 	public static void main(String[] args) {
@@ -68,7 +80,7 @@ public class InterleavingString {
 //		String s2 = "dbbca";
 //		String s3 = "aadbbcbcac";
 		
-		System.out.println("Result: " + isInterleavingString(s1, s2, s3, 0, 0, new HashMap<>()));
+		System.out.println("Result: " + isInterleavingDp(s1, s2, s3));
 	}
 	
 }
