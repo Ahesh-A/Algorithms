@@ -14,7 +14,7 @@ package ahesh.problems;
 
 public class HouseRobbing2 {
 	public static int robInRange(int[] cash, int start, int end) {
-		
+		if(end < start) return cash[0];
 		int pre = 0;
 		int cur = 0;
 		
