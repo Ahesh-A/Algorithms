@@ -13,13 +13,26 @@
 package ahesh.problems;
 
 public class HouseRobbing2 {
-	public static int robUntilIdx(int[] cash) {
+	public static int robInRange(int[] cash, int start, int end) {
 		
+		int pre = 0;
+		int cur = 0;
+		
+		for(int i = start; i <= end; i++) {
+			int temp = Integer.max(pre + cash[i], cur);
+			pre = cur;
+			cur = temp;
+			
+		}
+		
+		return cur;
 	}
 	
 	public static void main(String[]args) {
-		int[] cash = {2, 3, 2};
-		System.out.println("Result: " + getMaxGain(cash));
+		int[] cash = {1};
+		int length = cash.length;
+		System.out.println("Result: " + Integer.max(robInRange(cash, 0, length - 2), robInRange(cash, 1, length - 1)));
+		
 	}
 	
 }
