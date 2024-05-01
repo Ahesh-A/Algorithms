@@ -13,9 +13,9 @@
 package ahesh.problems;
 
 public class HouseRobbing2 {
-//	public static int getMaxGain(int[] cash) {
-//		
-//	}
+	public static int robUntilIdx(int[] cash) {
+		
+	}
 	
 	public static void main(String[]args) {
 		int[] cash = {2, 3, 2};
