@@ -21,8 +21,7 @@ public class HouseRobbing2 {
 		for(int i = start; i <= end; i++) {
 			int temp = Integer.max(pre + cash[i], cur);
 			pre = cur;
-			cur = temp;
-			
+			cur = temp;	
 		}
 		
 		return cur;
@@ -32,7 +31,6 @@ public class HouseRobbing2 {
 		int[] cash = {1};
 		int length = cash.length;
 		System.out.println("Result: " + Integer.max(robInRange(cash, 0, length - 2), robInRange(cash, 1, length - 1)));
-		
 	}
 	
 }
