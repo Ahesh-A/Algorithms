@@ -23,12 +23,23 @@ public class PaintHouse {
 		int green = 0;
 		int blue = 0;
 		
-//		for(int )
+		for(int i = 0; i < cost.length; i++) {
+			int preRed = cost[i][0] + Integer.min(green, blue);  
+			int preGreen = cost[i][1] + Integer.min(red, blue);
+			int preBlue = cost[i][2] + Integer.min(red, green);
+			
+			red = preRed;
+			green = preGreen;
+			blue = preBlue;
+		}
+		
+		return (red < green) ? ((red < blue) ? red : blue) : ((green < blue) ? green : blue);
 	}
 	public static void main(String args[]) {
-		int[][] cost = {{14,2,11},
-						{11,14,5},
-						{14,3,10}};
-		
+		int[][] cost = {{14, 2, 11},
+						{11, 14, 5},
+						{14, 3, 10},
+						{1, 10, 5}};
+		System.out.println("Result: " + minCost(cost));
 	}
 }
