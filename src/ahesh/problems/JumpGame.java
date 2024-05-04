@@ -4,7 +4,7 @@ public class JumpGame {
 	public static boolean canJump(int[] arr) {
 		int max = arr[0];
 		
-		for(int i = 0; i < max; i++) {
+		for(int i = 0; i <= max; i++) {
 			max = Integer.max(max, i + arr[i]);
 			if(max >= arr.length - 1) {
 				return true;
