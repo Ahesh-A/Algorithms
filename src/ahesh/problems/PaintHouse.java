@@ -35,6 +35,7 @@ public class PaintHouse {
 		
 		return (red < green) ? ((red < blue) ? red : blue) : ((green < blue) ? green : blue);
 	}
+	
 	public static void main(String args[]) {
 		int[][] cost = {{14, 2, 11},
 						{11, 14, 5},
