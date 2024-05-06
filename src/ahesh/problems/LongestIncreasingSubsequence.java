@@ -23,6 +23,33 @@ import java.util.Collections;
 
 public class LongestIncreasingSubsequence {
 	
+	public static int lengthOfLIS1(int[] nums) {
+		 if(nums == null || nums.length == 0){
+	            return 0;
+	        }
+	        int [] ends = new int[nums.length];
+	        ends[0] = nums[0];
+	        int right = 0;
+	        for(int i =1;i<nums.length;i++){
+	            int low = 0;
+	            int high = right;
+	            while(low <= high){
+	                int mid = low + ((high - low) >> 2);
+	                if(nums[i] > ends[mid]){
+	                    low = mid + 1;
+	                }else{
+	                    high = mid - 1;
+	                }
+	            }
+	            right = Math.max(right,low);
+	            ends[low] = nums[i];
+	            System.out.println(Arrays.toString(ends));
+	        }
+	        
+	        return right + 1;
+	    }
+	
+
 	public static int lengthOfLIS(int[] nums) {
 		int length = nums.length;
 		Integer[] dp = new Integer[length];
@@ -41,7 +68,7 @@ public class LongestIncreasingSubsequence {
 	}
 	
 	public static void main(String[] args) {
-		int[] nums = {10 , 9, 2, 5, 3, 7, 101, 18};
-		System.out.println("Result: " + lengthOfLIS(nums));
+		int[] nums = {10 , 9, 2, 5, 3, 101, 7 , 18, 1, 5, 1, 1, 1, 1 };
+		System.out.println("Result: " + lengthOfLIS1(nums));
 	}
 }
