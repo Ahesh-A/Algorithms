@@ -16,5 +16,26 @@
 package ahesh.problems;
 
 public class LongestCommonSubsequence {
-
+	
+	public static int lcu(String s1, String s2) {
+		StringBuilder sb = new StringBuilder();
+		
+		for(int i = 0; i < s1.length(); i++) {
+			CharSequence c = "" + (s2.charAt(i));
+			if(s2.contains(c)) {
+				
+			}
+		}
+	}
+	
+	public static void main(String[] args) {
+		String s1 = "abcde";
+		String s2 = "ace";
+		int res = -1;
+		if(s1.length() < s2.length()) {
+			res = lcu(s1, s2);
+		} else {
+			res = lcu(s2, s1);
+		}
+	}
 }
