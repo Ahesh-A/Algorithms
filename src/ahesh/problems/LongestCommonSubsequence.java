@@ -17,15 +17,6 @@ package ahesh.problems;
 
 public class LongestCommonSubsequence {
 	
-	public static void addCharToStringBuilder(CharSequence c, StringBuilder sb) {
-		int low = 0;
-		int high = sb.length();
-		
-		while(low < high) {
-			
-		}
-	}
-	
 	public static int lcu(String s1, String s2) {
 		int[][] dp = new int[s1.length() + 1][s2.length() + 1];
 		
