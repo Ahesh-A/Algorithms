@@ -27,24 +27,27 @@ public class LongestCommonSubsequence {
 	}
 	
 	public static int lcu(String s1, String s2) {
-		StringBuilder sb = new StringBuilder();
+		int[][] dp = new int[s1.length() + 1][s2.length() + 1];
 		
-		for(int i = 0; i < s1.length(); i++) {
-			CharSequence c = "" + (s2.charAt(i));
-			if(s2.contains(c)) {
+		for(int i = s1.length() - 1; i >= 0; i--) {
+			for(int j = s2.length() - 1; j >= 0; j--) {
 				
+				if(s1.charAt(i) == s2.charAt(j) ) {
+					dp[i][j] = 1 + dp[i + 1][j + 1];
+				} else {
+					dp[i][j] = Integer.max(dp[i + 1][j], dp[i][j + 1]);
+				}
 			}
 		}
+		
+		return dp[0][0];
+		
 	}
 	
 	public static void main(String[] args) {
 		String s1 = "abcde";
 		String s2 = "ace";
-		int res = -1;
-		if(s1.length() < s2.length()) {
-			res = lcu(s1, s2);
-		} else {
-			res = lcu(s2, s1);
-		}
+		
+		System.out.println("Result: " + lcu(s1, s2));
 	}
 }
