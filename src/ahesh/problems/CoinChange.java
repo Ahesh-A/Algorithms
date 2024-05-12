@@ -12,14 +12,16 @@ public class CoinChange {
 			
 			if(temp >=0) {
 				noOfWays = Integer.min(noOfWays, minCoins(coins, temp) + 1);
+			} else {
+				return -1;
 			}
 		}
 		
-		return noOfWays;
+		return noOfWays == Integer.MAX_VALUE ? - 1 : noOfWays;
 	}
 	
 	public static void main(String[] rags) {
-		int[] coins = {1, 2, 5};
+		int[] coins = {2};
 		int target = 11;
 		
 		System.out.println("Result: " + minCoins(coins, target));
