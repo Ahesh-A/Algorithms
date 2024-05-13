@@ -2,28 +2,22 @@ package ahesh.problems;
 
 public class CoinChange {
 	
-	public static int minCoins(int[] coins, int target) {
-		if(target == 0) return 0;
-		
-		int noOfWays = Integer.MAX_VALUE;
-		
-		for(int i = 0; i < coins.length; i++) {
-			int temp = target - coins[i];
-			
-			if(temp >=0) {
-				noOfWays = Integer.min(noOfWays, minCoins(coins, temp) + 1);
-			} else {
-				return -1;
-			}
+	public static void fillArrWithValues(int[] dp, int value) {
+		for(int i = 0; i < dp.length; i++) {
+			dp[i] = value;
 		}
-		
-		return noOfWays == Integer.MAX_VALUE ? - 1 : noOfWays;
 	}
+	
+	public static int minCoins(int[] coins, int target) {
+		
+	}
+	
 	
 	public static void main(String[] rags) {
 		int[] coins = {2};
 		int target = 11;
+		int i = Integer.MAX_VALUE;
 		
-		System.out.println("Result: " + minCoins(coins, target));
+		System.out.println( i + 1);
 	}
 }
