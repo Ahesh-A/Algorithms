@@ -17,8 +17,9 @@
 package ahesh.problems;
 
 public class JumpGame2 {
+	
 	public static int getMinCoinCount(int[] nums) {
-		
+		return 0;
 	}
 	
 	public static void main(String[] args) {
