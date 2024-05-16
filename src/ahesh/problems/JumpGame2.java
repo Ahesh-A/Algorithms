@@ -18,12 +18,22 @@ package ahesh.problems;
 
 public class JumpGame2 {
 	
-	public static int getMinCoinCount(int[] nums) {
-		return 0;
+	public static int getMinCoinCount(int[] nums, int target) {
+		
+	}
+	
+	public static void initailzeArray(int[] arr, int number) {
+		for(int i = 1; i < arr.length; i++) {
+			arr[i] = number;
+		}
 	}
 	
 	public static void main(String[] args) {
 		int[] nums = {2, 3, 1, 1, 4};
-		System.out.println("Result: " + getMinCoinCount(nums));
+		int target = 7;
+		int[] dp = new int[target + 1];
+		initailzeArray(dp, target);
+		dp[0] = 0;
+		System.out.println("Result: " + getMinCoinCount(nums, target));
 	}
 }
