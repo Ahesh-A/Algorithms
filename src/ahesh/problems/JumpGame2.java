@@ -16,10 +16,27 @@
 
 package ahesh.problems;
 
+import java.util.Arrays;
+
 public class JumpGame2 {
 	
-	public static int getMinCoinCount(int[] nums, int target) {
+	public static void setDp(int[] nums, int[] dp, int tempTarget) {
+		for(int j = 0; j < nums.length; j++) {
+			int newTarget = tempTarget - nums[j];
+			
+			if(newTarget >= 0) {
+				dp[tempTarget] = Integer.min(dp[tempTarget], 1 + dp[newTarget]);
+			}
+		}
+			
+	}
+	
+	public static int getMinCoinCount(int[] nums, int target, int[] dp) {
+		for(int i = 1; i <= target; i++) {
+			setDp(nums, dp, i);
+		}
 		
+		return dp[target] != target + 1 ? dp[target] : -1;
 	}
 	
 	public static void initailzeArray(int[] arr, int number) {
@@ -29,11 +46,11 @@ public class JumpGame2 {
 	}
 	
 	public static void main(String[] args) {
-		int[] nums = {2, 3, 1, 1, 4};
+		int[] nums = {2, 3, 1, 4};
 		int target = 7;
 		int[] dp = new int[target + 1];
-		initailzeArray(dp, target);
+		initailzeArray(dp, target + 1);
 		dp[0] = 0;
-		System.out.println("Result: " + getMinCoinCount(nums, target));
+		System.out.println("Result: " + getMinCoinCount(nums, target, dp));
 	}
 }
