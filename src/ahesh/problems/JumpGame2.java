@@ -20,15 +20,18 @@ import java.util.Arrays;
 
 public class JumpGame2 {
 	
+	public static void setDpHelper(int[] dp, int modifiedTarget, int tempTarget) {
+		if(modifiedTarget >= 0) {
+			dp[tempTarget] = Integer.min(dp[tempTarget], 1 + dp[modifiedTarget]);
+		}
+	}
+	
 	public static void setDp(int[] nums, int[] dp, int tempTarget) {
 		for(int j = 0; j < nums.length; j++) {
-			int newTarget = tempTarget - nums[j];
+			int modifiedTarget= tempTarget - nums[j];
 			
-			if(newTarget >= 0) {
-				dp[tempTarget] = Integer.min(dp[tempTarget], 1 + dp[newTarget]);
-			}
-		}
-			
+			setDpHelper(dp, modifiedTarget, tempTarget);
+		}			
 	}
 	
 	public static int getMinCoinCount(int[] nums, int target, int[] dp) {
