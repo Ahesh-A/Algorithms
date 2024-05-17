@@ -6,12 +6,25 @@
 package ahesh.problems;
 
 public class MaximalSquare {
+	
+	public static void getMinNeighbourhood(int rowIdx, int colIdx) {
+		
+	}
+	
+	public static void fillRow(int rowIdx, int colIdx) {
+		for(int j = colIdx; j >= 0; j--) {
+			
+		}
+	}
+	
 	public static int getMaximalSquare(String [][] arr) {
 		int max = 0;
 		final int row = arr.length;
 		final int col = arr[0].length;
 		
-		for(int row = )
+		for(int i = row - 1; i >= 0; i--) {
+			
+		}
 		return max
 	}
 	
