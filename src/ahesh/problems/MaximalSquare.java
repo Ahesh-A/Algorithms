@@ -7,7 +7,12 @@ package ahesh.problems;
 
 public class MaximalSquare {
 	public static int getMaximalSquare(String [][] arr) {
-		return 0;
+		int max = 0;
+		final int row = arr.length;
+		final int col = arr[0].length;
+		
+		for(int row = )
+		return max
 	}
 	
 	public static void main(String[] args) {
@@ -18,6 +23,6 @@ public class MaximalSquare {
 				{"1","0","0","1","0"}
 		};
 		
-		System.out.println("REsult: " + getMaximalSquare(arr));
+		System.out.println("Result: " + getMaximalSquare(arr));
 	}
 }
