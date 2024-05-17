@@ -6,6 +6,10 @@
 package ahesh.problems;
 
 public class MaximalSquare {
+	public static int getMaximalSquare(String [][] arr) {
+		return 0;
+	}
+	
 	public static void main(String[] args) {
 		String[][] arr = {
 				{"1","0","1","0","0"},
