@@ -5,54 +5,64 @@
 
 package ahesh.problems;
 
+import java.util.Arrays;
+
 public class MaximalSquare {
 	
-	public static int getMinNeighbourhood(int rowIdx, int colIdx, int[][] arr ) {
+	public static void insertHandler(int rowIdx, int colIdx, char[][] arr) {
+		if(arr[rowIdx][colIdx] != '0') {
+			arr[rowIdx][colIdx] = (char)(getMinNeighbourhood(rowIdx, colIdx, arr) + 1);
+		}
+	}
+	
+	public static int getMinNeighbourhood(int rowIdx, int colIdx, char[][] arr ) {
 		final int rowLength = arr.length;
 		final int colLength = arr[0].length;
 		
 		int max = 0;
 		
 		if(colIdx + 1 < colLength && rowIdx < rowLength) {
-			max = Integer.max(max, arr[rowIdx][colIdx + 1]);
+			max = Integer.max(max, arr[rowIdx][colIdx + 1] - '0');
 		}
 		
 		if(rowIdx + 1 < rowLength && colIdx < colLength) {
-			max = Integer.max(max, arr[rowIdx][colIdx]);
+			max = Integer.max(max, arr[rowIdx][colIdx] - '0');
 		}
 		
 		if(rowIdx + 1 < rowLength && colIdx + 1 < colLength) {
-			max = Integer.max(max, arr[rowIdx][colIdx]);
+			max = Integer.max(max, arr[rowIdx][colIdx] - '0');
 		}
 		
 		return max;
 	}
 	
-	public static void fillRow(int rowIdx, int colIdx, int[][] arr) {
+	public static void fillRow(int rowIdx, int colIdx, char[][] arr) {
 		for(int j = colIdx; j >= 0; j--) {
 			
 		}
 	}
 	
-	public static int getMaximalSquare(String [][] arr) {
-		int max = 0;
-		final int row = arr.length;
-		final int col = arr[0].length;
-		
-		for(int i = row - 1; i >= 0; i--) {
-			
-		}
-		return max
-	}
+//	public static int getMaximalSquare(char[][] arr) {
+//		int max = 0;
+//		final int row = arr.length;
+//		final int col = arr[0].length;
+//		
+//		for(int i = row - 1; i >= 0; i--) {
+//			
+//		}
+//		return max
+//	}
 	
 	public static void main(String[] args) {
-		String[][] arr = {
-				{"1","0","1","0","0"},
-				{"1","0","1","1","1"},
-				{"1","1","1","1","1"},
-				{"1","0","0","1","0"}
+		char [][] arr = {
+				{'1','0','1','0','0'},
+				{'1','0','1','1','1'},
+				{'1','1','1','1','1'},
+				{'1','0','0','1','0'}
 		};
 		
-		System.out.println("Result: " + getMaximalSquare(arr));
+//		System.out.println(Arrays.deepToString(arr));
+		System.out.println((char)('1' + 1));
+//		System.out.println("Result: " + getMaximalSquare(arr));
 	}
 }
