@@ -18,6 +18,10 @@
 package ahesh.problems;
 
 public class Triangle {
+	public static int getMinPath(int[][] triangle) {
+		
+	}
+	
 	public static void main(String[] args) {
 		int[][] triangle = {
 				{2},
