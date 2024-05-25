@@ -17,15 +17,19 @@
 
 package ahesh.problems;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class Triangle {
 	
-	public static void updateTempArr(int[] triangle, int[] temp) {
-		for(int i = 0; i < triangle.length; i++) {
-			temp[i] = Integer.min(triangle[i] + temp[i], triangle[i] + temp[i + 1]);
+	public static void updateTempArr(List<Integer> triangle, List<Integer> temp) {
+		for(int i = 0; i < triangle.size(); i++) {
+			temp.set(i, Integer.min(triangle.get(i) + temp.get(i), triangle.get(i) + temp.get(i + 1)));
 		}
 	}
 	
-	public static int getMinPath(int[][] triangle) {
+	public static int getMinPath(List<List<Integer>> triangle) {
 		int[] temp = triangle[triangle.length - 1].clone();
 		
 		for(int i = triangle.length - 2; i >= 0; i--) {
@@ -36,13 +40,22 @@ public class Triangle {
 		return temp[0];
 	}
 	
+	public static List<List<Integer>>  get2DArrayList(Integer[][] arr) {
+		List<List<Integer>> list = new ArrayList<List<Integer>>();
+		
+		for(Integer[] element : arr) {
+			list.add(Arrays.asList(arr));
+		}
+	}
+	
 	public static void main(String[] args) {
-		int[][] triangle = {
-				{2},
-				{3, 4},
-				{6, 5, 7},
-				{4, 1, 8, 3}
-		};
+		Integer[][] arr = {
+					{2},
+					{3, 4},
+					{6, 5, 7},
+					{4, 1, 8, 3}};
+		
+		List<List<Integer>> triangel = get2DArrayList(arr);
 		
 		System.out.println("Result: " + getMinPath(triangle));
 	}
