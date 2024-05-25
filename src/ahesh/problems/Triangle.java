@@ -18,7 +18,19 @@
 package ahesh.problems;
 
 public class Triangle {
+	
+	public static void updateTempArr(int[] triangle, int temp) {
+		
+	}
+	
 	public static int getMinPath(int[][] triangle) {
+		int[] temp = triangle[triangle.length - 1].clone();
+		
+		for(int i = triangle.length - 2; i >= 0; i--) {
+			int[] triangleArray = triangle[i];
+			
+		}
+		
 		
 	}
 	
