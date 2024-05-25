@@ -19,8 +19,10 @@ package ahesh.problems;
 
 public class Triangle {
 	
-	public static void updateTempArr(int[] triangle, int temp) {
-		
+	public static void updateTempArr(int[] triangle, int[] temp) {
+		for(int i = 0; i < triangle.length; i++) {
+			temp[i] = Integer.min(triangle[i] + temp[i], triangle[i] + temp[i + 1]);
+		}
 	}
 	
 	public static int getMinPath(int[][] triangle) {
@@ -28,10 +30,10 @@ public class Triangle {
 		
 		for(int i = triangle.length - 2; i >= 0; i--) {
 			int[] triangleArray = triangle[i];
-			
+			updateTempArr(triangleArray, temp);
 		}
 		
-		
+		return temp[0];
 	}
 	
 	public static void main(String[] args) {
@@ -41,5 +43,7 @@ public class Triangle {
 				{6, 5, 7},
 				{4, 1, 8, 3}
 		};
+		
+		System.out.println("Result: " + getMinPath(triangle));
 	}
 }
