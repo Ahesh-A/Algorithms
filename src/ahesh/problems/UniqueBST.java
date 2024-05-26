@@ -8,21 +8,6 @@
 package ahesh.problems;
 
 public class UniqueBST {
-	
-	public static void updateSubFactor(int sum, int idx, int num,  int[] subFactor) {
-		if(idx <= num / 2) {
-			subFactor[idx] = sum;
-		}
-	}
-	
-	public static int getNumTrees(int sum, int i, int[] subFactor) {
-		
-		if(i % 2 == 1) {
-			return 2 * sum - subFactor[i / 2];
-		}
-		return 2 * sum;
-	}
-	
 	public static void fillDp(int idx, int[] dp) {
 		for(int i = 1; i <= idx; i++) {
 			dp[idx] += dp[Integer.max(i - 1, idx - i)];
