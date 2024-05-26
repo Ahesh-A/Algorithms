@@ -30,22 +30,24 @@ public class Triangle {
 	}
 	
 	public static int getMinPath(List<List<Integer>> triangle) {
-		int[] temp = triangle[triangle.length - 1].clone();
+		List<Integer> temp = new ArrayList(triangle.get(triangle.size() - 1));
 		
-		for(int i = triangle.length - 2; i >= 0; i--) {
-			int[] triangleArray = triangle[i];
+		for(int i = triangle.size() - 2; i >= 0; i--) {
+			List<Integer> triangleArray = triangle.get(i);
 			updateTempArr(triangleArray, temp);
 		}
 		
-		return temp[0];
+		return temp.get(0);
 	}
 	
 	public static List<List<Integer>>  get2DArrayList(Integer[][] arr) {
 		List<List<Integer>> list = new ArrayList<List<Integer>>();
 		
 		for(Integer[] element : arr) {
-			list.add(Arrays.asList(arr));
+			list.add(Arrays.asList(element));
 		}
+		
+		return list;
 	}
 	
 	public static void main(String[] args) {
@@ -55,7 +57,7 @@ public class Triangle {
 					{6, 5, 7},
 					{4, 1, 8, 3}};
 		
-		List<List<Integer>> triangel = get2DArrayList(arr);
+		List<List<Integer>> triangle = get2DArrayList(arr);
 		
 		System.out.println("Result: " + getMinPath(triangle));
 	}
