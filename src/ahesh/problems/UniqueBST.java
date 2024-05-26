@@ -7,31 +7,36 @@
 
 package ahesh.problems;
 
+import java.util.Arrays;
+
 public class UniqueBST {
 	public static void fillDp(int idx, int[] dp) {
+		int sum = 0;
 		for(int i = 1; i <= idx; i++) {
-			dp[idx] += dp[Integer.max(i - 1, idx - i)];
+			sum += dp[i - 1] * dp[idx - i];
 		}
+		
+		dp[idx] = sum;
 	}
 	
 	public static int numTrees(int n) {
-		if(n <= 1) return n;
 		
 		int[] dp = new int[n + 1];
-		
-		dp[1] = 1;
+		dp[0] = 1;
 		
 		for(int i = 1; i <= n; i++) {
 			fillDp(i, dp);
+			
+			System.out.println(Arrays.toString(dp));
 		}
 		
 		return dp[n];
 	}
 	
 	public static void main(String[] args) {
-		int num = 5;
+		int num = 10;
 		
-		System.out.println("Result: " + numTrees(num));
+		System.out.println("Result: " + numTrees(num)); //16796
 	}
 	   
 }
