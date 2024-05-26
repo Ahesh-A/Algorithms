@@ -8,9 +8,9 @@
 package ahesh.problems;
 
 public class UniqueBST {
-//	public static int numTrees(int n) {
-//	        
-//	}
+	public static int numTrees(int n) {
+	        
+	}
 	
 	public static void main(String[] args) {
 		int num = 3;
