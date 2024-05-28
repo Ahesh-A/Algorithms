@@ -26,8 +26,6 @@ public class UniqueBST {
 		
 		for(int i = 1; i <= n; i++) {
 			fillDp(i, dp);
-			
-			System.out.println(Arrays.toString(dp));
 		}
 		
 		return dp[n];
