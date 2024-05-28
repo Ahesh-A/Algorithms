@@ -17,6 +17,7 @@ package ahesh.problems;
 
 public class Jump2 {
 	public static void main(String[] args) {
-		int[] jump = { 
+		int[] jump = {2, 3, 1, 1, 4};
+		System.out.println("Result: " + getMinJumps(jump));
 	}
 }
