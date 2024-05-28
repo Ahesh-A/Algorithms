@@ -16,6 +16,16 @@
 package ahesh.problems;
 
 public class Jump2 {
+	public static void fillIdxWithVal(int[] temp, int val, int startIdx, int endIdx) {
+		for(int i = startIdx; i <= endIdx; i++) {
+			temp[i] = val;
+		}
+	}
+	public static int getMinJumps(int[] arr) {
+		int[] jumpArr = new int[arr.length];
+		
+		return jumpArr[arr.length - 1];
+	}
 	public static void main(String[] args) {
 		int[] jump = {2, 3, 1, 1, 4};
 		System.out.println("Result: " + getMinJumps(jump));
