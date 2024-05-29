@@ -24,12 +24,16 @@ package ahesh.problems;
 
 public class UniquePaths {
 	
-	public static void fillRowsWithVal(int rowIdx, int val) {
-		
+	public static void fillRowWithVal(int rowIdx, int val, int[][] arr) {
+		for(int i = 0; i < arr[0].length; i++) {
+			arr[rowIdx][i] = val;
+		}
 	}
 	
-	public static void fillColWithVal(int colIdx, int val) {
-		
+	public static void fillColWithVal(int colIdx, int val, int[][] arr) {
+		for(int i = 0; i < arr.length; i++) {
+			arr[i][colIdx] = val;
+		}
 	}
 	
 	public static int getUniquePaths(int rows, int cols) {
