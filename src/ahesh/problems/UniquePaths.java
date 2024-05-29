@@ -23,6 +23,15 @@
 package ahesh.problems;
 
 public class UniquePaths {
+	
+	public static void fillRowsWithVal(int rowIdx, int val) {
+		
+	}
+	
+	public static void fillColWithVal(int colIdx, int val) {
+		
+	}
+	
 	public static int getUniquePaths(int rows, int cols) {
 		int[][] paths = new int[rows][cols];
 		
