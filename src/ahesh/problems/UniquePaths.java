@@ -23,6 +23,10 @@
 package ahesh.problems;
 
 public class UniquePaths {
+	public static int getUniquePaths(int rows, int cols) {
+		int[][] paths = new int[rows][cols];
+		
+	}
 	
 	public static void main(String[] args) {
 		int rows = 3;
