@@ -18,13 +18,7 @@ package ahesh.problems;
 import java.util.Arrays;
 
 public class Jump2 {
-//	public static void fillIdxWithVal(int[] temp, int val, int startIdx, int endIdx) {
-//		for(int i = startIdx; i <= endIdx; i++) {
-//			temp[i] = val;
-//		}
-//		
-//		System.out.println(Arrays.toString(temp));
-//	}
+
 	public static int getMinJumps(int[] nums) {
 		  int jump = 0; 
 	        int max = 0; 
