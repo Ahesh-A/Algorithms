@@ -22,6 +22,8 @@
 
 package ahesh.problems;
 
+import java.util.Arrays;
+
 public class UniquePaths {
 	
 	public static void fillRowWithVal(int rowIdx, int val, int[][] arr) {
@@ -38,12 +40,21 @@ public class UniquePaths {
 	
 	public static int getUniquePaths(int rows, int cols) {
 		int[][] paths = new int[rows][cols];
+		fillRowWithVal(0, 1, paths);
+		fillColWithVal(0, 1, paths);
 		
+//		System.out.println(Arrays.deepToString(paths));
+		for(int i = 1; i < rows; i++) {
+			for(int j = 1; j < cols; j++) {
+				paths[i][j] = paths[i - 1][j] + paths[i][j -1];
+			}
+		}
+		return paths[rows - 1][cols - 1];
 	}
 	
 	public static void main(String[] args) {
 		int rows = 3;
-		int cols = 4;
+		int cols = 7;
 		
 		System.out.println("Result: " + getUniquePaths(rows, cols));
 	}
