@@ -39,7 +39,6 @@ public class PerfectSquare {
 	public static void main(String[] args) {
 		int num = 12;
 		System.out.println("Result: " + getMinPerfectSquare(num));
-//		System.out.println("Result: " + getPerfectSquareLessOrEqual(10000));
 		
 	}
 }
