@@ -25,6 +25,8 @@ public class PerfectSquare {
 	}
 	
 	public static int getMinPartition(int num, int[] dp) {
+		if()
+			
 		int min = num;
 		
 		for(int i = 1; i * i <= num; i++) {
@@ -34,7 +36,11 @@ public class PerfectSquare {
 			
 		}
 	}
-	
+	public static void fillDp(int[] dp) {
+		for(int i = 0; i < dp.length; i++) {
+			dp[i] = dp[i + 1];
+		}
+	}
 	public static int getMinPerfectSquare(int num) {
 		int res = 0;
 		
