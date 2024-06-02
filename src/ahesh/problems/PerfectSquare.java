@@ -24,6 +24,17 @@ public class PerfectSquare {
 		return res;
 	}
 	
+	public static int getMinPartition(int num, int[] dp) {
+		int min = num;
+		
+		for(int i = 1; i * i <= num; i++) {
+			if(num - i * i >= 0) {
+				min = Integer.min(min, 1 + getMinPartition(num - i * i, dp));
+			}
+			
+		}
+	}
+	
 	public static int getMinPerfectSquare(int num) {
 		int res = 0;
 		
@@ -38,6 +49,11 @@ public class PerfectSquare {
 	
 	public static void main(String[] args) {
 		int num = 12;
+		int[] dp = new int[num + 1];
+		dp[0] = 1;
+		dp[1] = 1;
+		
+		System.out.println("Result: " + getMinPartition(num, dp));
 		System.out.println("Result: " + getMinPerfectSquare(num));
 		
 	}
