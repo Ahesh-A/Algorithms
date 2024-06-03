@@ -3,6 +3,7 @@ package ahesh.problems;
 import java.util.Arrays;
 
 public class PerfectSquare {
+	
 	public static int getPerfectSquareLessOrEqual(int num) {
 		
 		int start = 1;
@@ -40,6 +41,28 @@ public class PerfectSquare {
 		
 		return min;
 	}
+	
+	public static int getMinPattitionDp(int num, int[] dp) {
+		
+		for(int i = 2; i <= num; i++) {
+			int min = i;
+			for(int j = 1; j * j <= num; j++) {
+				
+				if((i - j * j) >= 0) {
+					min = Integer.min(min, 1 + dp[i - j * j]);
+					System.out.println("j * j :" + j * j);
+					System.out.println("Dp: " + Arrays.toString(dp));
+//					System.out.println("num: " +);
+				}
+			}
+			
+			dp[i] = min;
+			System.out.println("Dp: " + Arrays.toString(dp));
+		}
+		
+		return dp[num];
+	}
+	
 	public static void fillDp(int[] dp) {
 		for(int i = 0; i < dp.length; i++) {
 			dp[i] = i + 1;
@@ -59,15 +82,15 @@ public class PerfectSquare {
 	}
 	
 	public static void main(String[] args) {
-		int num = 12;
+		int num =1000;
 		int[] dp = new int[num + 1];
-		fillDp(dp);
+//		fillDp(dp);
 		
-		System.out.println("Dp:" + Arrays.toString(dp));
-		dp[0] = 1;
+//		System.out.println("Dp:" + Arrays.toString(dp));
+		dp[0] = 0;
 		dp[1] = 1;
 		
-		System.out.println("Result: " + getMinPartition(num, dp));
+		System.out.println("Result: " + getMinPattitionDp(num, dp));
 //		System.out.println("Result: " + getMinPerfectSquare(num));
 		
 	}
