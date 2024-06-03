@@ -31,6 +31,10 @@ package ahesh.problems;
 
 public class FourSum {
 	
+	public static int getFourSum(int[] arr, int target) {
+		
+	}
+	
 	public static void main(String[] args) {
 		int[] nums = {1, 2, 3};
 		int target = 4;
