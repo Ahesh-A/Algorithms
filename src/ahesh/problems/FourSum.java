@@ -31,14 +31,25 @@ package ahesh.problems;
 
 public class FourSum {
 	
-	public static int getFourSum(int[] arr, int target) {
+	
+	public static int getFourSum(int[] arr, int[] dp, int target) {
 		
+		for(int i = 1; i <= target; i++) {
+			for(int j = 0; j < arr.length; j++) {
+				if(i - arr[j] >= 0) {
+					dp[i] += dp[i - arr[j]];
+				}
+			}
+		}
+		
+		return dp[target];
 	}
 	
 	public static void main(String[] args) {
-		int[] nums = {1, 2, 3};
-		int target = 4;
-		
-		System.out.println("Result: " + getFourSum(arr, target));
+		int[] nums = {9};
+		int target = 3;
+		int[] dp = new int[target + 1];
+		dp[0] = 1;
+		System.out.println("Result: " + getFourSum(nums, dp, target));
 	}
 }
