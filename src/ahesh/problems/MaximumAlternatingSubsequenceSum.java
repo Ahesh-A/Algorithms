@@ -28,6 +28,7 @@
 //Output: 10
 //Explanation: It is optimal to choose the subsequence [6,1,5] with alternating sum (6 + 5) - 1 = 10.
 
+
 package ahesh.problems;
 
 public class MaximumAlternatingSubsequenceSum {
