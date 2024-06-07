@@ -33,14 +33,14 @@ package ahesh.problems;
 
 public class MaximumAlternatingSubsequenceSum {
 	
-//	public static int getRes(int[] nums, int res, boolean skip, boolean add, int idx) {
-//		
-//		if(skip) return res;
-//		
-//		if(add) return res + nums[idx];
-//		
-//		return res - nums[idx];
-//	}
+	public static int getRes(int[] nums, int res, boolean skip, boolean add, int idx) {
+		
+		if(skip) return res;
+		
+		if(add) return res + nums[idx];
+		
+		return res - nums[idx];
+	}
 	
 	public static int getMaxAlternatingSum(int[] nums, boolean add, int res, int idx) {
 		if(idx > nums.length - 1) return res;
