@@ -33,9 +33,27 @@ package ahesh.problems;
 
 public class MaximumAlternatingSubsequenceSum {
 	
+//	public static int getRes(int[] nums, int res, boolean skip, boolean add, int idx) {
+//		
+//		if(skip) return res;
+//		
+//		if(add) return res + nums[idx];
+//		
+//		return res - nums[idx];
+//	}
+	
+	public static int getMaxAlternatingSum(int[] nums, boolean add, int res, int idx) {
+		if(idx > nums.length - 1) return res;
+		
+		res = Integer.max(getMaxAlternatingSum(nums, !add, getRes(nums, res, false, add,  idx), idx + 1), getMaxAlternatingSum(nums ,add, getRes(nums, res, true, add,  idx), idx + 1));
+		System.out.println("Result: " + res);
+		return res;
+	}
+	
 	public static void main (String[] args) {
-		int[] arr = {4, 2, 5, 3};
-		System.out.println("Result: " + getMaxAlternatingSum(arr));
+		int[] arr = {6,2,1,2,4,5
+				};
+		System.out.println("Result: " + getMaxAlternatingSum(arr, true, 0, 0));
 	}
 	
 	
