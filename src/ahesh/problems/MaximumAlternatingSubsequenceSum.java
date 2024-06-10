@@ -31,29 +31,66 @@
 
 package ahesh.problems;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 public class MaximumAlternatingSubsequenceSum {
 	
-	public static int getRes(int[] nums, int res, boolean skip, boolean add, int idx) {
+	public static int getRes(int[] nums, boolean skip, boolean add, int idx) {
 		
-		if(skip) return res;
+		if(skip) return 0;
 		
-		if(add) return res + nums[idx];
+		if(add) return  nums[idx];
 		
-		return res - nums[idx];
+		return -1 *  nums[idx];
 	}
 	
-	public static int getMaxAlternatingSum(int[] nums, boolean add, int res, int idx) {
-		if(idx > nums.length - 1) return res;
+	public static Map<Integer, Boolean> getKey(int idx, boolean add) {
+		Map<Integer, Boolean> key = new HashMap<Integer, Boolean>();
+		key.put(idx, add);
 		
-		res = Integer.max(getMaxAlternatingSum(nums, !add, getRes(nums, res, false, add,  idx), idx + 1), getMaxAlternatingSum(nums ,add, getRes(nums, res, true, add,  idx), idx + 1));
-		System.out.println("Result: " + res);
+		return key;
+	}
+	
+	public static int getMaxAlternatingSum(int[] nums, boolean add, int res, int idx, Map<Map<Integer, Boolean>, Integer> map) {
+		if(idx > nums.length - 1) return 0;
+		Map<Integer, Boolean> key = getKey(idx, add);
+		if(map.containsKey(key)) return map.get(key);
+		
+		int added = 0;
+		int skipped = 0;
+		
+
+		
+//		int res = 0;
+		
+		added += getMaxAlternatingSum(nums, !add, getRes(nums, false, add,  idx), idx + 1, map);
+		skipped += getMaxAlternatingSum(nums ,add, getRes(nums, true, add,  idx), idx + 1, map);
+		
+		
+		res = Integer.max(added, skipped);
+		map.put(key, res);
+		System.out.println("(" + idx + ", " + add + ") --> " + res);
 		return res;
 	}
 	
 	public static void main (String[] args) {
-		int[] arr = {6,2,1,2,4,5
-				};
-		System.out.println("Result: " + getMaxAlternatingSum(arr, true, 0, 0));
+//		int[] arr = {6,2,1,2,4,5};
+		int[] arr = {5};
+		Map<Map<Integer, Boolean>, Integer> map = new HashMap<>();
+		
+//		Map<Integer, Boolean> key = new HashMap<Integer, Boolean>();
+//		key.put(1, true);
+//		
+//		map.put(key, 2);
+//		
+//		Map<Integer, Boolean> key1 = new HashMap<Integer, Boolean>();
+//		key1.put(1, true);
+//		
+//		System.out.println(map.get(key1)); 
+		
+		System.out.println("Result: " + getMaxAlternatingSum(arr, true, 0, 0, map));
 	}
 	
 	
