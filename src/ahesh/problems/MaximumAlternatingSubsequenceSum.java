@@ -54,18 +54,20 @@ public class MaximumAlternatingSubsequenceSum {
 	}
 	
 	public static int getMaxAlternatingSum(int[] nums, boolean add, int res, int idx, Map<Map<Integer, Boolean>, Integer> map) {
-		if(idx > nums.length - 1) return 0;
+		if(idx == nums.length - 1) return nums[idx];
+		
 		Map<Integer, Boolean> key = getKey(idx, add);
 		if(map.containsKey(key)) return map.get(key);
 		
 		int added = 0;
 		int skipped = 0;
 		
-
-		
-//		int res = 0;
-		
-		added += getMaxAlternatingSum(nums, !add, getRes(nums, false, add,  idx), idx + 1, map);
+		if(add) {
+			added += getMaxAlternatingSum(nums, !add, res, idx + 1, map);
+		} else {
+			added -= getMaxAlternatingSum(nums, !add, res, idx, map);
+		}
+	
 		skipped += getMaxAlternatingSum(nums ,add, getRes(nums, true, add,  idx), idx + 1, map);
 		
 		
