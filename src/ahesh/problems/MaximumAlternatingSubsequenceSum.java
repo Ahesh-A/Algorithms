@@ -64,24 +64,12 @@ public class MaximumAlternatingSubsequenceSum {
 		
 		res = Integer.max(added, skipped);
 		map.put(key, res);
-		System.out.println("(" + idx + ", " + add + ") --> " + res);
 		return res;
 	}
 	
 	public static void main (String[] args) {
 		int[] arr = {6,2,1,2,4,5};
-//		int[] arr = {6, 5};
 		Map<Map<Integer, Boolean>, Integer> map = new HashMap<>();
-		
-//		Map<Integer, Boolean> key = new HashMap<Integer, Boolean>();
-//		key.put(1, true);
-//		
-//		map.put(key, 2);
-//		
-//		Map<Integer, Boolean> key1 = new HashMap<Integer, Boolean>();
-//		key1.put(1, true);
-//		
-//		System.out.println(map.get(key1)); 
 		
 		System.out.println("Result: " + getMaxAlternatingSum(arr, true, 0, 0, map));
 	}
