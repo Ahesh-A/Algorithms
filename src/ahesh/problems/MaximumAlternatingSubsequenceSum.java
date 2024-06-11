@@ -54,22 +54,22 @@ public class MaximumAlternatingSubsequenceSum {
 	}
 	
 	public static int getMaxAlternatingSum(int[] nums, boolean add, int res, int idx, Map<Map<Integer, Boolean>, Integer> map) {
-		if(idx == nums.length - 1) return nums[idx];
+		if(idx > nums.length - 1) return 0;
 		
 		Map<Integer, Boolean> key = getKey(idx, add);
+		
 		if(map.containsKey(key)) return map.get(key);
 		
 		int added = 0;
 		int skipped = 0;
 		
 		if(add) {
-			added += getMaxAlternatingSum(nums, !add, res, idx + 1, map);
+			added = getMaxAlternatingSum(nums, !add, res, idx + 1, map) + nums[idx];
 		} else {
-			added -= getMaxAlternatingSum(nums, !add, res, idx, map);
+			added = getMaxAlternatingSum(nums, !add, res, idx + 1, map) - nums[idx];
 		}
-	
-		skipped += getMaxAlternatingSum(nums ,add, getRes(nums, true, add,  idx), idx + 1, map);
 		
+		skipped = getMaxAlternatingSum(nums, add, res, idx + 1, map);
 		
 		res = Integer.max(added, skipped);
 		map.put(key, res);
@@ -78,8 +78,8 @@ public class MaximumAlternatingSubsequenceSum {
 	}
 	
 	public static void main (String[] args) {
-//		int[] arr = {6,2,1,2,4,5};
-		int[] arr = {5};
+		int[] arr = {6,2,1,2,4,5};
+//		int[] arr = {6, 5};
 		Map<Map<Integer, Boolean>, Integer> map = new HashMap<>();
 		
 //		Map<Integer, Boolean> key = new HashMap<Integer, Boolean>();
