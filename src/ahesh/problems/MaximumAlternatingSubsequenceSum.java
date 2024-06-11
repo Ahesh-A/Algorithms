@@ -37,15 +37,6 @@ import java.util.Map;
 
 public class MaximumAlternatingSubsequenceSum {
 	
-	public static int getRes(int[] nums, boolean skip, boolean add, int idx) {
-		
-		if(skip) return 0;
-		
-		if(add) return  nums[idx];
-		
-		return -1 *  nums[idx];
-	}
-	
 	public static Map<Integer, Boolean> getKey(int idx, boolean add) {
 		Map<Integer, Boolean> key = new HashMap<Integer, Boolean>();
 		key.put(idx, add);
