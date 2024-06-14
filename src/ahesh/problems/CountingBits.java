@@ -26,4 +26,8 @@ package ahesh.problems;
 
 public class CountingBits {
 
+	public static void main(String[] args) {
+		String s1 = null;
+		System.out.println("hgjh".equals(null));
+	}
 }
