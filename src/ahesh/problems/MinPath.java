@@ -19,8 +19,8 @@ package ahesh.problems;
 
 public class MinPath {
 	
-	public static int getMinOfTwoPaths(int i, int j, int row, int col, int[][] grid) {
-		int min = 201;
+	public static int getMinOfTwoPaths(int i, int j, int[][] grid) {
+		int min = Integer.MAX_VALUE;
 		
 		if(i - 1 >= 0) {
 			min = Integer.min(min, grid[i -1][j]);
@@ -29,18 +29,16 @@ public class MinPath {
 			min = Integer.min(min, grid[i][j -1]);
 		}
 		
-		return min == 201 ? 0 : min;
+		return min == Integer.MAX_VALUE ? 0 : min;
 	}
 	
-	public int minPathSum(int[][] grid) {
+	public static int minPathSum(int[][] grid) {
 		int row = grid.length;
 		int col = grid[0].length;
 		
-//		int[][] dp = new int[row][col];
-		
 		for(int i = 0; i < row; i++) {
 			for(int j = 0; j < col; j++) {
-				grid[i][j] += getMinOfTwoPaths(i, j, row, col, grid);
+				grid[i][j] += getMinOfTwoPaths(i, j, grid);
 			}
 		}
 		
@@ -49,6 +47,8 @@ public class MinPath {
 	
 	public static void main(String[] args) {
 		int[][] arr = {{1,3,1},{1,5,1},{4,2,1}};
+		int [][] arr1 = {{1,2,3},{4,5,6}};
+		System.out.println("Result: " + minPathSum(arr));
 	}
 	
 }
