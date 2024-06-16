@@ -10,13 +10,13 @@ public class PascalsTriangle {
 		}
 		
 		return row.get(i) + row.get(j);
-		
 	}
+	
 	public static List<Integer> getCurrentPascalRow(List<Integer> row) {
 		Integer i = -1;
 		Integer j = 0;
-		List<Integer> list = new ArrayList<Integer>();
 		
+		List<Integer> list = new ArrayList<Integer>();
 		int rowSize = row.size();
 		
 		for(; i < rowSize; i++, j++) {
