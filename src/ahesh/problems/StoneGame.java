@@ -25,6 +25,9 @@
 package ahesh.problems;
 
 public class StoneGame {
+	public static boolean stoneGame(int[] piles) {
+	        
+	}
 	public static void main(String[] args) {
 		int[] piles = {5, 3, 4, 5};
 		
