@@ -30,7 +30,24 @@ package ahesh.problems;
 
 public class MinCostClimbingStairs {
 	
+	public static int minCostClimbingStairs(int[] cost) {
+		int father = cost[1];
+		int gramps = cost[0];
+		
+		for(int i = 2; i < cost.length; i++) {
+			int curr = cost[i];
+			int temp = Integer.min(curr + father, curr + gramps);
+			
+			gramps = father;
+			father = temp;
+		}
+		
+		return Integer.min(father, gramps);
+	}
+	
 	public static void main(String[] args) {
-		int[] arr = {1,100,1,1,1,100,1,1,100,1};
+//		int[] arr = {1,100,1,1,1,100,1,1,100,1};
+		int[] arr = {10, 15, 20};
+		System.out.println("Result: " + minCostClimbingStairs(arr));
 	}
 }
