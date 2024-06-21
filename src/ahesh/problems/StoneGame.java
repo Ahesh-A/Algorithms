@@ -26,10 +26,13 @@ package ahesh.problems;
 
 public class StoneGame {
 	public static boolean stoneGame(int[] piles) {
-	        
+		boolean res = false;
+		
+		return res;
 	}
+	
 	public static void main(String[] args) {
 		int[] piles = {5, 3, 4, 5};
-		
+		stoneGame(piles);
 	}
 }
