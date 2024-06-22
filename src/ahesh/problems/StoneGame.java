@@ -30,25 +30,53 @@ import java.util.Map;
 import java.util.ArrayList;
 
 public class StoneGame {
-	public static List<Integer> getKey(int sIdx, int eIdx) {\
-		List<Integer> key = new ArrayList<>(2);
-		key.add(sIdx);
-		key.add(eIdx);
+	public static Map<List<Integer>, Boolean> getKey(int sIdx, int eIdx, boolean add) {
+		List<Integer> list = new ArrayList<>(2);
+		Map<List<Integer>, Boolean> key = new HashMap<List<Integer>, Boolean>();
+		
+		list.add(sIdx);
+		list.add(eIdx);
+		
+		key.put(list, add);
 		
 		return key;
 	}
 	
-	public static boolean stoneGame(int[] piles, HashMap<List<Integer>, Boolean> map, int sIdx, int eIdx) {
+	public static int getMaxPile(int[] piles, Map<Map<List<Integer>, Boolean>, Integer> map, int sIdx, int eIdx, boolean add) {
+		if(sIdx == eIdx) {
+			return  add ? piles[sIdx] : -1 * piles[sIdx];
+		}
 		
+		Map<List<Integer>, Boolean> key = getKey(sIdx, eIdx, add);
 		
-		return res;
+		if(map.containsKey(key)) {
+			return map.get(key);
+		}
+		
+		int startIdxSum;
+		int endIdxSum;
+		
+		if(add) {
+			 startIdxSum = getMaxPile(piles, map, sIdx + 1, eIdx, !add) + piles[sIdx];
+			 endIdxSum = getMaxPile(piles, map, sIdx, eIdx - 1, !add) + piles[eIdx];
+			 return Integer.max(startIdxSum, endIdxSum);
+			 
+		} else {
+			startIdxSum = getMaxPile(piles, map, sIdx + 1, eIdx, !add) - piles[sIdx];
+			endIdxSum = getMaxPile(piles, map, sIdx, eIdx - 1, !add) - piles[eIdx];
+			return Integer.min(startIdxSum, endIdxSum);
+		}
+		
 	}
 	
+	
 	public static void main(String[] args) {
-		Map<List<Integer>, Boolean> map = new HashMap<List<Integer>, Boolean>();
+		Map<Map<List<Integer>, Boolean>, Integer> map = new HashMap<>();
 		List<Integer> list = new ArrayList<>();
 		
-		int[] piles = {5, 3, 4, 5};
-		stoneGame(piles);
+		int[] piles = {3,7,2,3};
+		
+		int res = getMaxPile(piles, map, 0, piles.length - 1, true);
+		System.out.println("Res: " + res);
 	}
 }
