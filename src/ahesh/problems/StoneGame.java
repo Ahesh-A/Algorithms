@@ -69,14 +69,18 @@ public class StoneGame {
 		
 	}
 	
-	
-	public static void main(String[] args) {
+	public static boolean stoneGame(int[] piles) {
 		Map<Map<List<Integer>, Boolean>, Integer> map = new HashMap<>();
 		List<Integer> list = new ArrayList<>();
 		
-		int[] piles = {3,7,2,3};
 		
 		int res = getMaxPile(piles, map, 0, piles.length - 1, true);
-		System.out.println("Res: " + res);
+		return res > 0;
+		
+	}
+	public static void main(String[] args) {
+		
+		int[] piles = {3,7,2,3};
+		System.out.println("Res: " + stoneGame(piles));
 	}
 }
