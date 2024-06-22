@@ -24,14 +24,30 @@
 //Output: true
 package ahesh.problems;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.ArrayList;
+
 public class StoneGame {
-	public static boolean stoneGame(int[] piles) {
-		boolean res = false;
+	public static List<Integer> getKey(int sIdx, int eIdx) {\
+		List<Integer> key = new ArrayList<>(2);
+		key.add(sIdx);
+		key.add(eIdx);
+		
+		return key;
+	}
+	
+	public static boolean stoneGame(int[] piles, HashMap<List<Integer>, Boolean> map, int sIdx, int eIdx) {
+		
 		
 		return res;
 	}
 	
 	public static void main(String[] args) {
+		Map<List<Integer>, Boolean> map = new HashMap<List<Integer>, Boolean>();
+		List<Integer> list = new ArrayList<>();
+		
 		int[] piles = {5, 3, 4, 5};
 		stoneGame(piles);
 	}
