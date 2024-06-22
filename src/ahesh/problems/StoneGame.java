@@ -68,6 +68,25 @@ public class StoneGame {
 		}
 		
 	}
+	    public static boolean stoneGame1(int[] piles) {
+	        int turns[] = new int[2];
+	        int turn = 0;
+	        int  i = 0;
+	        int j = piles.length-1;
+	           
+	           while(i<j){
+	            if(piles[i]+piles[i+1]>piles[j]+piles[j-1]){
+	               turns[turn]+= piles[i]+piles[i+1];
+	               i++;
+	            }else{
+	               turns[turn]+= piles[j]+piles[j-1];
+	               j--;
+	            }
+	            turn=(turn+1)%2;
+	            System.out.println(turns[0] + ", " + turns[1]);
+	           }   
+	        return turns[0]>turns[1];
+	    }
 	
 	public static boolean stoneGame(int[] piles) {
 		Map<Map<List<Integer>, Boolean>, Integer> map = new HashMap<>();
@@ -78,9 +97,11 @@ public class StoneGame {
 		return res > 0;
 		
 	}
+	
 	public static void main(String[] args) {
 		
-		int[] piles = {3,7,2,3};
-		System.out.println("Res: " + stoneGame(piles));
+		int[] piles = {5,3,4,5};
+//		System.out.println(piles.length);
+		System.out.println("Res: " + stoneGame1(piles));
 	}
 }
