@@ -27,24 +27,42 @@ public class RotateArray {
 	public static void rotateArray(int[] arr, int rotationFactor) {
 		int arrLen = arr.length;
 		
-		int r = 0, k, rval = arr[r], kval;
+		int[] res = new int[arrLen];
 		
-		for(int i = 0; i < arr.length; i++) {
-			k = (r + rotationFactor) % arrLen;
-			kval = arr[k];
-			arr[k] = rval;
-			rval = kval;
-			r = k;
-			
-			System.out.println("Result: " + Arrays.toString(arr));
+		for(int i = 0; i < arrLen; i++) {
+			int idx = (i + rotationFactor) % arrLen;
+			res[idx] = arr[i];
+		}
+		
+		for(int i = 0; i < arrLen; i++){
+			arr[i] = res[i];
 		}
 		
 	}
+	public static void reverse(int[] arr, int start, int end) {
+		while(start < end) {
+			int temp = arr[start];
+			arr[start] = arr[end];
+			arr[end] = temp;
+			
+			start ++;
+			end --;
+		}
+	}
+	
+	public static void rotateArray1(int[] arr, int k) {
+		int arrLen = arr.length;
+		k = k % arrLen;
+		
+		reverse(arr, 0, arrLen - 1);
+		reverse(arr, 0, k - 1);
+		reverse(arr, k, arrLen - 1);
+	}
 	
 	public static void main(String[] args) {
-		int[] arr = {-1, -100, 3, 99};
+		int[] arr = {1,2,3,4,5,6,7};
 		int k = 3;
-		rotateArray(arr, k);
-		
+		rotateArray1(arr, k);
+		System.out.println("Result: " + Arrays.toString(arr));
 	}
 }
