@@ -26,8 +26,6 @@ public class BuyStocksCoolDown {
 	}
 	public static int maxProfitHelper(int[] arr, int idx, Options option, int dp[]) {
 		
-//		int[] dp = new int [arr.length];
-		
 		if(idx >= arr.length) {
 			return 0;
 		}
@@ -53,9 +51,6 @@ public class BuyStocksCoolDown {
 	public static int maxProfitDP(int[] arr) {
 		
 		int arrLen = arr.length;
-//		if(arrLen == 1) {
-//			return 0;
-//		}
 		
 		int[] s1 = new int[arrLen];
 		int[] s2 = new int[arrLen];
@@ -69,11 +64,6 @@ public class BuyStocksCoolDown {
 			s1[i] = Integer.max(s1[i - 1], s3[i - 1]);
 			s2[i] = Integer.max(s2[i - 1], s1[i - 1] - arr[i]);
 			s3[i] = s2[i - 1] + arr[i];
-			
-			System.out.println(Arrays.toString(s1));
-			System.out.println(Arrays.toString(s2));
-			System.out.println(Arrays.toString(s3));
-			System.out.println();
 		}
 		
 		return Integer.max(s1[arrLen -1], s3[arrLen - 1]);
