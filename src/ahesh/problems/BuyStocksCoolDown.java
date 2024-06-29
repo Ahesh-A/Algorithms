@@ -24,27 +24,27 @@ public class BuyStocksCoolDown {
 	public enum Options {
 		BUY, SELL, COOLDOWN
 	}
-//	public static int maxProfitHelper(int[] arr, int idx, Options option, int dp[]) {
-//		
-////		int[] dp = new int [arr.length];
-//		
-//		if(idx >= arr.length) {
-//			return 0;
-//		}
-//		
-//		if(option == Options.BUY) {
-//			dp[idx] = maxProfitHelper(arr, idx + 1, Options.SELL, dp) - arr[idx];
-//		}
-//		
-//		if(option == Options.SELL) {
-//			dp[idx] =  maxProfitHelper(arr, idx + 2, Options.BUY, dp) + arr[idx];
-//		}
-//		
-//		int skip = maxProfitHelper(arr, idx + 1, option, dp);
-//		dp[idx] = Integer.max(dp[idx], skip);
-//		
-//		return dp[idx];
-//	}
+	public static int maxProfitHelper(int[] arr, int idx, Options option, int dp[]) {
+		
+//		int[] dp = new int [arr.length];
+		
+		if(idx >= arr.length) {
+			return 0;
+		}
+		
+		if(option == Options.BUY) {
+			dp[idx] = maxProfitHelper(arr, idx + 1, Options.SELL, dp) - arr[idx];
+		}
+		
+		if(option == Options.SELL) {
+			dp[idx] =  maxProfitHelper(arr, idx + 2, Options.BUY, dp) + arr[idx];
+		}
+		
+		int skip = maxProfitHelper(arr, idx + 1, option, dp);
+		dp[idx] = Integer.max(dp[idx], skip);
+		
+		return dp[idx];
+	}
 	
 	public static int maxProfit(int[] arr) {
 		return maxProfitHelper(arr, 0, Options.BUY, new int[arr.length]);
