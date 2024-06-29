@@ -23,9 +23,9 @@ public class BuyStocksCoolDown {
 		BUY, SELL, COOLDOWN
 	}
 	
-//	public static int maxProfit(int[] arr) {
-//		
-//	}
+	public static int maxProfit(int[] arr) {
+		
+	}
 	
 	public static void main(String[] args) {
 		
