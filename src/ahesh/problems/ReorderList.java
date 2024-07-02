@@ -49,12 +49,12 @@ public class ReorderList {
 		
 		return head.next;
 	}
-//	public static void printList(ListNode head) {
-//		while(head != null) {
-//			System.out.println(head.val);
-//			head = head.next;
-//		}
-//	}
+	public static void printList(ListNode head) {
+		while(head != null) {
+			System.out.println(head.val);
+			head = head.next;
+		}
+	}
 	
 	public static void main(String[] args) {
 		ListNode linkedList = constructLinkedList(new int[] {1, 2, 3, 4, 5, 6, 7 });
