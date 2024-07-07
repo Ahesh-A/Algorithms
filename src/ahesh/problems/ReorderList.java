@@ -27,8 +27,6 @@
 
 package ahesh.problems;
 
-import java.util.List;
-
 class ListNode{
 	ListNode next;
 	int val;
