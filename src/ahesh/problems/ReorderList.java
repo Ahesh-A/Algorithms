@@ -80,6 +80,34 @@ public class ReorderList {
 		
 	}
 	
+	public static ListNode reverseList(ListNode n) {
+		ListNode prev = null;
+		ListNode curr = n;
+		ListNode next = n.next;
+		
+		while(next != null) {
+			curr.next = prev;
+			prev = curr;
+			curr = next;
+			next = next.next;
+		}
+		
+		curr.next = prev;
+		return curr;
+	}
+	
+//	public static ListNode getMiddle(ListNode n) {
+//		ListNode slow = n;
+//		ListNode fast = n;
+//		
+//		while (fast != null && fast.next != null) {
+//			fast = fast.next.next;
+//			slow = slow.next;
+//		}
+//		
+//		return slow;
+//	}
+	
 	public static void reOrderList(ListNode n) {
 		ListNode temp = n;
 		
@@ -95,10 +123,12 @@ public class ReorderList {
 	
 	public static void main(String[] args) {
 		ListNode linkedList = constructLinkedList(new int[] {1, 2, 3, 4, 5, 6, 7 });
+		ListNode head = reverseList(linkedList);
+		
 //		printList(linkedList);
 //		ListNode lastNode = severLastNode(linkedList);
 //		System.out.println(lastNode.val);
-		reOrderList(linkedList);
-		printList(linkedList);
+//		reOrderList(linkedList);
+		printList(head);
 	}
 }
