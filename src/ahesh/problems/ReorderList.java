@@ -108,20 +108,20 @@ public class ReorderList {
 		return slow;
 	}
 	
-//	public static void breakChain(ListNode head, ListNode n) {
-//		if(head == null) {
-//			return;
-//		}
-//		
-//		ListNode temp = head;
-//		
-//		while (temp.next != null && !temp.next.equals(n)) {
-//			temp = temp.next;
-//		}
-//		
-//		temp.next = null;
-//
-//	}
+	public static void breakChain(ListNode head, ListNode n) {
+		if(head == null) {
+			return;
+		}
+		
+		ListNode temp = head;
+		
+		while (temp.next != null && !temp.next.equals(n)) {
+			temp = temp.next;
+		}
+		
+		temp.next = null;
+
+	}
 	
 	public static ListNode mergeChain(ListNode ch1, ListNode ch2) {
 		ListNode head = new ListNode();
