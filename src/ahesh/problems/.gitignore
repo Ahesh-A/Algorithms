@@ -32,3 +32,10 @@
 /BuyStocksCoolDown.class
 /BuyStocksCoolDown$Options.class
 /IntegerBreak.class
+/ReorderList.class
+/ReorderList$ListNode.class
+/ListNode.class
+/ReverseListRecursive.class
+/ReverseListRecursive$ListNode.class
+/LinkedList.class
+/RemoveElement.class
