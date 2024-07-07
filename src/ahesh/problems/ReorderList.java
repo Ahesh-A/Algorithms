@@ -108,6 +108,46 @@ public class ReorderList {
 		return slow;
 	}
 	
+//	public static void breakChain(ListNode head, ListNode n) {
+//		if(head == null) {
+//			return;
+//		}
+//		
+//		ListNode temp = head;
+//		
+//		while (temp.next != null && !temp.next.equals(n)) {
+//			temp = temp.next;
+//		}
+//		
+//		temp.next = null;
+//
+//	}
+	
+	public static ListNode mergeChain(ListNode ch1, ListNode ch2) {
+		ListNode head = new ListNode();
+		ListNode temp = head;
+		
+		while (ch1 != null && ch2 != null) {
+			temp.next = ch1;
+			ch1 = ch1.next;
+			temp = temp.next;
+			temp.next = ch2;
+			ch2 = ch2.next;
+			temp = temp.next;
+		}
+		
+		if(ch1 != null) {
+			temp.next = ch1;
+		}
+		
+		if(ch2 != null) {
+			temp.next = ch2;
+		}
+		
+		return head.next;
+	}
+	
+	
 	public static void reOrderList(ListNode n) {
 		ListNode temp = n;
 		
@@ -122,13 +162,20 @@ public class ReorderList {
 	
 	
 	public static void main(String[] args) {
-		ListNode linkedList = constructLinkedList(new int[] {1, 2, 3, 4, 5, 6, 7 });
-		ListNode head = reverseList(linkedList);
+		ListNode linkedList = constructLinkedList(new int[] {1, 2, 3, 4, 5, 6, 7});
+//		ListNode head = reverseList(linkedList);
+		ListNode mid = getMiddle(linkedList);
+//		System.out.println(mid.val);
+		breakChain(linkedList, mid);
+		ListNode rev = reverseList(mid);
 		
 //		printList(linkedList);
+//		System.out.println();
+		ListNode mergedList = mergeChain(linkedList, rev);
+		printList(mergedList);
 //		ListNode lastNode = severLastNode(linkedList);
-//		System.out.println(lastNode.val);
+//		System.out.println(mid.val);
 //		reOrderList(linkedList);
-		printList(head);
+//		printList(head);
 	}
 }
