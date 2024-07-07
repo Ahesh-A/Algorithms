@@ -27,6 +27,8 @@
 
 package ahesh.problems;
 
+import java.util.List;
+
 class ListNode{
 	ListNode next;
 	int val;
@@ -49,6 +51,7 @@ public class ReorderList {
 		
 		return head.next;
 	}
+	
 	public static void printList(ListNode head) {
 		while(head != null) {
 			System.out.println(head.val);
@@ -56,8 +59,46 @@ public class ReorderList {
 		}
 	}
 	
+	public static ListNode severLastNode(ListNode n) {
+		if(n == null) return null;
+		
+		if(n.next == null) {
+			return n;
+		}
+		
+		ListNode temp = n;
+		
+		while(temp.next.next != null) {
+			temp = temp.next;
+		}
+		
+		ListNode res = temp.next;
+		
+		temp.next = null;
+		
+		return res;
+		
+	}
+	
+//	public static void reOrderList(ListNode n) {
+//		ListNode temp = n;
+//		
+//		while(temp != null && temp.next != null && temp.next.next != null) {
+//			ListNode lastNode = severLastNode(temp);
+//			lastNode.next = temp.next;
+//			temp.next = lastNode;
+//			temp = lastNode.next;
+//		}
+//		
+//	}
+//	
+	
 	public static void main(String[] args) {
 		ListNode linkedList = constructLinkedList(new int[] {1, 2, 3, 4, 5, 6, 7 });
+//		printList(linkedList);
+//		ListNode lastNode = severLastNode(linkedList);
+//		System.out.println(lastNode.val);
+		reOrderList(linkedList);
 		printList(linkedList);
 	}
 }
