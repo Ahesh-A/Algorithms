@@ -32,4 +32,24 @@ public class ReverseListRecursive {
 		}
 	}
 	
+	public static ListNode reverseList(ListNode head) {
+		if(head.next == null) {
+			return head;
+		}
+		
+		ListNode curr = reverseList(head.next);
+		head.next.next = head;
+		head.next = null;
+		
+		return curr;
+		
+	}
+	
+	public static void main(String[] args) {
+		ListNode node = constructLinkedList(new int[] {1, 2, 3, 4, 5, 6, 7});
+//		printList(node);
+		ListNode head = reverseList(node);
+		printList(head);
+	}
+	
 }
