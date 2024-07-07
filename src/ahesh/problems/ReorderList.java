@@ -80,18 +80,18 @@ public class ReorderList {
 		
 	}
 	
-//	public static void reOrderList(ListNode n) {
-//		ListNode temp = n;
-//		
-//		while(temp != null && temp.next != null && temp.next.next != null) {
-//			ListNode lastNode = severLastNode(temp);
-//			lastNode.next = temp.next;
-//			temp.next = lastNode;
-//			temp = lastNode.next;
-//		}
-//		
-//	}
-//	
+	public static void reOrderList(ListNode n) {
+		ListNode temp = n;
+		
+		while(temp != null && temp.next != null && temp.next.next != null) {
+			ListNode lastNode = severLastNode(temp);
+			lastNode.next = temp.next;
+			temp.next = lastNode;
+			temp = lastNode.next;
+		}
+		
+	}
+	
 	
 	public static void main(String[] args) {
 		ListNode linkedList = constructLinkedList(new int[] {1, 2, 3, 4, 5, 6, 7 });
