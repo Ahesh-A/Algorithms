@@ -96,17 +96,17 @@ public class ReorderList {
 		return curr;
 	}
 	
-//	public static ListNode getMiddle(ListNode n) {
-//		ListNode slow = n;
-//		ListNode fast = n;
-//		
-//		while (fast != null && fast.next != null) {
-//			fast = fast.next.next;
-//			slow = slow.next;
-//		}
-//		
-//		return slow;
-//	}
+	public static ListNode getMiddle(ListNode n) {
+		ListNode slow = n;
+		ListNode fast = n;
+		
+		while (fast != null && fast.next != null) {
+			fast = fast.next.next;
+			slow = slow.next;
+		}
+		
+		return slow;
+	}
 	
 	public static void reOrderList(ListNode n) {
 		ListNode temp = n;
