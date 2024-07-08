@@ -34,18 +34,18 @@ public class PalindromicLinkedList {
 		return slow;
 	}
 
-//	public static ListNode reverseList(ListNode head) {
-//		
-//		if(head.next == null) {
-//			return head;
-//		}
-//		
-//		ListNode res = reverseList(head.next);
-//		head.next.next = head;
-//		head.next = null;
-//		
-//		return res;
-//	}
+	public static ListNode reverseList(ListNode head) {
+		
+		if(head.next == null) {
+			return head;
+		}
+		
+		ListNode res = reverseList(head.next);
+		head.next.next = head;
+		head.next = null;
+		
+		return res;
+	}
 //	public static boolean isSubList(ListNode l1, ListNode l2) {
 //		
 //		while(l1 != null && l2 != null) {
