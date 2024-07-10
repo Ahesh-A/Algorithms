@@ -16,7 +16,8 @@
 //Output: [0]
 //Example 3:
 //
-//Input: l1 = [9,9,9,9,9,9,
+//Input: l1 = [9,9,9,9,9,9,9], l2 = [9,9,9,9]
+//Output: [8,9,9,9,0,0,0,1]
 
 package ahesh.problems;
 
@@ -40,7 +41,66 @@ public class AddTwoNumbers {
 		}
 	}
 	
-	public static void main(String[] args) {
+	public static int addNum(ListNode node1, ListNode node2, int num) {
+		int val1 = 0;
+		int val2 = 0;
 		
+		if(node1 != null) {
+			val1 = node1.val;
+		}
+		
+		if(node2 != null) {
+			val2 = node2.val;
+		}
+		
+		return val1 + val2 + num;
+	}
+	
+	public static void main(String[] args) {
+		ListNode l1 = constructLinkedList(new int[] {2, 4, 3});
+		ListNode l2 = constructLinkedList(new int[] {5,6,4});
+		
+		int carry = 0;
+		ListNode head = null;
+		ListNode temp = head;
+//		
+//		printList(l1);
+		while(l1 != null || l2 != null) {
+			int  res = addNum(l1, l2, carry);
+			
+			if(res >= 10) {
+				res %= 10;
+				carry = 1;
+			} else {
+				carry = 0;
+			}
+			
+			ListNode node = new ListNode(res);
+			
+//			System.out.println(node.val);
+			if(head == null) {
+				head = node;
+				temp = head;
+			} else {
+				temp.next = node;
+				temp = temp.next;
+			}
+			
+			if(l1 != null) {
+				l1 = l1.next;
+			}
+			
+			if(l2 != null) {
+				l2 = l2.next;
+			}
+			
+		}
+		
+		
+		if(carry != 0) {
+			temp.next = new ListNode(1);
+		}
+		
+		printList(head);
 	}
 }
