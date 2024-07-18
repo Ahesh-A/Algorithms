@@ -35,19 +35,46 @@ public class ReverseKGroup {
 		temp.next = null;
 	}
 	
-	public static void LinkNode (ListNode head) {
+	public static void linkNode (ListNode head) {
 		ListNode temp = head;
 		
 		while(temp.next != null) {
 			temp = temp.next;
+			
 		}
 		
 		temp.next = head;
 	}
 	
+	
+	public static ListNode reverseByN(ListNode head, int reverseFactor) {
+		if(reverseFactor == 0) {
+			return head;
+		}
+		
+		ListNode res = getNthNodeFromLast(head, reverseFactor);
+		linkNode(head);
+		severBond(head, res);
+		
+		return res;
+	}
+	
+	public static int getLength(ListNode head) {
+		ListNode temp = head;
+		int res = 0;
+		
+		while(temp != null) {
+			temp = temp.next;
+			res++;
+		}
+		
+		return res;
+	}
+	
 	public static void main(String[] args) {
 		ListNode head = ListNode.constructLinkedList(new int [] {1, 2, 3, 4, 5, 6, 7, 8});
-		ListNode pointer = getNthNodeFromLast(head, 2);
-		System.out.println(pointer.val);
+		int length = getLength(head);
+		ListNode pointer = reverseByN(head, 9 % length);
+		ListNode.printList(pointer);
 	}
 }
