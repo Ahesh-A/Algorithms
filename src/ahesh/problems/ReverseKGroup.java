@@ -25,6 +25,16 @@ public class ReverseKGroup {
 		return pointer;
 	}
 	
+	public static void severBond(ListNode head, ListNode node) {
+		ListNode temp = head;
+		
+		while(temp.next != node) {
+			temp = temp.next;
+		}
+		
+		temp.next = null;
+	}
+	
 	public static void main(String[] args) {
 		ListNode head = ListNode.constructLinkedList(new int [] {1, 2, 3, 4, 5, 6, 7, 8});
 		ListNode pointer = getNthNodeFromLast(head, 2);
