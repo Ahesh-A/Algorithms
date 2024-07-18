@@ -35,6 +35,16 @@ public class ReverseKGroup {
 		temp.next = null;
 	}
 	
+	public static void LinkNode (ListNode head) {
+		ListNode temp = head;
+		
+		while(temp.next != null) {
+			temp = temp.next;
+		}
+		
+		temp.next = head;
+	}
+	
 	public static void main(String[] args) {
 		ListNode head = ListNode.constructLinkedList(new int [] {1, 2, 3, 4, 5, 6, 7, 8});
 		ListNode pointer = getNthNodeFromLast(head, 2);
