@@ -10,6 +10,12 @@ public class SortList {
 		p2.val = temp;
 	}
 	
+	public static void checkAndSwap(ListNode leftPtr, ListNode rightPtr) {
+		if(leftPtr.val > rightPtr.val) {
+			swap(leftPtr, rightPtr);
+		}
+	}
+	
 	public static void sortList(ListNode head) {
 		ListNode leftPtr = head;
 		ListNode rightPtr = head;
@@ -17,10 +23,7 @@ public class SortList {
 		while (leftPtr != null) {
 			rightPtr = leftPtr;
 			while (rightPtr != null) {
-				if(leftPtr.val > rightPtr.val) {
-					swap(leftPtr, rightPtr);
-				}
-				
+				checkAndSwap(leftPtr, rightPtr);
 				rightPtr = rightPtr.next;
 			}
 			
