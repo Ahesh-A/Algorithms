@@ -16,17 +16,20 @@ public class SortList {
 		}
 	}
 	
+	public static void rightTraverser(ListNode leftPtr, ListNode rightPtr) {
+		while (rightPtr != null) {
+			checkAndSwap(leftPtr, rightPtr);
+			rightPtr = rightPtr.next;
+		}
+	}
+	
 	public static void sortList(ListNode head) {
 		ListNode leftPtr = head;
 		ListNode rightPtr = head;
 		
 		while (leftPtr != null) {
 			rightPtr = leftPtr;
-			while (rightPtr != null) {
-				checkAndSwap(leftPtr, rightPtr);
-				rightPtr = rightPtr.next;
-			}
-			
+			rightTraverser(leftPtr, rightPtr);
 			leftPtr = leftPtr.next;
 		}
 	}
