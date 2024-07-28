@@ -4,19 +4,19 @@ import org.ahesh.types.ListNode;
 
 public class ReverseKByGroup {
 	
-//	public static ListNode getNextK(ListNode node, int k) {
-//		ListNode temp = node;
-//		
-//		for(int i = 0; i < k; i++) {
-//			if(temp == null) {
-//				return temp;
-//			}
-//			temp = temp.next;
-//		}
-//		
-//		return temp;
-//	}
-//	
+	public static ListNode getNextK(ListNode node, int k) {
+		ListNode temp = node;
+		
+		for(int i = 0; i < k; i++) {
+			if(temp == null) {
+				return temp;
+			}
+			temp = temp.next;
+		}
+		
+		return temp;
+	}
+	
 	public static ListNode reverseList(ListNode start, ListNode end) {
 		
 		if(end == null) {
@@ -42,7 +42,6 @@ public class ReverseKByGroup {
 		ListNode start = head;
 		ListNode end = getNextK(ances, k);
 		
-//		ListNode.printList(end);
 		
 		if(end == null) {
 			return dummy.next;
@@ -62,10 +61,7 @@ public class ReverseKByGroup {
 				parent = end.next;
 			}
 			
-//			System.out.println("ances: " + ances.val + "start: " + start.val + "end: " + end.val);
-//			ListNode.printList(dummy.next);
 		}
-//		System.out.println(end.val);
 		
 		return dummy.next;
 		
@@ -73,9 +69,7 @@ public class ReverseKByGroup {
 	
 	public static void main(String[] args) {
 		ListNode head = ListNode.constructLinkedList(new int[] {1, 2, 3, 4, 5, 6, 7 });
-//		ListNode.printList(head);
 		ListNode res = reverseKByNodes(head, 190);
-//		ListNode res = reverseList(head, getNextK(head, 3));
 		ListNode.printList(res);
 	}
 }
