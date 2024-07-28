@@ -17,22 +17,22 @@ public class ReverseKByGroup {
 //		return temp;
 //	}
 //	
-//	public static ListNode reverseList(ListNode start, ListNode end) {
-//		
-//		if(end == null) {
-//			return start;
-//		}
-//		
-//		if(start == end) {
-//			return end;
-//		}
-//		
-//		ListNode res = reverseList(start.next, end);
-//		start.next.next = start;
-//		start.next = null;
-//		return res;
-//		
-//	}
+	public static ListNode reverseList(ListNode start, ListNode end) {
+		
+		if(end == null) {
+			return start;
+		}
+		
+		if(start == end) {
+			return end;
+		}
+		
+		ListNode res = reverseList(start.next, end);
+		start.next.next = start;
+		start.next = null;
+		return res;
+		
+	}
 	
 	public static ListNode reverseKByNodes(ListNode head, int k) {
 		ListNode dummy = new ListNode();
