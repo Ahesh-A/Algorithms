@@ -1,25 +1,25 @@
 package ahesh.problems;
 
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
 
 public class PrintComb {
-	public static void printComb(int[] arr, List<Integer> list, int idx) {
-		
-		if(arr.length == idx) {
+	
+	public static void printComb(List<Integer> list, Integer[] arr, int idx) {
+		if(idx == arr.length) {
 			System.out.println(list);
+			return;
 		}
 		
-		for(int i = idx; i < arr.length; i++) {
-			list.add(arr[i]);
-			printComb(arr, list , i + 1);
-			list.remove(list.size() - 1);
-			printComb(arr, list, i + 1);
-		}
+		list.add(arr[idx]);
+		printComb(list, arr, idx + 1);
+		list.remove(list.size() - 1);
+		printComb(list, arr, idx + 1);
 	}
 	
-	public static void main(String[] args) {
-		int[] arr = {1, 2, 3};
-		printComb(arr, new ArrayList<Integer>(), 0);
+	public static void main(String[] args) throws Exception {
+		Integer [] arr = {1, 3 , 4, 2};
+		List<Integer> list = new ArrayList<Integer>();
+		printComb(list, arr, 0);
 	}
 }
