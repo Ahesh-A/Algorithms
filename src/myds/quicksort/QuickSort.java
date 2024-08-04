@@ -24,6 +24,7 @@ public class QuickSort {
 		int j;
 		for(j = start; j <= end; j++) {
 			if(list.get(j).compareTo(x) <= 0) {
+				System.out.println("inside if" + list.get(j) + " " + x);
 				i++;
 				swap(i, j, list);
 			}
