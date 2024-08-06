@@ -25,8 +25,28 @@
 //Explanation: The sum of -1 and 0 is -1. Therefore index1 = 1, index2 = 2. We return [1, 2].
 package ahesh.problems;
 
+import java.util.Arrays;
+
 public class TwoSum {
-	public static void main(String[] args) {
+	public static int[] getTwoSum(int[] arr, int target) {
+		int i = 0;
+		int j = arr.length - 1;
 		
+		while(i < j) {
+			int sum = arr[i] + arr[j];
+			
+			if(sum == target) {
+				return new int[] {i, j};
+			} else if(sum < target) {
+				i++;
+			} else {
+				j--;
+			}
+		}
+		return new int[] {-1, -1};
+	}
+	public static void main(String[] args) {
+		int[] arr = {-1, 0};
+		System.out.println("Result: " + Arrays.toString(getTwoSum(arr, -1)));
 	}
 }
