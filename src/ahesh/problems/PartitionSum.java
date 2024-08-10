@@ -1,3 +1,6 @@
+//given an integer array you need to partition the array into two such that the sum of two partitions are equal and need to
+//print partition in case of true and print false in case of false.
+
 package ahesh.problems;
 
 import java.util.ArrayList;
