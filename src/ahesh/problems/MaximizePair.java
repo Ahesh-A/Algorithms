@@ -29,8 +29,31 @@
 
 package ahesh.problems;
 
+import java.util.Arrays;
+
 public class MaximizePair {
+	public static int getMinPairSum(int[] nums) {
+		Arrays.sort(nums);
+		
+		int i = 0;
+		int j = nums.length - 1; 
+		int max = -1;
+		
+		while(i < j) {
+			int sum = nums[i] + nums[j];
+			if(max < sum) {
+				max = sum;
+			}
+			
+			i++;
+			j--;
+		}
+		
+		return max;
+	}
+	
 	public static void main(String[] args) {
-		int[] arr = {};
+		int[] arr = {3,5,2,3};
+		System.out.println("Result: " + getMinPairSum(arr));
 	}
 }
