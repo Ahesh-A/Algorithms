@@ -39,9 +39,11 @@
 //0 <= target <= 300
 package ahesh.problems;
 
+import java.util.Arrays;
+
 public class ThreeSumMul {
-	public static int[] getFrequency(int[] arr) {
-		int[] res = new int[101];
+	public static long[] getFrequency(int[] arr) {
+		long [] res = new long[101];
 		
 		for(int i : arr) {
 			res[i]++;
@@ -51,12 +53,39 @@ public class ThreeSumMul {
 	}
 	
 	public static int threeSumMulti(int[] arr, int target) {
-        int[] frequencyArr = new int[101 + 1];
+        long [] frequencyArr = getFrequency(arr);
+//        System.out.println("Result: " + Arrays.toString(getFrequency(arr)));
         
+        long res = 0;
+        long mod = 1000000007;
+        
+        for(int i = 0; i < 101; i++) {
+        	for(int j = i; j < 101; j++) {
+        		
+        		int k = target - i - j;
+        		
+        		if(k < 0 || k > 100) {
+        			continue;
+        		}
+        		
+        		if(i == j && j == k) {
+        			long count = frequencyArr[i];
+        			res = res + (count * (count - 1) * (count - 2))/ 6;
+        		} else if(i == j && j != k) {
+        			long count = frequencyArr[i];
+        			res = res + ((count * (count - 1)) / 2) * frequencyArr[k];
+        		} else if(i < k && j < k) {
+        			res = res + frequencyArr[i] * frequencyArr[j] * frequencyArr[k];
+        		}
+        		
+        		res %= mod;
+        	}
+        }
+        return (int) res;
     }
 
 	public static void main(String[] args) {
 		int[] arr = {1,1,2,2,3,3,4,4,5,5};
-		System.out.println("Solution: " + threeSumMulti(arr, 0));
+		System.out.println("Solution: " + threeSumMulti(arr, 8));
 	}
 }
