@@ -20,11 +20,40 @@
 package ahesh.problems;
 
 public class Trap {
-	public int trap(int[] height) {
+	
+	public static int trap(int[] height) {
+		int arrLen = height.length;
+		int[] leftMax = new int[arrLen];
+		int[] rightMax = new int[arrLen];
+		int res = 0;
+		int max = height[0];
 		
+		for(int i = 0; i < arrLen; i++) {
+			if(max < height[i]) {
+				max = height[i];
+			}
+			
+			leftMax[i] = max;
+		}
+		max = height[arrLen - 1];
+		
+		for(int i = arrLen - 1; i >= 0; i--) {
+			if(max < height[i]) {
+				max = height[i];
+			}
+			
+			rightMax[i] = max;
+		}
+		
+		for(int i = 0; i < arrLen; i++) {
+			res += (Integer.min(leftMax[i], rightMax[i]) - height[i]) ;
+		}
+		
+		return res;
 	}
 	
 	public static void main(String[] args) {
 		int[] arr = {0,1,0,2,1,0,1,3,2,1,2,1};
+		System.out.println("Result: " + trap(arr));
 	}
 }
