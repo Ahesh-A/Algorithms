@@ -34,7 +34,27 @@ package ahesh.problems;
 import java.util.Arrays;
 
 public class NextPermutation {
-	
+//	public void nextPermutation(int[] nums) {
+//	    final int n = nums.length;
+//
+//	    // From back to front, find the first number < nums[i + 1].
+//	    int i;
+//	    for (i = n - 2; i >= 0; --i)
+//	      if (nums[i] < nums[i + 1])
+//	        break;
+//
+//	    // From back to front, find the first number > nums[i], swap it with
+//	    // nums[i].
+//	    if (i >= 0)
+//	      for (int j = n - 1; j > i; --j)
+//	        if (nums[j] > nums[i]) {
+//	          swap(nums, i, j);
+//	          break;
+//	        }
+//
+//	    // Reverse nums[i + 1..n - 1].
+//	    reverse(nums, i + 1, n - 1);
+//	  }
 	public static void sort(int start, int end, int[] arr) {
 		
 		int[] temp = new int[end - start + 1];
@@ -63,6 +83,8 @@ public class NextPermutation {
 		for(int i = len - 2; i >= 0; i--) {
 			if(arr[i] < max) {
 				return i;
+			} else {
+				max = arr[i];
 			}
 		}
 		
@@ -94,12 +116,12 @@ public class NextPermutation {
 		
 		int end = getNearestBiggestNumber(arr, start);
 		swap(start, end, arr);
-		sort(start + 1, end, arr);
+		sort(start + 1, arr.length - 1, arr);
 		
 	}
 	
 	public static void main(String[] args) {
-		int[] arr = {4, 3, 1, 2};
+		int[] arr = {3, 2, 1};
 		getNextPermutation(arr);
 //		System.out.println(getNearestBiggestNumber(arr, getIndexForNumberLessThanUpcommingNumber(arr)));
 		System.out.print(Arrays.toString(arr));
