@@ -31,8 +31,31 @@
 
 package ahesh.problems;
 
+import java.util.Arrays;
+
 public class NextPermutation {
-	public static void main(String[] args) {
+	
+	public static void sort(int start, int end, int[] arr) {
+		int[] temp = new int[end - start + 1];
 		
+		for (int i = start; i <= end; i++) {
+			temp[i] = arr[i];
+		}
+		
+		Arrays.sort(temp);
+		
+		for (int i = start; i <= end; i++) {
+			arr[i] = temp[i];
+		}
+	}
+	
+	public static void getNextPermutation(int[] arr) {
+		
+	}
+	
+	public static void main(String[] args) {
+		int[] arr = {1,2,3};
+		getNextPermutation(arr);
+		System.out.print(arr);
 	}
 }
