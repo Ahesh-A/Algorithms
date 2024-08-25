@@ -35,20 +35,20 @@ import java.util.Arrays;
 
 public class NextPermutation {
 	
-//	public static void sort(int start, int end, int[] arr) {
-//		
-//		int[] temp = new int[end - start + 1];
-//		
-//		for (int i = start; i <= end; i++) {
-//			temp[i - start] = arr[i];
-//		}
-//		
-//		Arrays.sort(temp);
-//		
-//		for (int i = start; i <= end; i++) {
-//			arr[i] = temp[i - start];
-//		}
-//	}
+	public static void sort(int start, int end, int[] arr) {
+		
+		int[] temp = new int[end - start + 1];
+		
+		for (int i = start; i <= end; i++) {
+			temp[i - start] = arr[i];
+		}
+		
+		Arrays.sort(temp);
+		
+		for (int i = start; i <= end; i++) {
+			arr[i] = temp[i - start];
+		}
+	}
 	
 	public static void swap(int i, int j, int[] arr){
 		int temp = arr[i];
