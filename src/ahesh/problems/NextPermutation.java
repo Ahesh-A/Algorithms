@@ -35,27 +35,73 @@ import java.util.Arrays;
 
 public class NextPermutation {
 	
-	public static void sort(int start, int end, int[] arr) {
-		int[] temp = new int[end - start + 1];
+//	public static void sort(int start, int end, int[] arr) {
+//		
+//		int[] temp = new int[end - start + 1];
+//		
+//		for (int i = start; i <= end; i++) {
+//			temp[i - start] = arr[i];
+//		}
+//		
+//		Arrays.sort(temp);
+//		
+//		for (int i = start; i <= end; i++) {
+//			arr[i] = temp[i - start];
+//		}
+//	}
+	
+//	public static void swap(int i, int j, int[] arr){
+//		int temp = arr[i];
+//		arr[i] = arr[j];
+//		arr[j] = temp;
+//	}
+	
+//	public static int getIndexForNumberLessThanUpcommingNumber(int[] arr) {
+//		int len = arr.length;
+//		int max = arr[len - 1];
+//		
+//		for(int i = len - 2; i >= 0; i--) {
+//			if(arr[i] < max) {
+//				return i;
+//			}
+//		}
+//		
+//		return -1;
+//	}
+	
+	public static int getNearestBiggestNumber(int[] arr, int idx) {
+		int res = -1;
+		int max = Integer.MAX_VALUE;
+		int num = arr[idx];
 		
-		for (int i = start; i <= end; i++) {
-			temp[i] = arr[i];
+		for(int i = idx + 1; i < arr.length; i++) {
+			if(num < arr[i] && arr[i] < max) {
+				max = arr[i];
+				res = i;
+			}
 		}
 		
-		Arrays.sort(temp);
-		
-		for (int i = start; i <= end; i++) {
-			arr[i] = temp[i];
-		}
+		return res;
 	}
 	
 	public static void getNextPermutation(int[] arr) {
+		int start = getIndexForNumberLessThanUpcommingNumber(arr);
+		
+		if(start == -1) {
+			sort(0, arr.length - 1, arr);
+			return;
+		}
+		
+		int end = getNearestBiggestNumber(arr, start);
+		swap(start, end, arr);
+		sort(start + 1, end, arr);
 		
 	}
 	
 	public static void main(String[] args) {
-		int[] arr = {1,2,3};
+		int[] arr = {4, 3, 1, 2};
 		getNextPermutation(arr);
-		System.out.print(arr);
+//		System.out.println(getNearestBiggestNumber(arr, getIndexForNumberLessThanUpcommingNumber(arr)));
+		System.out.print(Arrays.toString(arr));
 	}
 }
