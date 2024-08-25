@@ -56,18 +56,18 @@ public class NextPermutation {
 //		arr[j] = temp;
 //	}
 	
-//	public static int getIndexForNumberLessThanUpcommingNumber(int[] arr) {
-//		int len = arr.length;
-//		int max = arr[len - 1];
-//		
-//		for(int i = len - 2; i >= 0; i--) {
-//			if(arr[i] < max) {
-//				return i;
-//			}
-//		}
-//		
-//		return -1;
-//	}
+	public static int getIndexForNumberLessThanUpcommingNumber(int[] arr) {
+		int len = arr.length;
+		int max = arr[len - 1];
+		
+		for(int i = len - 2; i >= 0; i--) {
+			if(arr[i] < max) {
+				return i;
+			}
+		}
+		
+		return -1;
+	}
 	
 	public static int getNearestBiggestNumber(int[] arr, int idx) {
 		int res = -1;
